@@ -62,7 +62,7 @@
                         </div> <!-- card-body.// -->
                     </div> <!-- card .// -->
 
-                    <p class="text-center mt-4">Don't have account? <a href="#">Sign up</a></p>
+                    <p class="text-center mt-4">Don't have account? <a href="register">Sign up</a></p>
                 </div>
             </div>
         </div>

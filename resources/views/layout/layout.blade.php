@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li class="navbar-nav">
-                        <a href="./login.html" class="lang-btn" style=" text-decoration: none; color: #11572E;">
+                        <a href="./login" class="lang-btn" style=" text-decoration: none; color: #11572E;">
                             Sign In
                         </a>
                     </li>
