@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.layout')
+@php
+    $pagename = 'Property Details';
+@endphp
 
-<head>
+@section('pagename')
+    {{ $pagename }}
+@endsection
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Zahrat Alshamal Real Estate">
-    <!-- <meta name="description" content="Rethouse - Real Estate HTML Template">
-    <meta name="keywords" content="Real Estate, Property, Directory Listing, Marketing, Agency" />
-    <meta name="author" content="mardianto - retenvi.com"> -->
-    <title>Property Details - Zahrat Alshamal Real Estate</title>
-    <link rel="stylesheet" href="./css/faq.css">
+@section('headtag')
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content="" />
     <meta property="og:image" content="" />
@@ -22,67 +18,9 @@
     <meta name="twitter:image" content="" />
     <meta name="twitter:url" content="" />
     <meta name="twitter:card" content="" />
+@endsection
 
-    <link rel="manifest" href="site.webmanifest">
-    <!-- favicon.ico in the root directory -->
-    <link rel="apple-touch-icon" href="icon.png">
-    <meta name="theme-color" content="#3454d1">
-    <link href="./css/styles.css?fd365619e86ad9137a29" rel="stylesheet">
-    
-</head>
-
-<body>
-   
-    <header>
-        
-       
-
-        <nav class="navbar navbar-hover navbar-expand-lg navbar-soft">
-            <div class="container">
-                <a class="navbar-brand" href="#" style="padding: 0;">
-                    <img src="images/zrs_logo_simple-0.png" alt="" style="width: 80px;">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav99">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="main_nav99">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link active" href="./index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./listing-style-v5.html">Property Listing</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./agent.html">Agents</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./blog.html">Blogs</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./about-us.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
-                    </ul>
-                    <ul class="navbar-nav ">
-                        <li>
-                            <a href="./add-property.html" class="btn text-capitalize" style="background-color: #11572E; color: #fff;">
-                                <i class="fa fa-plus-circle mr-1"></i> Add Property
-                            </a>
-                        </li>
-                        <li class="navbar-nav" >
-                            <a href="./login.html" class="lang-btn" style=" text-decoration: none; color: #11572E;">
-                                Sign In
-                            </a>
-                        </li>
-                        <li class="navbar-nav">
-                            <button id="langToggle" class="lang-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <circle cx="12" cy="12" r="10" fill="none" stroke="#11572E" stroke-width="2"/>
-                                    <line x1="12" y1="2" x2="12" y2="22" stroke="#11572E" stroke-width="2"/>
-                                    <line x1="2" y1="12" x2="22" y2="12" stroke="#11572E" stroke-width="2"/>
-                                </svg> 
-                                <span id="langText">EN</span>
-                            </button>
-                        </li>
-                        
-                       
-                    </ul>
-                </div>
-            </div>
-        </nav>
-      
-    </header>
+@section('maincontent')
     <div class="clearfix"></div>
 
     <!-- SINGLE DETAIL -->
@@ -398,7 +336,7 @@
                                         <option>Al Shamal</option>
                                         <option>Dukhan</option>
                                         <option>Mesaieed</option>
-                                        
+
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -1129,14 +1067,14 @@
                                             <h6 class="text-capitalize">
                                                 <a href="#">vila in coral gables</a>
                                             </h6>
-    
+
                                             <p class="text-capitalize">
                                                 <i class="fa fa-map-marker"></i>
                                                 West Bay, Doha, Qatar
                                             </p>
                                             <ul class="list-inline card__content">
                                                 <li class="list-inline-item">
-    
+
                                                     <span>
                                                         baths <br>
                                                         <i class="fa fa-bath"></i> 2
@@ -1165,16 +1103,16 @@
                                         <div class="card__image-footer d-flex justify-content-between align-items-center">
                                             <div>
                                                 <!-- WhatsApp Button -->
-                                                <a href="https://wa.me/1234567890" 
-                                                   class="btn btn-sm" 
-                                                   style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;" 
+                                                <a href="https://wa.me/1234567890"
+                                                   class="btn btn-sm"
+                                                   style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
                                                    target="_blank">
                                                     <i class="fa fa-whatsapp"></i> WhatsApp
                                                 </a>
-                                        
+
                                                 <!-- Call Button -->
-                                                <a href="tel:1234567890" 
-                                                   class="btn btn-sm ml-2" 
+                                                <a href="tel:1234567890"
+                                                   class="btn btn-sm ml-2"
                                                    style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
                                                     <i class="fa fa-phone"></i> Call
                                                 </a>
@@ -1235,16 +1173,16 @@
                                   <div class="card__image-footer d-flex justify-content-between align-items-center">
                                                         <div>
                                                             <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890" 
-                                                               class="btn btn-sm" 
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;" 
+                                                            <a href="https://wa.me/1234567890"
+                                                               class="btn btn-sm"
+                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
                                                                target="_blank">
                                                                 <i class="fa fa-whatsapp"></i> WhatsApp
                                                             </a>
-                                                    
+
                                                             <!-- Call Button -->
-                                                            <a href="tel:1234567890" 
-                                                               class="btn btn-sm ml-2" 
+                                                            <a href="tel:1234567890"
+                                                               class="btn btn-sm ml-2"
                                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
                                                                 <i class="fa fa-phone"></i> Call
                                                             </a>
@@ -1304,16 +1242,16 @@
                                   <div class="card__image-footer d-flex justify-content-between align-items-center">
                                                         <div>
                                                             <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890" 
-                                                               class="btn btn-sm" 
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;" 
+                                                            <a href="https://wa.me/1234567890"
+                                                               class="btn btn-sm"
+                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
                                                                target="_blank">
                                                                 <i class="fa fa-whatsapp"></i> WhatsApp
                                                             </a>
-                                                    
+
                                                             <!-- Call Button -->
-                                                            <a href="tel:1234567890" 
-                                                               class="btn btn-sm ml-2" 
+                                                            <a href="tel:1234567890"
+                                                               class="btn btn-sm ml-2"
                                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
                                                                 <i class="fa fa-phone"></i> Call
                                                             </a>
@@ -1373,16 +1311,16 @@
                                   <div class="card__image-footer d-flex justify-content-between align-items-center">
                                                         <div>
                                                             <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890" 
-                                                               class="btn btn-sm" 
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;" 
+                                                            <a href="https://wa.me/1234567890"
+                                                               class="btn btn-sm"
+                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
                                                                target="_blank">
                                                                 <i class="fa fa-whatsapp"></i> WhatsApp
                                                             </a>
-                                                    
+
                                                             <!-- Call Button -->
-                                                            <a href="tel:1234567890" 
-                                                               class="btn btn-sm ml-2" 
+                                                            <a href="tel:1234567890"
+                                                               class="btn btn-sm ml-2"
                                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
                                                                 <i class="fa fa-phone"></i> Call
                                                             </a>
@@ -1442,16 +1380,16 @@
                                   <div class="card__image-footer d-flex justify-content-between align-items-center">
                                                         <div>
                                                             <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890" 
-                                                               class="btn btn-sm" 
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;" 
+                                                            <a href="https://wa.me/1234567890"
+                                                               class="btn btn-sm"
+                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
                                                                target="_blank">
                                                                 <i class="fa fa-whatsapp"></i> WhatsApp
                                                             </a>
-                                                    
+
                                                             <!-- Call Button -->
-                                                            <a href="tel:1234567890" 
-                                                               class="btn btn-sm ml-2" 
+                                                            <a href="tel:1234567890"
+                                                               class="btn btn-sm ml-2"
                                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
                                                                 <i class="fa fa-phone"></i> Call
                                                             </a>
@@ -1511,16 +1449,16 @@
                                   <div class="card__image-footer d-flex justify-content-between align-items-center">
                                                         <div>
                                                             <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890" 
-                                                               class="btn btn-sm" 
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;" 
+                                                            <a href="https://wa.me/1234567890"
+                                                               class="btn btn-sm"
+                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
                                                                target="_blank">
                                                                 <i class="fa fa-whatsapp"></i> WhatsApp
                                                             </a>
-                                                    
+
                                                             <!-- Call Button -->
-                                                            <a href="tel:1234567890" 
-                                                               class="btn btn-sm ml-2" 
+                                                            <a href="tel:1234567890"
+                                                               class="btn btn-sm ml-2"
                                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
                                                                 <i class="fa fa-phone"></i> Call
                                                             </a>
@@ -1579,16 +1517,16 @@
                                   <div class="card__image-footer d-flex justify-content-between align-items-center">
                                                         <div>
                                                             <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890" 
-                                                               class="btn btn-sm" 
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;" 
+                                                            <a href="https://wa.me/1234567890"
+                                                               class="btn btn-sm"
+                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
                                                                target="_blank">
                                                                 <i class="fa fa-whatsapp"></i> WhatsApp
                                                             </a>
-                                                    
+
                                                             <!-- Call Button -->
-                                                            <a href="tel:1234567890" 
-                                                               class="btn btn-sm ml-2" 
+                                                            <a href="tel:1234567890"
+                                                               class="btn btn-sm ml-2"
                                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
                                                                 <i class="fa fa-phone"></i> Call
                                                             </a>
@@ -1648,16 +1586,16 @@
                                     <div class="card__image-footer d-flex justify-content-between align-items-center">
                                         <div>
                                             <!-- WhatsApp Button -->
-                                            <a href="https://wa.me/1234567890" 
-                                               class="btn btn-sm" 
-                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;" 
+                                            <a href="https://wa.me/1234567890"
+                                               class="btn btn-sm"
+                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
                                                target="_blank">
                                                 <i class="fa fa-whatsapp"></i> WhatsApp
                                             </a>
-                                    
+
                                             <!-- Call Button -->
-                                            <a href="tel:1234567890" 
-                                               class="btn btn-sm ml-2" 
+                                            <a href="tel:1234567890"
+                                               class="btn btn-sm ml-2"
                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
                                                 <i class="fa fa-phone"></i> Call
                                             </a>
@@ -1673,157 +1611,10 @@
                     </div>
                 </div>
             </div>
-           
+
 
         </div>
     </section>
-  
 
 
-    <footer>
-        <div class="wrapper__footer bg-theme-footer" style="background-color: #11572E;">
-            <div class="container">
-                <div class="row">
-                    <!-- ADDRESS -->
-                    <div class="col-md-4">
-                        <div class="widget__footer">
-                            <figure>
-                                <img src="images/1ftlogo.png" alt="" class="logo-footer" >
-                            </figure>
-                            <!-- <p>
-                                Zahrat Alshamal Real Estate is a trusted name in the property market, offering expert services for buying, selling, and investing in real estate. Our team is dedicated to providing reliable solutions with a focus on customer satisfaction and integrity.
-
-                            </p> -->
-
-                            <ul class="list-unstyled mb-0 mt-1">
-                                <li> <b> <i class="fa fa-map-marker"></i></b><span>Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad
-
-                                    P.O. Box 31551</span> </li>
-                                <li> <b><i class="fa fa-phone-square"></i></b><span>+97470816051</span> </li>
-                                <li> <b><i class="fa fa-headphones"></i></b><span>admin@zahratalshamal.com</span> </li>
-                                <li> <b><i class="fa fa-clock-o"></i></b><span>Mon - Sun / 9:00AM - 8:00PM</span> </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <!-- END ADDRESS -->
-
-                    <!-- QUICK LINKS -->
-                    <div class="col-md-4">
-                        <div class="widget__footer">
-                            <h4 class="footer-title">Quick Links</h4>
-                            <div class="link__category-two-column">
-                                <ul class="list-unstyled">
-                                    <li class="list-inline-item">
-                                        <a href="#">Commercial</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">Business</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">House</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">Residential</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">Residential Tower</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">The Pearl, Doha</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">West Bay</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">Lusail City</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">Al Wakrah</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">Modern Home</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">Luxury Villas</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">Beachfront Properties</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">Property Listing</a>
-                                    </li>
-                                </ul>
-                                
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END QUICK LINKS -->
-
-
-                    <!-- NEWSLETTERS -->
-                    <div class="col-md-4">
-                        <div class="widget__footer">
-                            <h4 class="footer-title">follow us </h4>
-                            <p class="mb-2">
-                                Follow us and stay in touch to get the latest news
-                            </p>
-                            <p>
-                                <button class="btn btn-social btn-social-o facebook mr-1">
-                                    <i class="fa fa-facebook-f"></i>
-                                </button>
-                                <button class="btn btn-social btn-social-o twitter mr-1">
-                                    <i class="fa fa-twitter"></i>
-                                </button>
-
-                                <button class="btn btn-social btn-social-o linkedin mr-1">
-                                    <i class="fa fa-linkedin"></i>
-                                </button>
-                                <button class="btn btn-social btn-social-o instagram mr-1">
-                                    <i class="fa fa-instagram"></i>
-                                </button>
-
-                                <button class="btn btn-social btn-social-o youtube mr-1">
-                                    <i class="fa fa-youtube"></i>
-                                </button>
-                            </p>
-                            <br>
-                            <h4 class="footer-title">newsletter</h4>
-                            <!-- Form Newsletter -->
-                            <div class="widget__form-newsletter ">
-                                <p>
-
-                                    Don’t miss to subscribe to our news feeds, kindly fill the form below
-                                </p>
-                                <div class="mt-3">
-                                    <input type="text" class="form-control mb-2" placeholder="Your email address">
-
-                                    <button class="btn btn-block text-capitalize" type="button" style="background-color: goldenrod;">subscribe
-                                        
-
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- END NEWSLETTER -->
-                </div>
-            </div>
-        </div>
-
-        <!-- End Footer  -->
-    </footer>
-
-
-
-  
-    <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-   
-    <script src="./js/index.bundle.js?fd365619e86ad9137a29"></script>
-    <script src="./js/app.js"></script>
-    <script src="./js/faq.js"></script>
-</body>
-
-</html>
+@endsection

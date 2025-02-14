@@ -14,8 +14,8 @@ Route::get('/propertyDetail', function () {
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/listing-style', function () {
-    return view('listing-style');
+Route::get('/propertylistings', function () {
+    return view('propertylistings');
 });
 Route::get('/contact', function () {
     return view('contact');
@@ -37,4 +37,16 @@ Route::get('/add-property', function () {
 });
 Route::get('/about-us', function () {
     return view('about-us');
+});
+Route::get('/add-property', function () {
+    return view('add-property');
+});
+Route::get('/propertyDetail', function () {
+    return view('propertyDetail');
+});
+Route::get('/login', function () {
+    return view('login');
+});
+Route::get('/register', function () {
+    return view('register');
 });
