@@ -1,0 +1,281 @@
+:root{
+    --color-primary: #11572E;
+    --color-text: #545d7a;
+    --color-white: #fff;
+    --color-title: #242e4c;
+    --color-background: #f7f8fb;
+    --color-border: #dae1f5;
+    
+    --transition: 0.4s ease-in-out; 
+    --shadow: 0px 60px 56px -12px rgba(9, 40, 163, 0.05); 
+    
+ }
+
+.faq{
+    width: 100%;
+    margin: auto;
+    min-height: 100vh;
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+}
+.accordion__wrapper {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow);
+    border-radius: 2.5rem;
+    width: 100%;
+    max-width: 50rem;
+    padding: 5rem;
+}
+
+.accordion__title{
+    font-size: 1.8rem;
+    font-weight: bolder;
+    color: var(--color-title);
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.accordion {
+    border-bottom: 0.1rem solid var(--color-border);
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+}
+
+.accordion__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+} 
+
+.accordion__icon {
+    background-color: var(--color-primary);
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--color-white);
+    flex-shrink: 0;
+}
+
+.accordion__question{
+    font-size: 1.1rem;
+    font-weight:400;
+    color: var(--color-title);
+}
+
+.accordion__answer{
+    padding: 2rem 0;
+}
+
+.accordion__content{
+    overflow: hidden;
+    height: 0;
+    transition: var(--transition);
+}
+@media screen and (min-width: 580px) {
+    .accordion__wrapper {
+        padding: 5rem 8rem;
+    }
+}
+
+.statistic-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background: #00c6ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00c6ff, #11572E);  /* light to dark green */
+    background: linear-gradient(to right, #00c6ff, #11572E);  /* light to dark green */
+}
+
+.count-title {
+    font-size: 50px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+}
+
+.stats-text {
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 15px;
+    margin-bottom: 0;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.stats-line-black {
+    margin: 12px auto 0;
+    width: 55px;
+    height: 2px;
+    background-color: #fff;
+}
+
+.stats-icon {
+    font-size: 35px;
+    margin: 0 auto;
+    float: none;
+    display: table;
+    color: #fff;
+}
+
+@media (max-width: 992px) {
+    .counter {
+        margin-bottom: 40px;
+    }
+}
+
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid #ccc; 
+    cursor: pointer;
+    padding: 3px 10px; 
+    margin-left: 15px;
+    font-size: 14px;
+    color: #11572E; 
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 15px; 
+    font-weight: bold;
+    outline: none; 
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.lang-btn:hover {
+    background: #f0f0f0; 
+}
+
+
+.lang-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.lang-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+
+.min-max-slider {position: relative; width: 200px; text-align: center; margin-bottom: 50px;}
+.min-max-slider > label {display: none;}
+span.value {height: 1.7em; font-weight: bold; display: inline-block;}
+span.value.lower::before {content: " QAR  "; display: inline-block;}
+span.value.upper::before {content: "- QAR "; display: inline-block; margin-left: 0.4em;}
+
+.min-max-slider > .legend {display: flex; justify-content: space-between;}
+.min-max-slider > .legend > * {font-size: small; opacity: 0.25;}
+.min-max-slider > input {cursor: pointer; position: absolute;}
+
+
+.min-max-slider > input {
+  -webkit-appearance: none;
+  outline: none!important;
+  background: transparent;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 30%, silver 30%, silver 60%, transparent 60%, transparent 100%);
+}
+.min-max-slider > input::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 14px; 
+  height: 14px; 
+  background: #eee; 
+  cursor: pointer; 
+  border: 1px solid gray;
+  border-radius: 100%;
+}
+.min-max-slider > input::-webkit-slider-runnable-track {cursor: pointer;}
+span.value.lower::before { 
+    content: "QAR ";  
+    font-size: 0.8em; 
+    color: green;      
+    font-weight: bold; 
+    margin-right: 4px; 
+    display: inline-block;
+}
+
+span.value.upper::before { 
+    content: "- QAR ";  
+    font-size: 0.8em;  
+    color: green;      
+    font-weight: bold; 
+    margin-right: 4px; 
+    display: inline-block;
+}
+.btns{
+    padding: 8px 25px;
+    border-radius: 5px;
+    border: 1px solid #11572E;
+}
+ @media (max-width: 600px) {
+           .btnsdiv{
+            margin: 0px 20px;
+           }
+            .btns {
+                padding: 8px 20px; 
+                font-size: 14px; 
+                
+                
+            }
+        }
+@media(max-width:400px){
+    .btnsdiv{
+        margin: 15px 20px;
+    }
+}        
+
+
+
+.image-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+
+  .whatsapp-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #25D366;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+ 
+  .whatsapp-button:hover {
+    background-color: #11572E;
+    color: white;
+    text-decoration: none;
+  }
+  @media (max-width: 768px) {
+    .whatsapp-button {
+      font-size: 14px; 
+      padding: 8px 16px; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .whatsapp-button {
+      font-size: 12px; 
+      padding: 6px 12px; 
+    }
+  }
