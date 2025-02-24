@@ -42,35 +42,6 @@
                                     <input type="text" class="form-control" placeholder="Enter agent name">
 
                                 </div>
-                                <div class="form-group">
-                                    <label>All Categories</label>
-                                    <select class="select_option wide">
-                                        <option data-display="All Categories">All Categories</option>
-
-                                        <option>Apartment</option>
-                                        <option>Bungalow</option>
-                                        <option>Condo</option>
-                                        <option>House</option>
-                                        <option>Land</option>
-                                        <option>Single Family</option>
-                                    </select>
-
-                                </div>
-                                <div class="form-group">
-                                    <label>All Cities</label>
-                                    <select class="select_option wide">
-                                        <option data-display="All City">All Cities</option>
-                                        <option>Doha</option>
-                                        <option>Al Wakrah</option>
-                                        <option>Al Khor</option>
-                                        <option>Al Rayyan</option>
-                                        <option>Umm Salal</option>
-                                        <option>Al Shamal</option>
-                                        <option>Dukhan</option>
-                                        <option>Mesaieed</option>
-                                    </select>
-
-                                </div>
                             </div>
                             <div class="products__filter__footer">
                                 <div class="form-group mb-0">
@@ -138,22 +109,60 @@
                         </div>
                         <!-- END CATEGORY -->
                     </aside>
-                    <!-- End ARCHIVE CATEGORY -->
-                    <div class="download mb-0">
-                        <h5 class="text-center text-capitalize">Property Attachments</h5>
-                        <div class="download__item">
-                            <a href="#" target="_blank"><i class="fa fa-file-pdf-o mr-3"
-                                    aria-hidden="true"></i>Download Document.Pdf</a>
-                        </div>
-                        <div class="download__item">
-                            <a href="#" target="_blank"><i class="fa fa-file-word-o mr-3"
-                                    aria-hidden="true"></i>Presentation
-                                2016-17.Doc</a>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="row">
+                        @foreach ($agents as $agent)
+                            <div class="col-lg-6">
+                                <div class="cards mt-0 mb-4">
+                                    <div class="profile__agents-header">
+                                        <a href="{{route('agentDetail', $agent->id)}}" class="profile__agents-avatar">
+                                            <img src="images/team4.jpg" alt="" class="img-fluid">
+                                            <div class="total__property-agent">{{$agent->listings->count()}} listing</div>
+                                        </a>
+                                    </div>
+                                    <div class="profile__agents-body">
+                                        <div class="profile__agents-info">
+                                            <h5 class="text-capitalize">
+                                                <a href="{{route('agentDetail', $agent->id)}}" target="_blank">{{ $agent->first_name }}&nbsp;{{ $agent->last_name }}</a>
+                                            </h5>
+                                            <p class="text-capitalize mb-1">property agent</p>
+
+                                            <ul class="list-unstyled mt-2">
+                                                <li><a href="#" class="text-capitalize"><span><i
+                                                                class="fa fa-building"></i> office :</span> {{ $agent->office_contact }}</a>
+                                                </li>
+                                                <li><a href="#" class="text-capitalize"><span><i
+                                                                class="fa fa-phone"></i> mobile :</span> {{ $agent->phone_contact }}</a></li>
+
+                                                <li><a href="#" class="text-capitalize"><span><i
+                                                                class="fa fa-envelope"></i> email :</span> {{ $agent->email}}</a></li>
+                                            </ul>
+                                            <p class="mb-0 mt-3">
+                                                <button class="btn btn-social btn-social-o facebook mr-1">
+                                                    <i class="fa fa-facebook-f"></i>
+                                                </button>
+                                                <button class="btn btn-social btn-social-o twitter mr-1">
+                                                    <i class="fa fa-twitter"></i>
+                                                </button>
+
+                                                <button class="btn btn-social btn-social-o linkedin mr-1">
+                                                    <i class="fa fa-linkedin"></i>
+                                                </button>
+                                                <button class="btn btn-social btn-social-o instagram mr-1">
+                                                    <i class="fa fa-instagram"></i>
+                                                </button>
+
+                                                <button class="btn btn-social btn-social-o youtube mr-1">
+                                                    <i class="fa fa-youtube"></i>
+                                                </button>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                         <div class="col-lg-6">
                             <div class="cards mt-0">
                                 <div class="profile__agents-header">
@@ -177,8 +186,7 @@
                                             <li><a href="#" class="text-capitalize"><span><i
                                                             class="fa fa-phone"></i> mobile :</span> 123 456
                                                     789</a></li>
-                                            <li><a href="#" class="text-capitalize"><span><i class="fa fa-fax"></i>
-                                                        fax : </span> 342 655</a></li>
+
                                             <li><a href="#" class="text-capitalize"><span><i
                                                             class="fa fa-envelope"></i> email :</span>
                                                     agents@property.com</a></li>
@@ -232,9 +240,7 @@
                                                             class="fa fa-phone"></i>
                                                         mobile :</span> 123 456
                                                     789</a></li>
-                                            <li><a href="#" class="text-capitalize"><span><i class="fa fa-fax"></i>
-                                                        fax
-                                                        : </span> 342 655</a></li>
+
                                             <li><a href="#" class="text-capitalize"><span><i
                                                             class="fa fa-envelope"></i>
                                                         email :</span>
@@ -291,9 +297,7 @@
                                                             class="fa fa-phone"></i>
                                                         mobile :</span> 123 456
                                                     789</a></li>
-                                            <li><a href="#" class="text-capitalize"><span><i class="fa fa-fax"></i>
-                                                        fax
-                                                        : </span> 342 655</a></li>
+
                                             <li><a href="#" class="text-capitalize"><span><i
                                                             class="fa fa-envelope"></i>
                                                         email :</span>
@@ -348,9 +352,7 @@
                                                             class="fa fa-phone"></i>
                                                         mobile :</span> 123 456
                                                     789</a></li>
-                                            <li><a href="#" class="text-capitalize"><span><i class="fa fa-fax"></i>
-                                                        fax
-                                                        : </span> 342 655</a></li>
+
                                             <li><a href="#" class="text-capitalize"><span><i
                                                             class="fa fa-envelope"></i>
                                                         email :</span>

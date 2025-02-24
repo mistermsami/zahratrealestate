@@ -33,25 +33,29 @@
                         <div class="row">
                             <div class="col-md-8 col-lg-8">
                                 <div class="single__detail-area-title">
-                                    <h3 class="text-capitalize">Luxury Family Home</h3>
-                                    <p>Street 166, Wadi Msheireb, Doha, Qatar</p>
+                                    <h3 class="text-capitalize">{{ $listing->tittle}}</h3>
+                                    <p>{{ $listing->area->name}}, {{ $listing->city->city_name}}, Qatar</p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-lg-4">
                                 <div class="single__detail-area-price">
-                                    <h3 class="text-capitalize text-gray"><span style="color: #11572E; font-size: 18px;">QAR</span> 13,000/mo</h3>
+                                    <h3 class="text-capitalize text-gray"><span
+                                            style="color: #11572E; font-size: 18px;">QAR</span> {{ $listing->price}}</h3>
 
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <a href="#" class="badge  p-2 rounded" style="background-color: #11572E; color: #fff;"><i
+                                            <a href="#" class="badge  p-2 rounded"
+                                                style="background-color: #11572E; color: #fff;"><i
                                                     class="fa fa-exchange"></i></a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="#" class="badge  p-2 rounded" style="background-color: #11572E; color: #fff;"><i
+                                            <a href="#" class="badge  p-2 rounded"
+                                                style="background-color: #11572E; color: #fff;"><i
                                                     class="fa fa-heart"></i></a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="#" class="badge  p-2 rounded" style="background-color: #11572E; color: #fff;"><i
+                                            <a href="#" class="badge  p-2 rounded"
+                                                style="background-color: #11572E; color: #fff;"><i
                                                     class="fa fa-print"></i></a>
                                         </li>
                                     </ul>
@@ -63,206 +67,37 @@
 
                     <!-- SLIDER IMAGE DETAIL -->
                     <div class="slider__image__detail-large-two owl-carousel owl-theme">
+                        @foreach($listing->images as $image)
                         <div class="item">
                             <div class="slider__image__detail-large-one">
-                                <img src="images/pd1.jpg" alt="" class="img-fluid w-100 img-transition">
+                                <img src="{{$image->image_path}}" alt="" class="img-fluid w-100 img-transition">
                                 <div class="description">
-                                    <figure>
+                                    {{-- <figure>
                                         <img src="images/yman.jpg" alt="" class="img-fluid">
-                                    </figure>
-                                    <span class="badge text-capitalize mb-2" style="background-color: #11572E; color: #fff;">house</span>
+                                    </figure> --}}
+                                    <span class="badge text-capitalize mb-2"
+                                        style="background-color: #11572E; color: #fff;">{{ $listing->propertyType->pt_name}}</span>
                                     <div class="price">
-                                        <h4 class="text-capitalize text-gray"><span style="color:yellow; font-size: 16px;">QAR</span> 13,000/mo</h4>
+                                        <h4 class="text-capitalize text-gray"><span
+                                                style="color:yellow; font-size: 16px;">QAR</span> {{ $listing->price}}</h4>
                                     </div>
-                                    <h4 class="text-capitalize">Luxury Family Home</h4>
+                                    <h4 class="text-capitalize">{{ $listing->tittle}}</h4>
 
                                 </div>
 
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="slider__image__detail-large-one">
-                                <img src="images/pd2.jpg" alt="" class="img-fluid w-100 img-transition">
-                                <div class="description">
-                                    <figure>
-                                        <img src="images/eight.jpg" alt="" class="img-fluid">
-                                    </figure>
-                                    <span class="badge text-capitalize mb-2" style="background-color: #11572E; color: #fff;">house</span>
-                                    <div class="price">
-                                        <h4 class="text-capitalize text-gray"><span style="color:yellow; font-size: 16px;">QAR</span> 13,000/mo</h4>
-                                    </div>
-                                    <h4 class="text-capitalize">Luxury Family Home</h4>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-large-one">
-                                <img src="images/pd3.jpg" alt="" class="img-fluid w-100 img-transition">
-                                <div class="description">
-                                    <figure>
-                                        <img src="images/eight.jpg" alt="" class="img-fluid">
-                                    </figure>
-                                    <span class="badge text-capitalize mb-2" style="background-color: #11572E; color: #fff;">house</span>
-                                    <div class="price">
-                                        <h4 class="text-capitalize text-gray"><span style="color:yellow; font-size: 16px;">QAR</span> 13,000/mo</h4>
-                                    </div>
-                                    <h4 class="text-capitalize">Luxury Family Home</h4>
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-large-one">
-                                <img src="images/pd4.jpg" alt="" class="img-fluid w-100 img-transition">
-                                <div class="description">
-                                    <figure>
-                                        <img src="images/eight.jpg" alt="" class="img-fluid">
-                                    </figure>
-                                    <span class="badge text-capitalize mb-2" style="background-color: #11572E; color: #fff;">house</span>
-                                    <div class="price">
-                                        <h4 class="text-capitalize text-gray"><span style="color:yellow; font-size: 16px;">QAR</span> 13,000/mo</h4>
-                                    </div>
-                                    <h4 class="text-capitalize">Luxury Family Home</h4>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-large-one">
-                                <img src="images/pd5.jpg" alt="" class="img-fluid w-100 img-transition">
-                                <div class="description">
-                                    <figure>
-                                        <img src="images/yman.jpg" alt="" class="img-fluid">
-                                    </figure>
-                                    <span class="badge text-capitalize mb-2" style="background-color: #11572E; color: #fff;">house</span>
-                                    <div class="price">
-                                        <h4 class="text-capitalize text-gray"><span style="color:yellow; font-size: 16px;">QAR</span> 13,000/mo</h4>
-                                    </div>
-                                    <h4 class="text-capitalize">Luxury Family Home</h4>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-large-one">
-                                <img src="images/pd6.jpg" alt="" class="img-fluid w-100 img-transition">
-                                <div class="description">
-                                    <figure>
-                                        <img src="images/yman.jpg" alt="" class="img-fluid">
-                                    </figure>
-                                    <span class="badge text-capitalize mb-2" style="background-color: #11572E; color: #fff;">house</span>
-                                    <div class="price">
-                                        <h4 class="text-capitalize text-gray"><span style="color:yellow; font-size: 16px;">QAR</span> 13,000/mo</h4>
-                                    </div>
-                                    <h4 class="text-capitalize">Luxury Family Home</h4>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-large-one">
-                                <img src="images/pd3.jpg" alt="" class="img-fluid w-100 img-transition">
-                                <div class="description">
-                                    <figure>
-                                        <img src="images/yman.jpg" alt="" class="img-fluid">
-                                    </figure>
-                                    <span class="badge text-capitalize mb-2" style="background-color: #11572E; color: #fff;">house</span>
-                                    <div class="price">
-                                        <h4 class="text-capitalize text-gray"><span style="color:yellow; font-size: 16px;">QAR</span> 13,000/mo</h4>
-                                    </div>
-                                    <h4 class="text-capitalize">Luxury Family Home</h4>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-large-one">
-                                <img src="images/pd4.jpg" alt="" class="img-fluid w-100 img-transition">
-                                <div class="description">
-                                    <figure>
-                                        <img src="images/yman.jpg" alt="" class="img-fluid">
-                                    </figure>
-                                    <span class="badge text-capitalize mb-2" style="background-color: #11572E; color: #fff;">house</span>
-                                    <div class="price">
-                                        <h4 class="text-capitalize text-gray"><span style="color:yellow; font-size: 16px;">QAR</span> 13,000/mo</h4>
-                                    </div>
-                                    <h4 class="text-capitalize">Luxury Family Home</h4>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-large-one">
-                                <img src="images/pd1.jpg" alt="" class="img-fluid w-100 img-transition">
-                                <a href="https://wa.me/yourphonenumber" target="_blank" class="whatsapp-button">
-                                    <i class="fa fa-whatsapp"></i> WhatsApp
-                                </a>
-                                <div class="description">
-                                    <figure>
-                                        <img src="images/eight.jpg" alt="" class="img-fluid">
-                                    </figure>
-                                    <span class="badge text-capitalize mb-2" style="background-color: #11572E; color: #fff;">house</span>
-                                    <div class="price">
-                                        <h4 class="text-capitalize text-gray"><span style="color:yellow; font-size: 16px;">QAR</span> 13,000/mo</h4>
-                                    </div>
-                                    <h4 class="text-capitalize">Luxury Family Home</h4>
-                                    <!-- <p class="text-uppercase">
-                    166 welling street, collingwood, vic 3066
-                </p> -->
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <div class="slider__image__detail-thumb-two owl-carousel owl-theme">
+                        @foreach($listing->images as $image)
                         <div class="item">
                             <div class="slider__image__detail-thumb-one">
-                                <img src="images/pd1.jpg" alt="" class="img-fluid w-100 img-transition">
+                                <img src="{{$image->image_path}}" alt="" class="img-fluid w-100 img-transition">
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="slider__image__detail-thumb-one">
-                                <img src="images/pd2.jpg" alt="" class="img-fluid w-100 img-transition">
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-thumb-one">
-                                <img src="images/pd3.jpg" alt="" class="img-fluid w-100 img-transition">
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-thumb-one">
-                                <img src="images/pd4.jpg" alt="" class="img-fluid w-100 img-transition">
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-thumb-one">
-                                <img src="images/pd5.jpg" alt="" class="img-fluid w-100 img-transition">
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-thumb-one">
-                                <img src="images/pd6.jpg" alt="" class="img-fluid w-100 img-transition">
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-thumb-one">
-                                <img src="images/pd3.jpg" alt="" class="img-fluid w-100 img-transition">
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-thumb-one">
-                                <img src="images/pd4.jpg" alt="" class="img-fluid w-100 img-transition">
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="slider__image__detail-thumb-one">
-                                <img src="images/pd5.jpg" alt="" class="img-fluid w-100 img-transition">
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!-- END SLIDER IMAGE DETAIL -->
                 </div>
@@ -312,7 +147,7 @@
                                         <option>Industrial Land</option>
                                         <option>Duplex</option>
                                         <option>Hotel</option>
-                                      </select>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <select class="wide select_option">
@@ -370,108 +205,19 @@
                                     <label class="mb-3">Price range</label>
                                     <div class="min-max-slider" data-legendnum="2">
                                         <label for="min">Minimum price</label>
-                                        <input id="min" class="min" name="min" type="range" step="1" min="30000" max="100000" />
+                                        <input id="min" class="min" name="min" type="range"
+                                            step="1" min="30000" max="100000" />
                                         <label for="max">Maximum price</label>
-                                        <input id="max" class="max" name="max" type="range" step="1" min="30000" max="100000" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group mb-0 mt-2">
-
-                                    <a class="btn btn-block text-capitalize advanced-filter"
-                                        data-toggle="collapse" href="#multiCollapseExample1"
-                                        aria-controls="multiCollapseExample1" style="background-color: #11572E; color: #fff;"><i class="fa fa-plus-circle" ></i> advanced
-                                        filter
-                                    </a>
-
-                                    <div class="collapse multi-collapse" id="multiCollapseExample1">
-                                        <div class="advancedfilter">
-                                            <div class="checkbox checkbox-primary">
-                                                <input id="checkbox2" type="checkbox">
-                                                <label for="checkbox2" class="label-brand text-capitalize">
-                                                    Air Conditioning
-                                                </label>
-
-                                            </div>
-                                            <div class="checkbox checkbox-primary">
-                                                <input id="checkbox3" type="checkbox">
-                                                <label for="checkbox3" class="label-brand text-capitalize">
-                                                    Swiming Pool
-                                                </label>
-
-                                            </div>
-                                            <div class="checkbox checkbox-primary">
-                                                <input id="checkbox4" type="checkbox">
-                                                <label for="checkbox4" class="label-brand text-capitalize">
-                                                    Central Heating
-                                                </label>
-
-                                            </div>
-                                            <div class="checkbox checkbox-primary">
-                                                <input id="checkbox5" type="checkbox">
-                                                <label for="checkbox5" class="label-brand text-capitalize">
-                                                    Spa & Massage
-                                                </label>
-
-                                            </div>
-                                            <div class="checkbox checkbox-primary">
-                                                <input id="checkbox6" type="checkbox">
-                                                <label for="checkbox6" class="label-brand text-capitalize">
-                                                    Pets Allow
-                                                </label>
-
-                                            </div>
-                                            <div class="checkbox checkbox-primary">
-                                                <input id="checkbox7" type="checkbox">
-                                                <label for="checkbox7" class="label-brand text-capitalize">
-                                                    Air Conditioning
-                                                </label>
-
-                                            </div>
-
-                                            <div class="checkbox checkbox-primary">
-                                                <input id="checkbox8" type="checkbox">
-                                                <label for="checkbox8" class="label-brand text-capitalize">
-                                                    Gym
-                                                </label>
-
-                                            </div>
-
-                                            <div class="checkbox checkbox-primary">
-                                                <input id="checkbox9" type="checkbox">
-                                                <label for="checkbox9" class="label-brand text-capitalize">
-                                                    Alarm
-                                                </label>
-
-                                            </div>
-                                            <div class="checkbox checkbox-primary">
-                                                <input id="checkbox10" type="checkbox">
-                                                <label for="checkbox10" class="label-brand text-capitalize">
-                                                    Window Covering
-                                                </label>
-
-                                            </div>
-                                            <div class="checkbox checkbox-primary">
-                                                <input id="checkbox11" type="checkbox">
-                                                <label for="checkbox11" class="label-brand text-capitalize">
-                                                    Free WiFi
-                                                </label>
-
-                                            </div>
-                                            <div class="checkbox checkbox-primary">
-                                                <input id="checkbox12" type="checkbox">
-                                                <label for="checkbox12" class="label-brand text-capitalize">
-                                                    Car Parking
-                                                </label>
-                                            </div>
-                                        </div>
+                                        <input id="max" class="max" name="max" type="range"
+                                            step="1" min="30000" max="100000" />
                                     </div>
                                 </div>
                             </div>
                             <div class="products__filter__footer">
                                 <div class="form-group mb-0">
-                                    <button class="btn text-capitalize btn-block" style="background-color: #11572E; color: #fff;"><i
-                                            class="fa fa-search ml-1"></i> search
+                                    <button class="btn text-capitalize btn-block"
+                                        style="background-color: #11572E; color: #fff;"><i class="fa fa-search ml-1"></i>
+                                        search
                                         property </button>
 
                                 </div>
@@ -480,68 +226,6 @@
 
                     </div>
                     <!-- END FORM FILTER -->
-                    <!-- FORM FILTER -->
-                    <div class="products__filter mb-30">
-                        <div class="products__filter__group">
-                            <div class="products__filter__header">
-
-                                <h5 class="text-center text-capitalize">simulation calculator </h5>
-                            </div>
-                            <div class="products__filter__body">
-                                <div class="form-group">
-                                    <label>Sale Price</label>
-
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">QAR</span>
-
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="QAR 130.000">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Down Payment</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">QAR</span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="QAR 6.000">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Long Term (Years)</label>
-                                    <select class="select_option wide">
-
-                                        <option value="1">10</option>
-                                        <option value="2">15</option>
-                                        <option value="3">20</option>
-                                        <option value="4">25</option>
-                                    </select>
-
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Interest Rate</label>
-
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">%</span>
-
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="10%">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="products__filter__footer">
-                                <div class="form-group mb-0">
-                                    <button class="btn text-capitalize btn-block" style="background-color: #11572E; color: #fff;"> calculate
-                                        <i class="fa fa-calculator ml-1"></i>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- END FORM FILTER -->
                     <div class="sticky-top">
@@ -589,7 +273,8 @@
                                 </div>
                                 <div class="profile__agent__footer">
                                     <div class="form-group mb-0">
-                                        <button class="btn text-capitalize btn-block" style="background-color: #11572E; color: #fff;"> send message <i
+                                        <button class="btn text-capitalize btn-block"
+                                            style="background-color: #11572E; color: #fff;"> send message <i
                                                 class="fa fa-paper-plane ml-1"></i></button>
 
                                     </div>
@@ -597,19 +282,7 @@
                             </div>
 
                         </div>
-                        <!-- END PROFILE AGENT -->
-                        <div class="download mb-0">
-                            <h5 class="text-center text-capitalize">Property Attachments</h5>
-                            <div class="download__item">
-                                <a href="#" target="_blank"><i class="fa fa-file-pdf-o mr-3"
-                                        aria-hidden="true"></i>Download Document.Pdf</a>
-                            </div>
-                            <div class="download__item">
-                                <a href="#" target="_blank"><i class="fa fa-file-word-o mr-3"
-                                        aria-hidden="true"></i>Presentation
-                                    2023-24.Doc</a>
-                            </div>
-                        </div>
+
 
 
                     </div>
@@ -621,29 +294,11 @@
                             <div class="single__detail-desc">
                                 <h6 class="text-capitalize detail-heading">description</h6>
                                 <div class="show__more">
-                                    <p>Evans Tower very high demand corner junior one bedroom plus a large balcony
-                                        boasting
-                                        full open NYC views. You need to see the views to believe them. Mint condition
-                                        with
-                                        new hardwood floors. Lots of closets plus washer and dryer.</p>
+                                    <p>Property Description</p>
                                     <p>
-                                        Fully furnished. Elegantly appointed condominium unit situated on premier
-                                        location.
-                                        PS6. The wide entry hall leads to a large living room with dining area. This
-                                        expansive 2 bedroom and 2 renovated marble bathroom apartment has great windows.
-                                        Despite the interior views, the apartments Southern and Eastern exposures allow
-                                        for
-                                        lovely natural light to fill every room. The master suite is surrounded by
-                                        handcrafted milkwork and features incredible walk-in closet and storage space.
-                                    </p>
-                                    <p>Fully furnished. Elegantly appointed condominium unit situated on premier
-                                        location. PS6. The wide entry hall leads to a large living room with dining
-                                        area. This expansive 2 bedroom and 2 renovated marble bathroom apartment has
-                                        great windows. Despite the interior views, the apartments Southern and Eastern
-                                        exposures allow for lovely natural light to fill every room. The master suite is
-                                        surrounded by handcrafted milkwork and features incredible walk-in closet and
-                                        storage space.</p>
-                                    <a href="javascript:void(0)" class="show__more-button" style="background-color: #11572E; color: #fff;">read more</a>
+                                        {{ $listing->description}}</p>
+                                    <a href="javascript:void(0)" class="show__more-button"
+                                        style="background-color: #11572E; color: #fff;">read more</a>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
@@ -656,24 +311,24 @@
                                     <div class="row">
                                         <div class="col-md-6 col-lg-6">
                                             <ul class="property__detail-info-list list-unstyled">
-                                                <li><b>Property ID:</b> RV151</li>
-                                                <li><b>Price:</b> QAR 484,400</li>
-                                                <li><b>Property Size:</b> 1466 Sq Ft</li>
-                                                <li><b>Bedrooms:</b> 4</li>
-                                                <li><b>Bathrooms:</b> 2</li>
+                                                <li><b>Property ID:</b> ZA{{ $listing->id}}</li>
+                                                <li><b>Price:</b> QAR {{ $listing->price}}</li>
+                                                <li><b>Property Size:</b> {{ $listing->propertyDetails->size}} Sq Ft</li>
+                                                <li><b>Bedrooms:</b> {{ $listing->propertyDetails->rooms}}</li>
+                                                <li><b>Bathrooms:</b> {{ $listing->propertyDetails->baths}}</li>
                                             </ul>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <ul class="property__detail-info-list list-unstyled">
-                                                <li><b>Garage:</b> 1</li>
-                                                <li><b>Garage Size:</b> 458 SqFt</li>
-                                                <li><b>Year Built:</b> 2019-01-09</li>
-                                                <li><b>Property Type:</b> Full Family Home</li>
-                                                <li><b>Property Status:</b> For rent</li>
+                                                <li><b>Garage:</b> {{ $listing->propertyDetails->garage}}</li>
+                                                <li><b>Garage Size:</b> {{ $listing->propertyDetails->garage_size}} SqFt</li>
+                                                <li><b>Year Built:</b> {{ $listing->propertyDetails->built_year}}</li>
+                                                <li><b>Property Type:</b> {{ $listing->propertyType->pt_name}}</li>
+                                                <li><b>Property Status:</b> {{ $listing->listing_for}}</li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <h5 style="color: #11572E;">Additional details</h5>
+                                    {{-- <h5 style="color: #11572E;">Additional details</h5>
                                     <div class="row">
                                         <div class="col-md-6 col-lg-6">
                                             <ul class="property__detail-info-list list-unstyled">
@@ -693,7 +348,7 @@
                                                 <li><b>Property Status:</b> For rent</li>
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                                 <!-- END INFO PROPERTY DETAIL -->
@@ -705,102 +360,30 @@
                             <div class="single__detail-features">
                                 <h6 class="text-capitalize detail-heading">features</h6>
                                 <ul class="list-unstyled icon-checkbox">
+                                    @if ($listing->propertyFeatures->air_conditioning == '1')
                                     <li>air conditioning</li>
+                                    @endif
+                                    @if ($listing->propertyFeatures->swimming_pool == '1')
                                     <li>swiming pool</li>
+                                    @endif
+                                    @if ($listing->propertyFeatures->central_heating == '1')
                                     <li>Central Heating</li>
-                                    <li>spa & massage</li>
-                                    <li>pets allow</li>
-
-                                    <li>air conditioning</li>
-                                    <li>gym</li>
-                                    <li>alarm</li>
-
+                                    @endif
+                                    @if ($listing->propertyFeatures->gym == '1')
+                                    <li>GYM</li>
+                                    @endif
+                                    @if ($listing->propertyFeatures->window_covering == '1')
                                     <li>window Covering</li>
-                                    <li>free wiFi</li>
-                                    <li>car parking </li>
+                                    @endif
+                                    @if ($listing->propertyFeatures->car_parking == '1')
+                                    <li>car parking</li>
+                                    @endif
                                 </ul>
                             </div>
                             <!-- END FEATURES -->
 
-                            <!-- FLOR PLAN -->
-                            <div class="single__detail-features">
-                                <h6 class="text-capitalize detail-heading">floor plan</h6>
-                                <!-- FLOR PLAN IMAGE -->
-                                <div id="accordion" class="floorplan" role="tablist">
-                                    <div class="card">
-                                        <div class="card-header" role="tab" id="headingOne">
-                                            <a class="text-capitalize" data-toggle="collapse" href="#collapseOne"
-                                                aria-expanded="true" aria-controls="collapseOne">
-                                                first floor <span class="badge badge-light rounded p-1 ml-2">460 sq
-                                                    ft</span>
-                                            </a>
-                                        </div>
-                                        <div id="collapseOne" class="collapse show" role="tabpanel"
-                                            aria-labelledby="headingOne" data-parent="#accordion">
-                                            <div class="card-body">
-                                                <figure>
-                                                    <img src="images/floorplan.jpg" alt="" class="img-fluid">
-                                                </figure>
-
-                                                Excepteur sint ocaec at cupdatat proident suntin culpa qui officia
-                                                deserunt mol anim id esa laborum
-                                                perspiciat.
-                                                Duis aute irure dolor reprehenderit in voluptate velit essle cillum
-                                                dolore eu fugiat nulla pariatur.
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" role="tab" id="headingTwo">
-
-                                            <a class="collapsed text-capitalize" data-toggle="collapse"
-                                                href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                second floor <span class="badge badge-light rounded p-1 ml-2">460 sq
-                                                    ft</span>
-                                            </a>
-                                        </div>
-                                        <div id="collapseTwo" class="collapse" role="tabpanel"
-                                            aria-labelledby="headingTwo" data-parent="#accordion">
-                                            <div class="card-body">
-                                                <figure>
-                                                    <img src="images/floorplan2.jpg" alt="" class="img-fluid">
-                                                </figure>
-                                                They offers a host of logistic management services and supply chain . We
-                                                provide innovative solutions
-                                                with the best. tempor incididunt ut labore et dolor empor tempor
-                                                incididunt innovative solutions
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" role="tab" id="headingThree">
-                                            <a class="collapsed text-capitalize" data-toggle="collapse"
-                                                href="#collapseThree" aria-expanded="false"
-                                                aria-controls="collapseThree">
-                                                garage <span class="badge badge-light rounded p-1 ml-2">460 sq ft</span>
-                                            </a>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" role="tabpanel"
-                                            aria-labelledby="headingThree" data-parent="#accordion">
-                                            <div class="card-body">
-                                                <figure>
-                                                    <img src="images/floorplan3.jpg" alt="" class="img-fluid">
-                                                </figure>
-                                                They offers a host of logistic management services and supply chain . We
-                                                provide innovative solutions
-                                                with the best. tempor incididunt ut labore et dolor empor tempor
-                                                incididunt innovative solutions
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
                             <!-- END FLOR PLAN -->
-                            <div class="single__detail-features">
+                            {{-- <div class="single__detail-features">
                                 <h6 class="text-capitalize detail-heading">property video</h6>
                                 <div class="single__detail-features-video">
                                     <figure class=" mb-0">
@@ -813,7 +396,7 @@
 
                                     </figure>
                                 </div>
-                            </div>
+                            </div> --}}
 
 
                             <!-- LOCATION -->
@@ -842,7 +425,7 @@
                                         aria-labelledby="pills-map-location-tab">
                                         <div id="map-canvas">
                                             <iframe class="h600 w100"
-                                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d50446.89789906054!2d-122.41577600000001!3d37.791654!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd473843de08ff793!2sBetter%20Property%20Management!5e0!3m2!1sen!2sus!4v1591226304089!5m2!1sen!2sus"
+                                                src="{{ $listing->google_map_link}}"
                                                 style="border:0;" allowfullscreen="" aria-hidden="false"
                                                 tabindex="0"></iframe>
                                         </div>
@@ -851,7 +434,7 @@
                                     <div class="tab-pane fade" id="pills-street-view" role="tabpanel"
                                         aria-labelledby="pills-street-view-tab">
                                         <iframe class="h600 w100"
-                                            src="https://www.google.com/maps/embed?pb=!4v1553797194458!6m8!1m7!1sR4K_5Z2wRHTk9el8KLTh9Q!2m2!1d36.82551718071267!2d-76.34864590837246!3f305.15097!4f0!5f0.7820865974627469"
+                                            src="{{ $listing->google_map_link}}"
                                             style="border:0;" allowfullscreen></iframe>
                                     </div>
 
@@ -861,184 +444,6 @@
                             </div>
                             <!-- END LOCATION -->
 
-                            <!-- PROPERTY VIEWS -->
-                            <div class="single__detail-features">
-                                <h6 class="text-capitalize detail-heading">property views</h6>
-                                <!-- CANVAS -->
-                                <div class="wrapper">
-                                    <canvas id="myChart" class="chart"></canvas>
-                                </div>
-                            </div>
-                            <!-- END PROPERTY VIEWS -->
-
-                            <!-- NEARBY -->
-                            <div class="single__detail-features">
-                                <h6 class="text-capitalize detail-heading">what's nearby</h6>
-                                <div class="single__detail-features-nearby">
-                                    <h6 class="text-capitalize"><span>
-                                            <i class="fa fa-building "></i></span>education</h6>
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <span>Eladia's Kids</span>
-                                            <p>2.5 km</p>
-                                        </li>
-                                        <li>
-                                            <span>Brooklyn Brainery</span>
-                                            <p>3.5 km</p>
-
-                                        </li>
-                                        <li>
-                                            <span>Wikdom Senior High Scool</span>
-                                            <p>2.5 km</p>
-                                        </li>
-
-                                    </ul>
-
-                                    <h6 class="text-capitalize"><span><i class="fa fa-ambulance"></i></span>health &
-                                        medical
-                                    </h6>
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <span>Eladia's Kids</span>
-                                            <p>2.5 km</p>
-                                        </li>
-                                        <li>
-                                            <span>Brooklyn Brainery</span>
-                                            <p>3.5 km</p>
-
-                                        </li>
-                                        <li>
-                                            <span>Wikdom Senior High Scool</span>
-                                            <p>2.5 km</p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- END NEARBY -->
-
-                            <!-- RATE US  WRITE -->
-                            <div class="single__detail-features">
-                                <h6 class="text-capitalize detail-heading">Rate us and Write a Review</h6>
-                                <div class="single__detail-features-review">
-                                    <div class="media mt-4">
-                                        <img class="mr-3 img-fluid rounded-circle" src="images/yman.jpg" alt="">
-                                        <div class="media-body">
-                                            <h6 class="mt-0">Madar</h6>
-                                            <span class="mb-3">Mei 13, 2020</span>
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item">
-                                                    <i class="fa fa-star selected"></i>
-                                                    <i class="fa fa-star selected"></i>
-                                                    <i class="fa fa-star selected"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </li>
-                                                <li class="list-inline-item">3/5</li>
-                                            </ul>
-                                            <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                                                ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
-                                                viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-                                                Donec
-                                                lacinia congue felis in faucibus.</p>
-
-                                            <div class="media mt-4">
-                                                <a class="pr-3" href="#">
-                                                    <img src="images/eight.jpg" alt="" class="img-fluid rounded-circle">
-                                                </a>
-                                                <div class="media-body">
-                                                    <h6 class="mt-0">Ibrahim </h6>
-                                                    <span class="mb-3">Mei 13, 2020</span>
-                                                    <ul class="list-inline">
-                                                        <li class="list-inline-item">
-                                                            <i class="fa fa-star selected"></i>
-                                                            <i class="fa fa-star selected"></i>
-                                                            <i class="fa fa-star selected"></i>
-                                                            <i class="fa fa-star selected"></i>
-                                                            <i class="fa fa-star selected"></i>
-                                                        </li>
-                                                        <li class="list-inline-item">5/5</li>
-                                                    </ul>
-                                                    <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                                                        scelerisque ante sollicitudin. </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="media mt-4">
-                                        <img class="mr-3 img-fluid rounded-circle" src="images/yman.jpg" alt="">
-                                        <div class="media-body">
-                                            <h6 class="mt-0">Madar</h6>
-                                            <span class="mb-3">Mei 13, 2020</span>
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item">
-                                                    <i class="fa fa-star selected"></i>
-                                                    <i class="fa fa-star selected"></i>
-                                                    <i class="fa fa-star selected"></i>
-                                                    <i class="fa fa-star selected"></i>
-                                                    <i class="fa fa-star selected"></i>
-                                                </li>
-                                                <li class="list-inline-item">5/5</li>
-                                            </ul>
-                                            <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                                                ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
-                                                viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-                                                Donec
-                                                lacinia congue felis in faucibus.</p>
-
-
-                                        </div>
-                                    </div>
-                                    <!-- COMMENT -->
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p class="mb-2">Your rating for this listing:</p>
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item">
-                                                    <i class="fa fa-star selected"></i>
-                                                    <i class="fa fa-star selected"></i>
-                                                    <i class="fa fa-star selected"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </li>
-                                                <li class="list-inline-item">3/5</li>
-                                            </ul>
-                                            <div class="form-group">
-                                                <label>Your Name</label>
-                                                <input type="text" class="form-control" required="required">
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>What's your Email?</label>
-                                                <input type="email" class="form-control" required="required">
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Subject</label>
-                                                <input type="text" class="form-control" required="required">
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Your message</label>
-                                                <textarea class="form-control" rows="4"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <button type="submit" class="btn  float-right " style="background-color: #11572E; color:#fff;"> Submit review <i
-                                            class="fa fa-paper-plane ml-2"></i></button>
-                                    <!-- END COMMENT -->
-
-                                </div>
-                            </div>
-                            <!-- END RATE US  WRITE -->
                         </div>
                     </div>
                     <!-- END DESCRIPTION -->
@@ -1058,12 +463,15 @@
                                 <a href="propertyDetail.html">
                                     <div class="card__image">
                                         <div class="card__image-header h-250">
-                                            <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured</div>
-                                            <img src="images/pd1.jpg" alt="" class="img-fluid w100 img-transition">
+                                            <div class="ribbon text-capitalize" style="background-color: goldenrod;">
+                                                featured</div>
+                                            <img src="images/pd1.jpg" alt=""
+                                                class="img-fluid w100 img-transition">
                                             <div class="info"> for sale</div>
                                         </div>
                                         <div class="card__image-body">
-                                            <span class="badge text-capitalize mb-2" style="background-color: #11572E;color: #fff;">house</span>
+                                            <span class="badge text-capitalize mb-2"
+                                                style="background-color: #11572E;color: #fff;">house</span>
                                             <h6 class="text-capitalize">
                                                 <a href="#">vila in coral gables</a>
                                             </h6>
@@ -1103,23 +511,21 @@
                                         <div class="card__image-footer d-flex justify-content-between align-items-center">
                                             <div>
                                                 <!-- WhatsApp Button -->
-                                                <a href="https://wa.me/1234567890"
-                                                   class="btn btn-sm"
-                                                   style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
-                                                   target="_blank">
+                                                <a href="https://wa.me/1234567890" class="btn btn-sm"
+                                                    style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
+                                                    target="_blank">
                                                     <i class="fa fa-whatsapp"></i> WhatsApp
                                                 </a>
 
                                                 <!-- Call Button -->
-                                                <a href="tel:1234567890"
-                                                   class="btn btn-sm ml-2"
-                                                   style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+                                                <a href="tel:1234567890" class="btn btn-sm ml-2"
+                                                    style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
                                                     <i class="fa fa-phone"></i> Call
                                                 </a>
                                             </div>
-                                           <h6 class="mb-0">
-                            <span style="color: #11572E; font-size: small;">QAR</span> 350,000
-                          </h6>
+                                            <h6 class="mb-0">
+                                                <span style="color: #11572E; font-size: small;">QAR</span> 350,000
+                                            </h6>
                                         </div>
                                     </div>
                                 </a>
@@ -1128,12 +534,15 @@
                                 <!-- TWO -->
                                 <div class="card__image">
                                     <div class="card__image-header h-250">
-                                       <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured</div>
-                                        <img src="images/apart4.jpg" alt="" class="img-fluid w100 img-transition">
+                                        <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured
+                                        </div>
+                                        <img src="images/apart4.jpg" alt=""
+                                            class="img-fluid w100 img-transition">
                                         <div class="info"> for sale</div>
                                     </div>
                                     <div class="card__image-body">
-                                         <span class="badge text-capitalize mb-2" style="background-color: #11572E;color: #fff;">house</span>
+                                        <span class="badge text-capitalize mb-2"
+                                            style="background-color: #11572E;color: #fff;">house</span>
                                         <h6 class="text-capitalize">
                                             <a href="#">Ample Apartment At Last Floor</a>
                                         </h6>
@@ -1170,39 +579,40 @@
                                             </li>
                                         </ul>
                                     </div>
-                                  <div class="card__image-footer d-flex justify-content-between align-items-center">
-                                                        <div>
-                                                            <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890"
-                                                               class="btn btn-sm"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
-                                                               target="_blank">
-                                                                <i class="fa fa-whatsapp"></i> WhatsApp
-                                                            </a>
+                                    <div class="card__image-footer d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <!-- WhatsApp Button -->
+                                            <a href="https://wa.me/1234567890" class="btn btn-sm"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
+                                                target="_blank">
+                                                <i class="fa fa-whatsapp"></i> WhatsApp
+                                            </a>
 
-                                                            <!-- Call Button -->
-                                                            <a href="tel:1234567890"
-                                                               class="btn btn-sm ml-2"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
-                                                                <i class="fa fa-phone"></i> Call
-                                                            </a>
-                                                        </div>
-                                                       <h6 class="mb-0">
-                                        <span style="color: #11572E; font-size: small;">QAR</span> 350,000
-                                      </h6>
-                                                    </div>
+                                            <!-- Call Button -->
+                                            <a href="tel:1234567890" class="btn btn-sm ml-2"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+                                                <i class="fa fa-phone"></i> Call
+                                            </a>
+                                        </div>
+                                        <h6 class="mb-0">
+                                            <span style="color: #11572E; font-size: small;">QAR</span> 350,000
+                                        </h6>
+                                    </div>
                                 </div>
                             </div>
                             <div class="item">
                                 <!-- THREE -->
                                 <div class="card__image">
                                     <div class="card__image-header h-250">
-                                       <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured</div>
-                                        <img src="images/apart6.jpg" alt="" class="img-fluid w100 img-transition">
+                                        <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured
+                                        </div>
+                                        <img src="images/apart6.jpg" alt=""
+                                            class="img-fluid w100 img-transition">
                                         <div class="info"> for sale</div>
                                     </div>
                                     <div class="card__image-body">
-                                         <span class="badge text-capitalize mb-2" style="background-color: #11572E;color: #fff;">house</span>
+                                        <span class="badge text-capitalize mb-2"
+                                            style="background-color: #11572E;color: #fff;">house</span>
                                         <h6 class="text-capitalize">
                                             <a href="#">Contemporary Apartment</a>
                                         </h6>
@@ -1239,314 +649,39 @@
                                             </li>
                                         </ul>
                                     </div>
-                                  <div class="card__image-footer d-flex justify-content-between align-items-center">
-                                                        <div>
-                                                            <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890"
-                                                               class="btn btn-sm"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
-                                                               target="_blank">
-                                                                <i class="fa fa-whatsapp"></i> WhatsApp
-                                                            </a>
+                                    <div class="card__image-footer d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <!-- WhatsApp Button -->
+                                            <a href="https://wa.me/1234567890" class="btn btn-sm"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
+                                                target="_blank">
+                                                <i class="fa fa-whatsapp"></i> WhatsApp
+                                            </a>
 
-                                                            <!-- Call Button -->
-                                                            <a href="tel:1234567890"
-                                                               class="btn btn-sm ml-2"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
-                                                                <i class="fa fa-phone"></i> Call
-                                                            </a>
-                                                        </div>
-                                                       <h6 class="mb-0">
-                                        <span style="color: #11572E; font-size: small;">QAR</span> 350,000
-                                      </h6>
-                                                    </div>
+                                            <!-- Call Button -->
+                                            <a href="tel:1234567890" class="btn btn-sm ml-2"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+                                                <i class="fa fa-phone"></i> Call
+                                            </a>
+                                        </div>
+                                        <h6 class="mb-0">
+                                            <span style="color: #11572E; font-size: small;">QAR</span> 350,000
+                                        </h6>
+                                    </div>
                                 </div>
                             </div>
                             <div class="item">
                                 <!-- FOUR -->
                                 <div class="card__image">
                                     <div class="card__image-header h-250">
-                                       <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured</div>
+                                        <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured
+                                        </div>
                                         <img src="images/pd4.jpg" alt="" class="img-fluid w100 img-transition">
                                         <div class="info"> for sale</div>
                                     </div>
                                     <div class="card__image-body">
-                                         <span class="badge text-capitalize mb-2" style="background-color: #11572E;color: #fff;">house</span>
-                                        <h6 class="text-capitalize">
-                                            <a href="#">Family Home For Sale</a>
-                                        </h6>
-
-                                        <p class="text-capitalize">
-                                            <i class="fa fa-map-marker"></i>
-                                            West Bay, Doha, Qatar
-                                        </p>
-                                        <ul class="list-inline card__content">
-                                            <li class="list-inline-item">
-
-                                                <span>
-                                                    baths <br>
-                                                    <i class="fa fa-bath"></i> 2
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    beds <br>
-                                                    <i class="fa fa-bed"></i> 3
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    rooms <br>
-                                                    <i class="fa fa-inbox"></i> 3
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    area <br>
-                                                    <i class="fa fa-map"></i> 4300 sq ft
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                  <div class="card__image-footer d-flex justify-content-between align-items-center">
-                                                        <div>
-                                                            <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890"
-                                                               class="btn btn-sm"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
-                                                               target="_blank">
-                                                                <i class="fa fa-whatsapp"></i> WhatsApp
-                                                            </a>
-
-                                                            <!-- Call Button -->
-                                                            <a href="tel:1234567890"
-                                                               class="btn btn-sm ml-2"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
-                                                                <i class="fa fa-phone"></i> Call
-                                                            </a>
-                                                        </div>
-                                                       <h6 class="mb-0">
-                                        <span style="color: #11572E; font-size: small;">QAR</span> 350,000
-                                      </h6>
-                                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <!-- FIVE -->
-                                <div class="card__image">
-                                    <div class="card__image-header h-250">
-                                       <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured</div>
-                                        <img src="images/apart3.jpg" alt="" class="img-fluid w100 img-transition">
-                                        <div class="info"> for sale</div>
-                                    </div>
-                                    <div class="card__image-body">
-                                         <span class="badge text-capitalize mb-2" style="background-color: #11572E;color: #fff;">house</span>
-                                        <h6 class="text-capitalize">
-                                            <a href="#">184 Lexington Avenue</a>
-                                        </h6>
-
-                                        <p class="text-capitalize">
-                                            <i class="fa fa-map-marker"></i>
-                                            West Bay, Doha, Qatar
-                                        </p>
-                                        <ul class="list-inline card__content">
-                                            <li class="list-inline-item">
-
-                                                <span>
-                                                    baths <br>
-                                                    <i class="fa fa-bath"></i> 2
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    beds <br>
-                                                    <i class="fa fa-bed"></i> 3
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    rooms <br>
-                                                    <i class="fa fa-inbox"></i> 3
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    area <br>
-                                                    <i class="fa fa-map"></i> 4300 sq ft
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                  <div class="card__image-footer d-flex justify-content-between align-items-center">
-                                                        <div>
-                                                            <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890"
-                                                               class="btn btn-sm"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
-                                                               target="_blank">
-                                                                <i class="fa fa-whatsapp"></i> WhatsApp
-                                                            </a>
-
-                                                            <!-- Call Button -->
-                                                            <a href="tel:1234567890"
-                                                               class="btn btn-sm ml-2"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
-                                                                <i class="fa fa-phone"></i> Call
-                                                            </a>
-                                                        </div>
-                                                       <h6 class="mb-0">
-                                        <span style="color: #11572E; font-size: small;">QAR</span> 350,000
-                                      </h6>
-                                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <!-- SIX -->
-                                <div class="card__image">
-                                    <div class="card__image-header h-250">
-                                       <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured</div>
-                                        <img src="images/apart7.jpg" alt="" class="img-fluid w100 img-transition">
-                                        <div class="info"> for sale</div>
-                                    </div>
-                                    <div class="card__image-body">
-                                         <span class="badge text-capitalize mb-2" style="background-color: #11572E;color: #fff;">house</span>
-                                        <h6 class="text-capitalize">
-                                            <a href="#">Luxury Villa With Pool</a>
-                                        </h6>
-
-                                        <p class="text-capitalize">
-                                            <i class="fa fa-map-marker"></i>
-                                            West Bay, Doha, Qatar
-                                        </p>
-                                        <ul class="list-inline card__content">
-                                            <li class="list-inline-item">
-
-                                                <span>
-                                                    baths <br>
-                                                    <i class="fa fa-bath"></i> 2
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    beds <br>
-                                                    <i class="fa fa-bed"></i> 3
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    rooms <br>
-                                                    <i class="fa fa-inbox"></i> 3
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    area <br>
-                                                    <i class="fa fa-map"></i> 4300 sq ft
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                  <div class="card__image-footer d-flex justify-content-between align-items-center">
-                                                        <div>
-                                                            <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890"
-                                                               class="btn btn-sm"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
-                                                               target="_blank">
-                                                                <i class="fa fa-whatsapp"></i> WhatsApp
-                                                            </a>
-
-                                                            <!-- Call Button -->
-                                                            <a href="tel:1234567890"
-                                                               class="btn btn-sm ml-2"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
-                                                                <i class="fa fa-phone"></i> Call
-                                                            </a>
-                                                        </div>
-                                                       <h6 class="mb-0">
-                                        <span style="color: #11572E; font-size: small;">QAR</span> 350,000
-                                      </h6>
-                                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card__image">
-                                    <div class="card__image-header h-250">
-                                       <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured</div>
-                                        <img src="images/pd6.jpg" alt="" class="img-fluid w100 img-transition">
-                                        <div class="info"> for sale</div>
-                                    </div>
-                                    <div class="card__image-body">
-                                         <span class="badge text-capitalize mb-2" style="background-color: #11572E;color: #fff;">house</span>
-                                        <h6 class="text-capitalize">
-                                            <a href="#">The Citizen Apartment 5th Floor</a>
-                                        </h6>
-
-                                        <p class="text-capitalize">
-                                            <i class="fa fa-map-marker"></i>
-                                            West Bay, Doha, Qatar
-                                        </p>
-                                        <ul class="list-inline card__content">
-                                            <li class="list-inline-item">
-
-                                                <span>
-                                                    baths <br>
-                                                    <i class="fa fa-bath"></i> 2
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    beds <br>
-                                                    <i class="fa fa-bed"></i> 3
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    rooms <br>
-                                                    <i class="fa fa-inbox"></i> 3
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span>
-                                                    area <br>
-                                                    <i class="fa fa-map"></i> 4300 sq ft
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                  <div class="card__image-footer d-flex justify-content-between align-items-center">
-                                                        <div>
-                                                            <!-- WhatsApp Button -->
-                                                            <a href="https://wa.me/1234567890"
-                                                               class="btn btn-sm"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
-                                                               target="_blank">
-                                                                <i class="fa fa-whatsapp"></i> WhatsApp
-                                                            </a>
-
-                                                            <!-- Call Button -->
-                                                            <a href="tel:1234567890"
-                                                               class="btn btn-sm ml-2"
-                                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
-                                                                <i class="fa fa-phone"></i> Call
-                                                            </a>
-                                                        </div>
-                                                       <h6 class="mb-0">
-                                        <span style="color: #11572E; font-size: small;">QAR</span> 350,000
-                                      </h6>
-                                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <!-- SEVEN -->
-                                <div class="card__image">
-                                    <div class="card__image-header h-250">
-                                       <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured</div>
-                                        <img src="images/pd5.jpg" alt="" class="img-fluid w100 img-transition">
-                                        <div class="info"> for sale</div>
-                                    </div>
-                                    <div class="card__image-body">
-                                         <span class="badge text-capitalize mb-2" style="background-color: #11572E;color: #fff;">house</span>
+                                        <span class="badge text-capitalize mb-2"
+                                            style="background-color: #11572E;color: #fff;">house</span>
                                         <h6 class="text-capitalize">
                                             <a href="#">Family Home For Sale</a>
                                         </h6>
@@ -1586,23 +721,298 @@
                                     <div class="card__image-footer d-flex justify-content-between align-items-center">
                                         <div>
                                             <!-- WhatsApp Button -->
-                                            <a href="https://wa.me/1234567890"
-                                               class="btn btn-sm"
-                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
-                                               target="_blank">
+                                            <a href="https://wa.me/1234567890" class="btn btn-sm"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
+                                                target="_blank">
                                                 <i class="fa fa-whatsapp"></i> WhatsApp
                                             </a>
 
                                             <!-- Call Button -->
-                                            <a href="tel:1234567890"
-                                               class="btn btn-sm ml-2"
-                                               style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+                                            <a href="tel:1234567890" class="btn btn-sm ml-2"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
                                                 <i class="fa fa-phone"></i> Call
                                             </a>
                                         </div>
-                                       <h6 class="mb-0">
-                        <span style="color: #11572E; font-size: small;">QAR</span> 350,000
-                      </h6>
+                                        <h6 class="mb-0">
+                                            <span style="color: #11572E; font-size: small;">QAR</span> 350,000
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <!-- FIVE -->
+                                <div class="card__image">
+                                    <div class="card__image-header h-250">
+                                        <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured
+                                        </div>
+                                        <img src="images/apart3.jpg" alt=""
+                                            class="img-fluid w100 img-transition">
+                                        <div class="info"> for sale</div>
+                                    </div>
+                                    <div class="card__image-body">
+                                        <span class="badge text-capitalize mb-2"
+                                            style="background-color: #11572E;color: #fff;">house</span>
+                                        <h6 class="text-capitalize">
+                                            <a href="#">184 Lexington Avenue</a>
+                                        </h6>
+
+                                        <p class="text-capitalize">
+                                            <i class="fa fa-map-marker"></i>
+                                            West Bay, Doha, Qatar
+                                        </p>
+                                        <ul class="list-inline card__content">
+                                            <li class="list-inline-item">
+
+                                                <span>
+                                                    baths <br>
+                                                    <i class="fa fa-bath"></i> 2
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    beds <br>
+                                                    <i class="fa fa-bed"></i> 3
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    rooms <br>
+                                                    <i class="fa fa-inbox"></i> 3
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    area <br>
+                                                    <i class="fa fa-map"></i> 4300 sq ft
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card__image-footer d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <!-- WhatsApp Button -->
+                                            <a href="https://wa.me/1234567890" class="btn btn-sm"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
+                                                target="_blank">
+                                                <i class="fa fa-whatsapp"></i> WhatsApp
+                                            </a>
+
+                                            <!-- Call Button -->
+                                            <a href="tel:1234567890" class="btn btn-sm ml-2"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+                                                <i class="fa fa-phone"></i> Call
+                                            </a>
+                                        </div>
+                                        <h6 class="mb-0">
+                                            <span style="color: #11572E; font-size: small;">QAR</span> 350,000
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <!-- SIX -->
+                                <div class="card__image">
+                                    <div class="card__image-header h-250">
+                                        <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured
+                                        </div>
+                                        <img src="images/apart7.jpg" alt=""
+                                            class="img-fluid w100 img-transition">
+                                        <div class="info"> for sale</div>
+                                    </div>
+                                    <div class="card__image-body">
+                                        <span class="badge text-capitalize mb-2"
+                                            style="background-color: #11572E;color: #fff;">house</span>
+                                        <h6 class="text-capitalize">
+                                            <a href="#">Luxury Villa With Pool</a>
+                                        </h6>
+
+                                        <p class="text-capitalize">
+                                            <i class="fa fa-map-marker"></i>
+                                            West Bay, Doha, Qatar
+                                        </p>
+                                        <ul class="list-inline card__content">
+                                            <li class="list-inline-item">
+
+                                                <span>
+                                                    baths <br>
+                                                    <i class="fa fa-bath"></i> 2
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    beds <br>
+                                                    <i class="fa fa-bed"></i> 3
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    rooms <br>
+                                                    <i class="fa fa-inbox"></i> 3
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    area <br>
+                                                    <i class="fa fa-map"></i> 4300 sq ft
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card__image-footer d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <!-- WhatsApp Button -->
+                                            <a href="https://wa.me/1234567890" class="btn btn-sm"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
+                                                target="_blank">
+                                                <i class="fa fa-whatsapp"></i> WhatsApp
+                                            </a>
+
+                                            <!-- Call Button -->
+                                            <a href="tel:1234567890" class="btn btn-sm ml-2"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+                                                <i class="fa fa-phone"></i> Call
+                                            </a>
+                                        </div>
+                                        <h6 class="mb-0">
+                                            <span style="color: #11572E; font-size: small;">QAR</span> 350,000
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card__image">
+                                    <div class="card__image-header h-250">
+                                        <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured
+                                        </div>
+                                        <img src="images/pd6.jpg" alt="" class="img-fluid w100 img-transition">
+                                        <div class="info"> for sale</div>
+                                    </div>
+                                    <div class="card__image-body">
+                                        <span class="badge text-capitalize mb-2"
+                                            style="background-color: #11572E;color: #fff;">house</span>
+                                        <h6 class="text-capitalize">
+                                            <a href="#">The Citizen Apartment 5th Floor</a>
+                                        </h6>
+
+                                        <p class="text-capitalize">
+                                            <i class="fa fa-map-marker"></i>
+                                            West Bay, Doha, Qatar
+                                        </p>
+                                        <ul class="list-inline card__content">
+                                            <li class="list-inline-item">
+
+                                                <span>
+                                                    baths <br>
+                                                    <i class="fa fa-bath"></i> 2
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    beds <br>
+                                                    <i class="fa fa-bed"></i> 3
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    rooms <br>
+                                                    <i class="fa fa-inbox"></i> 3
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    area <br>
+                                                    <i class="fa fa-map"></i> 4300 sq ft
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card__image-footer d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <!-- WhatsApp Button -->
+                                            <a href="https://wa.me/1234567890" class="btn btn-sm"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
+                                                target="_blank">
+                                                <i class="fa fa-whatsapp"></i> WhatsApp
+                                            </a>
+
+                                            <!-- Call Button -->
+                                            <a href="tel:1234567890" class="btn btn-sm ml-2"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+                                                <i class="fa fa-phone"></i> Call
+                                            </a>
+                                        </div>
+                                        <h6 class="mb-0">
+                                            <span style="color: #11572E; font-size: small;">QAR</span> 350,000
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <!-- SEVEN -->
+                                <div class="card__image">
+                                    <div class="card__image-header h-250">
+                                        <div class="ribbon text-capitalize" style="background-color: goldenrod;">featured
+                                        </div>
+                                        <img src="images/pd5.jpg" alt="" class="img-fluid w100 img-transition">
+                                        <div class="info"> for sale</div>
+                                    </div>
+                                    <div class="card__image-body">
+                                        <span class="badge text-capitalize mb-2"
+                                            style="background-color: #11572E;color: #fff;">house</span>
+                                        <h6 class="text-capitalize">
+                                            <a href="#">Family Home For Sale</a>
+                                        </h6>
+
+                                        <p class="text-capitalize">
+                                            <i class="fa fa-map-marker"></i>
+                                            West Bay, Doha, Qatar
+                                        </p>
+                                        <ul class="list-inline card__content">
+                                            <li class="list-inline-item">
+
+                                                <span>
+                                                    baths <br>
+                                                    <i class="fa fa-bath"></i> 2
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    beds <br>
+                                                    <i class="fa fa-bed"></i> 3
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    rooms <br>
+                                                    <i class="fa fa-inbox"></i> 3
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span>
+                                                    area <br>
+                                                    <i class="fa fa-map"></i> 4300 sq ft
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card__image-footer d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <!-- WhatsApp Button -->
+                                            <a href="https://wa.me/1234567890" class="btn btn-sm"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
+                                                target="_blank">
+                                                <i class="fa fa-whatsapp"></i> WhatsApp
+                                            </a>
+
+                                            <!-- Call Button -->
+                                            <a href="tel:1234567890" class="btn btn-sm ml-2"
+                                                style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+                                                <i class="fa fa-phone"></i> Call
+                                            </a>
+                                        </div>
+                                        <h6 class="mb-0">
+                                            <span style="color: #11572E; font-size: small;">QAR</span> 350,000
+                                        </h6>
                                     </div>
                                 </div>
                             </div>
@@ -1615,6 +1025,4 @@
 
         </div>
     </section>
-
-
 @endsection

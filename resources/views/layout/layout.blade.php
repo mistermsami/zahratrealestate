@@ -10,7 +10,7 @@
     <meta name="author" content="mardianto - retenvi.com"> -->
 
 
-    <link rel="stylesheet" href="./css/faq.css">
+    <link rel="stylesheet" href="{{asset('css/faq.css')}}">
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <title>@yield('pagename') - Zahrat Alshamal Real Estate</title>
@@ -22,7 +22,7 @@
     <!-- favicon.ico in the root directory -->
     <link rel="apple-touch-icon" href="icon.png">
     <meta name="theme-color" content="#3454d1">
-    <link href="./css/styles.css?fd365619e86ad9137a29" rel="stylesheet">
+    <link href="{{asset('css/styles.css?fd365619e86ad9137a29')}}" rel="stylesheet">
 
 </head>
 
@@ -33,7 +33,7 @@
     <nav class="navbar navbar-hover navbar-expand-lg navbar-soft">
         <div class="container">
             <a class="navbar-brand" href="#" style="padding: 0;">
-                <img src="images/zrs_logo_simple-0.png" alt="" style="width: 80px;">
+                <img src="{{asset('images/zrs_logo_simple-0.png')}}" alt="" style="width: 80px;">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav99">
                 <span class="navbar-toggler-icon"></span>
@@ -93,7 +93,7 @@
                     <div class="col-md-4">
                         <div class="widget__footer">
                             <figure>
-                                <img src="images/1ftlogo.png" alt="" class="logo-footer">
+                                <img src="{{asset('images/1ftlogo.png')}}" alt="" class="logo-footer">
                             </figure>
                             <!-- <p>
                                 Zahrat Alshamal Real Estate is a trusted name in the property market, offering expert services for buying, selling, and investing in real estate. Our team is dedicated to providing reliable solutions with a focus on customer satisfaction and integrity.
@@ -226,8 +226,8 @@
     <!-- SCROLL TO TOP -->
     <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
     <!-- END SCROLL TO TOP -->
-    <script src="./js/index.bundle.js?fd365619e86ad9137a29"></script>
-    <script src="./js/faq.js"></script>
+    <script src="{{asset('js/index.bundle.js?fd365619e86ad9137a29')}}"></script>
+    <script src="{{asset('js/faq.js')}}"></script>
 </body>
 
 </html>
