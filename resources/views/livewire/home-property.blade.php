@@ -29,7 +29,82 @@
         </div>
         <div class="row">
             <div class="filtr-container">
+                @foreach ($listings as $listing)
+                    <div class="col-md-6 col-lg-4 filtr-item" data-category="2, 4" data-title="">
+                        <a href="{{route('propertyDetail', $listing->slug->slug)}}">
+                            <div class="card__image card__box-v1">
+                                <div class="card__image-header h-250">
+                                    <div class="ribbon text-capitalize"
+                                        style="background-color: goldenrod; color: black;">featured
+                                    </div>
+                                    <img src="images/apart4.jpg" alt="" class="img-fluid w100 img-transition">
+                                    <div class="info" style="background-color: #11572E;"> {{ $listing->listing_for }}
+                                    </div>
+                                </div>
+                                <div class="card__image-body">
+                                    {{-- <span class="badge badge-primary text-capitalize mb-2"
+                                        style="background-color: #11572E;">{{ $listing->propertyType->pt_name }}</span> --}}
+                                    <h6 class="text-capitalize">
+                                        {{ $listing->tittle }}
+                                    </h6>
 
+                                    <p class="text-capitalize">
+                                        <i class="fa fa-map-marker"></i>
+                                        {{ $listing->area->name }}, {{ $listing->city->city_name }}, Qatar
+
+                                    </p>
+                                    <ul class="list-inline card__content">
+                                        <li class="list-inline-item">
+
+                                            <span>
+                                                baths <br>
+                                                <i class="fa fa-bath"></i> {{ $listing->propertyDetails->baths }}
+                                            </span>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <span>
+                                                beds <br>
+                                                <i class="fa fa-bed"></i> {{ $listing->propertyDetails->rooms }}
+                                            </span>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <span>
+                                                rooms <br>
+                                                <i class="fa fa-inbox"></i> {{ $listing->propertyDetails->rooms }}
+                                            </span>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <span>
+                                                area <br>
+                                                <i class="fa fa-map"></i> {{ $listing->propertyDetails->size }} sq ft
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card__image-footer d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <!-- WhatsApp Button -->
+                                        <a href="https://wa.me/{{ $listing->agent->phone_contact }}" class="btn btn-sm"
+                                            style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
+                                            target="_blank">
+                                            <i class="fa fa-whatsapp"></i> WhatsApp
+                                        </a>
+
+                                        <!-- Call Button -->
+                                        <a href="tel:{{ $listing->agent->office_contact }}" class="btn btn-sm ml-2"
+                                            style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+                                            <i class="fa fa-phone"></i> Call
+                                        </a>
+                                    </div>
+                                    <h6 class="mb-0">
+                                        <span style="color: #11572E; font-size: small;">QAR</span>
+                                        {{ $listing->price }}
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
                 <div class="col-md-6 col-lg-4 filtr-item" data-category="2, 4" data-title="">
                     <a href="propertyDetail.html">
                         <div class="card__image card__box-v1">

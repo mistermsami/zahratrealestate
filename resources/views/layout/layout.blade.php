@@ -40,22 +40,22 @@
             </button>
             <div class="collapse navbar-collapse" id="main_nav99">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./propertylistings">Property Listing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./agent">Agents</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./blog">Blogs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./about-us">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{route('/')}}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('propertylistings')}}">Property Listing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('agent')}}">Agents</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('blog')}}">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('about-us')}}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li>
                 </ul>
                 <ul class="navbar-nav ">
                     <li>
-                        <a href="./add-property" class="btn text-capitalize"
+                        <a href="{{route('add-property')}}" class="btn text-capitalize"
                             style="background-color: #11572E; color: #fff;">
                             <i class="fa fa-plus-circle mr-1"></i> Add Property
                         </a>
                     </li>
                     <li class="navbar-nav">
-                        <a href="./login" class="lang-btn" style=" text-decoration: none; color: #11572E;">
+                        <a href="{{route('login')}}" class="lang-btn" style=" text-decoration: none; color: #11572E;">
                             Sign In
                         </a>
                     </li>

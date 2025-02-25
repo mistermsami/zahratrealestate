@@ -134,7 +134,7 @@
                                                     <div class="card__image__header h-250">
                                                         <a href="{{route('propertyDetail', $listing->slug->slug)}}">
                                                             <div class="ribbon text-capitalize"
-                                                                style="background-color:#11572E; color: #fff;">sold out
+                                                                style="background-color:#11572E; color: #fff;">{{$listing->status}}
                                                             </div>
                                                             <img src="images/apart4.jpg" alt=""
                                                                 class="img-fluid w100 img-transition">
