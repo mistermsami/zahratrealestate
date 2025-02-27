@@ -30,57 +30,40 @@
                 <!-- BLOG START -->
                 <div class="col-lg-8">
                     <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="blog__grid mt-0">
-                                <!-- BLOG  -->
-                                <div class="card__image">
-                                    <div class="card__image-header h-250">
-                                        <img src="images/beautiful-Apartment.jpg" alt=""
-                                            class="img-fluid w100 img-transition">
-                                        <div class="info"> event</div>
+                        @foreach ($blogs as $blog)
+                            <div class="col-md-6 col-lg-6">
+                                <div class="blog__grid mt-0">
+                                    <!-- BLOG  -->
+                                    <div class="card__image">
+                                        <div class="card__image-header h-250">
+                                            <img src="images/beautiful-Apartment.jpg" alt=""
+                                                class="img-fluid w100 img-transition">
+                                            {{-- <img src="blog_imgs/{{$blog->image_path1}}" alt=""
+                                                class="img-fluid w100 img-transition"> --}}
+                                            <div class="info"> event</div>
+                                        </div>
+                                        <div class="card__image-body">
+                                            <!-- <span class="badge badge-secondary p-1 text-capitalize mb-3">Dec 09, 2024
+                                                    </span> -->
+                                            <h6 class="text-capitalize">
+                                                <a href="blogDetail/{{$blog->id}}/blog">{{ \Illuminate\Support\Str::limit( $blog->title ?? 'N/A',25 , '...')}}</a>
+                                            </h6>
+                                            <p class=" mb-0">
+                                                {{ \Illuminate\Support\Str::limit($blog->description1 ?? 'N/A', 140, '...') }}
+                                            </p>
+                                        </div>
+                                        <div class="card__image-footer d-flex justify-content-center">
+                                            <a href="blogDetail/{{$blog->id}}/blog" class="btn btn-sm px-4 py-2"
+                                                style="background-color: #11572E; color: #fff; font-size: 16px; font-weight: 500 !important; ">
+                                                Read More
+                                                <i class="fa fa-angle-right ml-1">
+                                                </i></a>
+                                        </div>
                                     </div>
-                                    <div class="card__image-body">
-                                        <!-- <span class="badge badge-secondary p-1 text-capitalize mb-3">Dec 09, 2024
-                                            </span> -->
-                                        <h6 class="text-capitalize">
-                                            <a href="/blog-single">Happy family with new house </a>
-                                        </h6>
-                                        <p class=" mb-0">
-                                            Real estate festival is one of the famous feval for explain to you how all
-                                            this mistaolt deand praising pain
-                                            wasnad I will give complete
-
-                                        </p>
-
-
-                                    </div>
-                                    <div class="card__image-footer">
-                                        <figure>
-                                            <img src="images/team2.jpg" alt="" class="img-fluid rounded-circle">
-                                        </figure>
-                                        <ul class="list-inline my-auto">
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    tom wilson
-                                                </a>
-
-                                            </li>
-
-                                        </ul>
-                                        <ul class="list-inline my-auto ml-auto">
-                                            <li class="list-inline-item">
-                                                <a href="#" class="btn btn-sm"
-                                                    style="background-color: #11572E; color: #fff;"><small
-                                                        class="text-white ">read more <i
-                                                            class="fa fa-angle-right ml-1"></i></small></a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
+                                    <!-- END BLOG -->
                                 </div>
-                                <!-- END BLOG -->
                             </div>
-                        </div>
+                        @endforeach
                         <div class="col-md-6 col-lg-6 ">
                             <div class="blog__grid mt-0">
                                 <!-- BLOG  -->
@@ -142,7 +125,7 @@
                                     </div>
                                     <div class="card__image-body">
                                         <!-- <span class="badge badge-secondary p-1 text-capitalize mb-3">Dec 09, 2024
-                                            </span> -->
+                                                    </span> -->
                                         <h6 class="text-capitalize">
                                             where to invest in real estate
                                         </h6>
@@ -188,13 +171,12 @@
                                 <!-- BLOG  -->
                                 <div class="card__image">
                                     <div class="card__image-header h-250">
-                                        <img src="images/apart4.jpg" alt=""
-                                            class="img-fluid w100 img-transition">
+                                        <img src="images/apart4.jpg" alt="" class="img-fluid w100 img-transition">
                                         <div class="info"> event</div>
                                     </div>
                                     <div class="card__image-body">
                                         <!-- <span class="badge badge-secondary p-1 text-capitalize mb-3">Dec 09, 2024
-                                            </span> -->
+                                                    </span> -->
                                         <h6 class="text-capitalize">
                                             Happy family with new house
                                         </h6>
@@ -237,246 +219,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="blog__grid">
-                                <!-- BLOG  -->
-                                <div class="card__image">
-                                    <div class="card__image-header h-250">
-                                        <img src="images/apart2.jpg" alt=""
-                                            class="img-fluid w100 img-transition">
-                                        <div class="info"> event</div>
-                                    </div>
-                                    <div class="card__image-body">
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-3">Dec 09, 2024
-                                        </span>
-                                        <h6 class="text-capitalize">
-                                            we are ready to give the keys
-                                        </h6>
-                                        <p class=" mb-0">
-                                            Real estate festival is one of the famous feval for explain to you how all
-                                            this mistaolt deand praising pain
-                                            wasnad I will give complete
-
-                                        </p>
-
-
-                                    </div>
-                                    <div class="card__image-footer">
-                                        <figure>
-                                            <img src="images/team2.jpg" alt="" class="img-fluid rounded-circle">
-                                        </figure>
-                                        <ul class="list-inline my-auto">
-                                            <li class="list-inline-item">
-
-                                                <a href="#">
-                                                    tom wilson
-                                                </a>
-
-
-                                            </li>
-
-                                        </ul>
-                                        <ul class="list-inline my-auto ml-auto">
-                                            <li class="list-inline-item">
-                                                <a href="#" class="btn btn-sm "
-                                                    style="background-color: #11572E; color: #fff;"><small
-                                                        class="text-white ">read more <i
-                                                            class="fa fa-angle-right ml-1"></i></small></a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- END BLOG -->
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-                            <div class="blog__grid">
-                                <!-- BLOG  -->
-                                <div class="card__image">
-                                    <div class="card__image-header h-250">
-                                        <img src="images/apart6.jpg" alt=""
-                                            class="img-fluid w100 img-transition">
-                                        <div class="info"> event</div>
-                                    </div>
-                                    <div class="card__image-body">
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-3">Dec 09, 2024
-                                        </span>
-                                        <h6 class="text-capitalize">
-                                            New property for you
-                                        </h6>
-                                        <p class=" mb-0">
-                                            Real estate festival is one of the famous feval for explain to you how all
-                                            this mistaolt deand praising pain
-                                            wasnad I will give complete
-
-                                        </p>
-
-
-                                    </div>
-                                    <div class="card__image-footer">
-                                        <figure>
-                                            <img src="images/team1.jpg" alt="" class="img-fluid rounded-circle">
-                                        </figure>
-                                        <ul class="list-inline my-auto">
-                                            <li class="list-inline-item">
-
-                                                <a href="#">
-                                                    tom wilson
-                                                </a>
-
-
-                                            </li>
-
-                                        </ul>
-                                        <ul class="list-inline my-auto ml-auto">
-                                            <li class="list-inline-item">
-                                                <a href="#" class="btn btn-sm"
-                                                    style="background-color: #11572E; color: #fff;"><small
-                                                        class="text-white ">read more <i
-                                                            class="fa fa-angle-right ml-1"></i></small></a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- END BLOG -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <div class="blog__grid">
-                                <!-- BLOG  -->
-                                <div class="card__image">
-                                    <div class="card__image-header h-250">
-                                        <img src="images/apart7.jpg" alt=""
-                                            class="img-fluid w100 img-transition">
-                                        <div class="info"> event</div>
-                                    </div>
-                                    <div class="card__image-body">
-                                        <!-- <span class="badge badge-secondary p-1 text-capitalize mb-3">Dec 09, 2024
-                                            </span> -->
-                                        <h6 class="text-capitalize">
-                                            tips & trick in real estate
-                                        </h6>
-                                        <p class=" mb-0">
-                                            Real estate festival is one of the famous feval for explain to you how all
-                                            this mistaolt deand praising pain
-                                            wasnad I will give complete
-
-                                        </p>
-
-
-                                    </div>
-                                    <div class="card__image-footer">
-                                        <figure>
-                                            <img src="images/team1.jpg" alt="" class="img-fluid rounded-circle">
-                                        </figure>
-                                        <ul class="list-inline my-auto">
-                                            <li class="list-inline-item">
-
-                                                <a href="#">
-                                                    tom wilson
-                                                </a>
-
-
-                                            </li>
-
-                                        </ul>
-                                        <ul class="list-inline my-auto ml-auto">
-                                            <li class="list-inline-item">
-                                                <a href="#" class="btn btn-sm"
-                                                    style="background-color: #11572E; color: #fff;"><small
-                                                        class="text-white ">read more <i
-                                                            class="fa fa-angle-right ml-1"></i></small></a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- END BLOG -->
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6">
-                            <div class="blog__grid">
-                                <!-- BLOG  -->
-                                <div class="card__image">
-                                    <div class="card__image-header h-250">
-                                        <img src="images/apart3.jpg" alt=""
-                                            class="img-fluid w100 img-transition">
-                                        <div class="info"> event</div>
-                                    </div>
-                                    <div class="card__image-body">
-                                        <!-- <span class="badge badge-secondary p-1 text-capitalize mb-3">Dec 09, 2024
-                                            </span> -->
-                                        <h6 class="text-capitalize">
-                                            find dream house with us
-                                        </h6>
-                                        <p class=" mb-0">
-                                            Real estate festival is one of the famous feval for explain to you how all
-                                            this mistaolt deand praising pain
-                                            wasnad I will give complete
-
-                                        </p>
-
-
-                                    </div>
-                                    <div class="card__image-footer">
-                                        <figure>
-                                            <img src="images/team2.jpg" alt="" class="img-fluid rounded-circle">
-                                        </figure>
-                                        <ul class="list-inline my-auto">
-                                            <li class="list-inline-item">
-
-                                                <a href="#">
-                                                    tom wilson
-                                                </a>
-
-
-                                            </li>
-
-                                        </ul>
-                                        <ul class="list-inline my-auto ml-auto">
-                                            <li class="list-inline-item">
-                                                <a href="#" class="btn btn-sm "
-                                                    style="background-color: #11572E; color: #fff;"><small
-                                                        class="text-white ">read more <i
-                                                            class="fa fa-angle-right ml-1"></i></small></a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- END BLOG -->
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- END BLOG  -->
 
                 <!-- WIDGET BLOG -->
                 <div class="col-lg-4">
                     <div class="sticky-top">
-                        <aside>
-                            <div class="widget__sidebar mt-0">
-                                <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">search</h6>
-                                </div>
-                                <div class="widget__sidebar__body">
-                                    <div class="input-group">
-                                        <input type="text" name="search_term_string" class="form-control"
-                                            placeholder="Search article . . .">
-                                        <span class="input-group-btn">
-                                            <button type="submit" class="btn-search btn"><i
-                                                    class="fa fa-search"></i></button>
-                                        </span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </aside>
                         <aside>
                             <div class="widget__sidebar">
                                 <div class="widget__sidebar__header">
@@ -523,76 +271,6 @@
                                     </ul>
                                 </div>
 
-                            </div>
-                        </aside>
-                        <aside>
-                            <div class="widget__sidebar">
-                                <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">recents news</h6>
-                                </div>
-                                <div class="widget__sidebar__body">
-                                    <!-- ONE -->
-                                    <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
-                                        <div class="widget__sidebar__body-heading">
-                                            <h6 class="text-capitalize">
-                                                tips memilih rumah bagi kelurga muda
-                                            </h6>
-                                        </div>
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-1">Dec 09, 2024 </span>
-                                    </div>
-                                    <!-- TWO -->
-                                    <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
-
-                                        <div class="widget__sidebar__body-heading">
-                                            <h6 class="text-capitalize">
-                                                tips memilih rumah bagi kelurga muda
-                                            </h6>
-
-                                        </div>
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-1">Dec 09, 2024
-                                        </span>
-                                    </div>
-                                    <!-- THREE -->
-                                    <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
-
-                                        <div class="widget__sidebar__body-heading">
-                                            <h6 class="text-capitalize">
-                                                twe are experience more than 10 years
-                                            </h6>
-
-                                        </div>
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-1">Dec 09, 2024
-                                        </span>
-                                    </div>
-                                    <!-- FOUR -->
-                                    <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
-
-                                        <div class="widget__sidebar__body-heading">
-                                            <h6 class="text-capitalize">
-                                                tips & trick in real estate
-                                            </h6>
-
-                                        </div>
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-1">Dec 09, 2024
-                                        </span>
-                                    </div>
-
-                                    <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
-
-                                        <div class="widget__sidebar__body-heading">
-                                            <h6 class="text-capitalize">
-                                                how buy real estate dream house
-                                            </h6>
-                                        </div>
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-1">Dec 09, 2024
-                                        </span>
-                                    </div>
-                                </div>
                             </div>
                         </aside>
                         <aside>

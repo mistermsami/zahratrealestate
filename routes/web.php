@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Agents;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
     return view('index');
@@ -19,12 +20,7 @@ Route::get('/login', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-Route::get('/blog-single', function () {
-    return view('blog-single');
-})->name('blog-single');
-Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');
+
 
 //Agent
 Route::get('/agent', [Agents::class, 'index'])->name('agent');
@@ -55,3 +51,14 @@ Route::get('/about-us', function () {
 // Route::get('/register', function () {
 //     return view('register');
 // });
+
+
+//Blog
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blogDetail/{id}/blog', [BlogController::class, 'blogDetail'])->name('blogDetail');
+// Route::get('/blog', function () {
+//     return view('blog');
+// })->name('blog');
+// Route::get('/blog-single', function () {
+//     return view('blog-single');
+// })->name('blog-single');

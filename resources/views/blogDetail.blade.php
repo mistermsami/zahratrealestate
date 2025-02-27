@@ -30,85 +30,90 @@
                 <div class="col-lg-8">
                     <div class="single__blog-detail">
                         <h1>
-                            Tips And Tricks To Have Your Dream Home At A Low Cost
+                            {{ $blog->title }}
                         </h1>
 
                         <div class="single__blog-detail-info">
                             <ul class="list-inline">
-                                <li class="list-inline-item">
+                                {{-- <li class="list-inline-item">
                                     <figure class="image-profile">
-                                        <img src="images/eight.jpg" class="img-fluid" alt="">
+                                        <img src="{{asset('images/eight.jpg')}}" class="img-fluid" alt="">
                                     </figure>
-                                </li>
+                                </li> --}}
                                 <li class="list-inline-item">
 
                                     <span>
-                                        by
+                                        Posted on:
                                     </span>
-                                    <a href="#">
-                                       Meerab,
-                                    </a>
                                 </li>
                                 <li class="list-inline-item">
                                     <span class="text-dark text-capitalize ml-1">
-                                        descember 09, 2024
+                                        {{ $blog->created_at }}
                                     </span>
-                                </li>
-
-                                <li class="list-inline-item">
-                                    <span class="text-dark text-capitalize ml-1">
-                                        in
-                                    </span>
-                                    <a href="#">
-                                        business
-                                    </a>
                                 </li>
                             </ul>
                         </div>
                         <figure>
-                            <img src="images/c2.jpg" class="img-fluid" alt="">
+                            <img src="{{asset('images/c2.jpg')}}" class="img-fluid" style="width: 100%" alt="">
+                            {{-- <img src="blog_imgs/{{$blog->image_path1}}" class="img-fluid" alt=""> --}}
                         </figure>
 
-                        <p class="drop-cap">
-                            The European languages are members of the same family. Their separate existence is a myth.
-                            For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                            in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                            new common language would be desirable: one could refuse to pay expensive translators.
-                        </p>
-
-
-                        <p>
-                            To achieve this, it would be necessary to have uniform grammar, pronunciation and more
-                            common
-                            words. If several languages coalesce, the grammar of the resulting language is more simple
-                            and
-                            regular than that of the individual languages. The new common language will be more simple
-                            and
-                            regular than the existing European languages. It will be as simple as Occidental; in fact,
-                            it
-                            will be Occidental. To an English person, it will seem like simplified English, as a
-                            skeptical
-                            Cambridge friend of mine told me what Occidental is.
+                        <p class="drop-cap" style="text-align: justify;">
+                            {{$blog->description1}}
                         </p>
 
                         <!-- BLOCKQUOTE -->
                         <blockquote class="block-quote">
                             <p>
-                                It is a long established fact that a reader will be distracted by the readable content
-                                of a page when looking at
-                                its layout.
+                                {{ $blog->qoute1 }}
                             </p>
-                            <cite>
-                                Madar
-                            </cite>
                         </blockquote>
                         <!-- END BLOCKQUOTE -->
 
-                        <p>
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                            there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                            Semantics, a large language ocean. A small river named Duden flows by their place and
-                            supplies it with the necessary regelialia.
+                        <p style="text-align: justify;">
+                            {{ $blog->description11 }}
+                        </p>
+                        <br>
+                        <figure class="">
+                            <img src="{{asset('images/c2.jpg')}}" class="img-fluid" style="width: 100%" alt="">
+                            {{-- <img src="blog_imgs/{{$blog->image_path2}}" class="img-fluid" alt=""> --}}
+                        </figure>
+
+                        <p class="" style="text-align: justify;">
+                            {{$blog->description2}}
+                        </p>
+
+                        <!-- BLOCKQUOTE -->
+                        <blockquote class="block-quote">
+                            <p>
+                                {{ $blog->qoute2 }}
+                            </p>
+                        </blockquote>
+                        <!-- END BLOCKQUOTE -->
+
+                        <p style="text-align: justify;">
+                            {{ $blog->description22 }}
+                        </p>
+                        <br>
+                        <figure class="">
+                            <img src="{{asset('images/c2.jpg')}}" class="img-fluid" style="width: 100%" alt="">
+                            {{-- <img src="blog_imgs/{{$blog->image_path3}}" class="img-fluid" alt=""> --}}
+                        </figure>
+
+                        <p class="" style="text-align: justify;">
+                            {{$blog->description3}}
+                        </p>
+
+                        <!-- BLOCKQUOTE -->
+                        <blockquote class="block-quote">
+                            <p>
+                                {{ $blog->qoute3 }}
+                            </p>
+                        </blockquote>
+                        <!-- END BLOCKQUOTE -->
+
+                        <p style="text-align: justify;">
+                            {{ $blog->description33 }}
                         </p>
 
 
@@ -149,70 +154,9 @@
                         <!-- END TAGS -->
 
                         <!-- AUTHOR -->
-                        <!-- Profile author -->
-                        <div class="wrap__profile">
-                            <div class="wrap__profile-author">
-                                <figure>
-                                    <img src="images/yman.jpg" alt="" class="img-fluid img-circle">
-                                </figure>
-                                <div class="wrap__profile-author-detail">
-                                    <div class="wrap__profile-author-detail-name">author</div>
-                                    <h5>Madar</h5>
-                                    <p>Hi, nice to meet you let me introduce for you, I am Haider freelancer designer
-                                        & web programmer from
-                                        indonesia,
-                                        base lampung</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a href="#" class="btn btn-social btn-social-o facebook ">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#" class="btn btn-social btn-social-o twitter ">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#" class="btn btn-social btn-social-o instagram ">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#" class="btn btn-social btn-social-o telegram ">
-                                                <i class="fa fa-telegram"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#" class="btn btn-social btn-social-o linkedin ">
-                                                <i class="fa fa-linkedin"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END AUTHOR -->
 
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="single_navigation-prev">
-                                    <a href="#">
-                                        <span>previous post</span>
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, similique.
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="single_navigation-next text-left text-md-right">
-                                    <a href="#">
-                                        <span>next post</span>
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, nesciunt.
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="clearfix"></div>
 
                         <!-- COMMENTS -->
@@ -342,24 +286,6 @@
                 <div class="col-lg-4">
                     <div class="sticky-top">
                         <aside>
-                            <div class="widget__sidebar mt-0">
-                                <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">search</h6>
-                                </div>
-                                <div class="widget__sidebar__body">
-                                    <div class="input-group">
-                                        <input type="text" name="search_term_string" class="form-control"
-                                            placeholder="Search article . . .">
-                                        <span class="input-group-btn">
-                                            <button type="submit" class="btn-search btn"><i
-                                                    class="fa fa-search"></i></button>
-                                        </span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </aside>
-                        <aside>
                             <div class="widget__sidebar">
                                 <div class="widget__sidebar__header">
                                     <h6 class="text-capitalize">category</h6>
@@ -405,77 +331,6 @@
                                     </ul>
                                 </div>
 
-                            </div>
-                        </aside>
-                        <aside>
-                            <div class="widget__sidebar">
-                                <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">recents news</h6>
-                                </div>
-                                <div class="widget__sidebar__body">
-                                    <!-- ONE -->
-                                    <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
-                                        <div class="widget__sidebar__body-heading">
-                                            <h6 class="text-capitalize">
-                                                tips memilih rumah bagi kelurga muda
-                                            </h6>
-                                        </div>
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-1">Dec 09, 2024
-                                        </span>
-                                    </div>
-                                    <!-- TWO -->
-                                    <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
-
-                                        <div class="widget__sidebar__body-heading">
-                                            <h6 class="text-capitalize">
-                                                tips memilih rumah bagi kelurga muda
-                                            </h6>
-
-                                        </div>
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-1">Dec 09, 2024
-                                        </span>
-                                    </div>
-                                    <!-- THREE -->
-                                    <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
-
-                                        <div class="widget__sidebar__body-heading">
-                                            <h6 class="text-capitalize">
-                                                twe are experience more than 10 years
-                                            </h6>
-
-                                        </div>
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-1">Dec 09, 2024
-                                        </span>
-                                    </div>
-                                    <!-- FOUR -->
-                                    <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
-
-                                        <div class="widget__sidebar__body-heading">
-                                            <h6 class="text-capitalize">
-                                                tips & trick in real estate
-                                            </h6>
-
-                                        </div>
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-1">Dec 09, 2024
-                                        </span>
-                                    </div>
-
-                                    <div class="widget__sidebar__body-img">
-                                        <img src="images/500x400.jpg" alt="" class="img-fluid">
-
-                                        <div class="widget__sidebar__body-heading">
-                                            <h6 class="text-capitalize">
-                                                how buy real estate dream house
-                                            </h6>
-                                        </div>
-                                        <span class="badge badge-secondary p-1 text-capitalize mb-1">Dec 09, 2024
-                                        </span>
-                                    </div>
-                                </div>
                             </div>
                         </aside>
                         <aside>
