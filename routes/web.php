@@ -13,17 +13,17 @@ use Illuminate\Support\Facades\App;
 //     return redirect()->back(); // Redirect back after switching
 // })->where('locale', 'en|ar'); // Allow only 'en' or 'ar'
 
-Route::get('/switch-language/{lang}', function ($lang) {
-    if (!in_array($lang, ['en', 'ar'])) {
-        abort(400); // Invalid language
-    }
+// Route::get('/switch-language/{lang}', function ($lang) {
+//     if (!in_array($lang, ['en', 'ar'])) {
+//         abort(400); // Invalid language
+//     }
 
-    // Store the selected language in session
-    Session::put('locale', $lang);
-    App::setLocale($lang);
+//     // Store the selected language in session
+//     Session::put('locale', $lang);
+//     App::setLocale($lang);
 
-    return redirect()->back(); // Redirect back to the previous page
-})->name('switch.language');
+//     return redirect()->back(); // Redirect back to the previous page
+// })->name('switch.language');
 
 
 Route::get('/', function () {

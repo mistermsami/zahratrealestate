@@ -40,13 +40,13 @@
             </button>
             <div class="collapse navbar-collapse" id="main_nav99">
                 <ul class="navbar-nav mx-auto">
-                    {{-- <li class="nav-item"><a class="nav-link active" href="{{route('/')}}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{route('/')}}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('propertylistings')}}">Property Listing</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('agent')}}">Agents</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('blog')}}">Blogs</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('about-us')}}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li> --}}
-                    <li class="nav-item"><a class="nav-link"
+                    <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li>
+                    {{-- <li class="nav-item"><a class="nav-link"
                             href="{{ url('/' . App::getLocale()) }}">{{ __('messages.home') }}</a></li>
                     <li class="nav-item"><a class="nav-link"
                             href="{{ url('/' . App::getLocale() . '/propertylistings') }}">{{ __('messages.property_listings') }}</a>
@@ -59,7 +59,7 @@
                             href="{{ url('/' . App::getLocale() . '/about-us') }}">{{ __('messages.about') }}</a></li>
                     <li class="nav-item"><a class="nav-link"
                             href="{{ url('/' . App::getLocale() . '/contact') }}">{{ __('messages.contact') }}</a>
-                    </li>
+                    </li> --}}
 
                 </ul>
                 <ul class="navbar-nav ">
@@ -93,7 +93,7 @@
                             <span id="langText">{{ App::getLocale() === 'en' ? 'AR' : 'EN' }}</span>
                         </a>
                     </button> --}}
-                    @php
+                    {{-- @php
                         $currentLocale = App::getLocale();
                         $newLocale = $currentLocale === 'en' ? 'ar' : 'en';
                     @endphp
@@ -102,7 +102,7 @@
                         <a href="{{ route('switch.language', $newLocale) }}">
                             <span id="langText">{{ $currentLocale === 'en' ? 'AR' : 'EN' }}</span>
                         </a>
-                    </button>
+                    </button> --}}
 
 
                 </ul>
