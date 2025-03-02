@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ App::getLocale() }}">
 
 <head>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     <meta name="author" content="mardianto - retenvi.com"> -->
 
 
-    <link rel="stylesheet" href="{{asset('css/faq.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <title>@yield('pagename') - Zahrat Alshamal Real Estate</title>
@@ -22,7 +22,7 @@
     <!-- favicon.ico in the root directory -->
     <link rel="apple-touch-icon" href="icon.png">
     <meta name="theme-color" content="#3454d1">
-    <link href="{{asset('css/styles.css?fd365619e86ad9137a29')}}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css?fd365619e86ad9137a29') }}" rel="stylesheet">
 
 </head>
 
@@ -33,33 +33,49 @@
     <nav class="navbar navbar-hover navbar-expand-lg navbar-soft">
         <div class="container">
             <a class="navbar-brand" href="#" style="padding: 0;">
-                <img src="{{asset('images/zrs_logo_simple-0.png')}}" alt="" style="width: 80px;">
+                <img src="{{ asset('images/zrs_logo_simple-0.png') }}" alt="" style="width: 80px;">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav99">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="main_nav99">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="{{route('/')}}">Home</a></li>
+                    {{-- <li class="nav-item"><a class="nav-link active" href="{{route('/')}}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('propertylistings')}}">Property Listing</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('agent')}}">Agents</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('blog')}}">Blogs</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('about-us')}}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li> --}}
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ url('/' . App::getLocale()) }}">{{ __('messages.home') }}</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ url('/' . App::getLocale() . '/propertylistings') }}">{{ __('messages.property_listings') }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ url('/' . App::getLocale() . '/agents') }}">{{ __('messages.agents') }}</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ url('/' . App::getLocale() . '/blog') }}">{{ __('messages.blogs') }}</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ url('/' . App::getLocale() . '/about-us') }}">{{ __('messages.about') }}</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ url('/' . App::getLocale() . '/contact') }}">{{ __('messages.contact') }}</a>
+                    </li>
+
                 </ul>
                 <ul class="navbar-nav ">
                     <li>
-                        <a href="{{route('add-property')}}" class="btn text-capitalize"
+                        <a href="{{ route('add-property') }}" class="btn text-capitalize"
                             style="background-color: #11572E; color: #fff;">
                             <i class="fa fa-plus-circle mr-1"></i> Add Property
                         </a>
                     </li>
                     <li class="navbar-nav">
-                        <a href="{{route('login')}}" class="lang-btn" style=" text-decoration: none; color: #11572E;">
+                        <a href="{{ route('login') }}" class="lang-btn"
+                            style=" text-decoration: none; color: #11572E;">
                             Sign In
                         </a>
                     </li>
-                    <li class="navbar-nav">
+                    {{-- <li class="navbar-nav">
                         <button id="langToggle" class="lang-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="10" fill="none" stroke="#11572E"
@@ -71,7 +87,22 @@
                             </svg>
                             <span id="langText">EN</span>
                         </button>
-                    </li>
+                    </li> --}}
+                    {{-- <button id="langToggle" class="lang-btn">
+                        <a href="{{ url(App::getLocale() === 'en' ? '/ar' : '/en') }}">
+                            <span id="langText">{{ App::getLocale() === 'en' ? 'AR' : 'EN' }}</span>
+                        </a>
+                    </button> --}}
+                    @php
+                        $currentLocale = App::getLocale();
+                        $newLocale = $currentLocale === 'en' ? 'ar' : 'en';
+                    @endphp
+
+                    <button id="langToggle" class="lang-btn">
+                        <a href="{{ route('switch.language', $newLocale) }}">
+                            <span id="langText">{{ $currentLocale === 'en' ? 'AR' : 'EN' }}</span>
+                        </a>
+                    </button>
 
 
                 </ul>
@@ -93,7 +124,7 @@
                     <div class="col-md-4">
                         <div class="widget__footer">
                             <figure>
-                                <img src="{{asset('images/1ftlogo.png')}}" alt="" class="logo-footer">
+                                <img src="{{ asset('images/1ftlogo.png') }}" alt="" class="logo-footer">
                             </figure>
                             <!-- <p>
                                 Zahrat Alshamal Real Estate is a trusted name in the property market, offering expert services for buying, selling, and investing in real estate. Our team is dedicated to providing reliable solutions with a focus on customer satisfaction and integrity.
@@ -226,8 +257,15 @@
     <!-- SCROLL TO TOP -->
     <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
     <!-- END SCROLL TO TOP -->
-    <script src="{{asset('js/index.bundle.js?fd365619e86ad9137a29')}}"></script>
-    <script src="{{asset('js/faq.js')}}"></script>
+    <!-- Default Scripts -->
+    {{-- @push('scripts')
+    <script src="{{ asset('js/index.bundle.js?fd365619e86ad9137a29') }}"></script>
+    <script src="{{ asset('js/faq.js') }}"></script>
+@endpush --}}
+    @if (!in_array(Route::currentRouteName(), ['propertylistings']))
+        <script src="{{ asset('js/index.bundle.js?fd365619e86ad9137a29') }}"></script>
+        <script src="{{ asset('js/faq.js') }}"></script>
+    @endif
 </body>
 
 </html>

@@ -4,10 +4,34 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Agents;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\BlogController;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\App;
+
+// Route::get('/{locale}', function ($locale) {
+//     session(['locale' => $locale]); // Store locale in session
+//     return redirect()->back(); // Redirect back after switching
+// })->where('locale', 'en|ar'); // Allow only 'en' or 'ar'
+
+Route::get('/switch-language/{lang}', function ($lang) {
+    if (!in_array($lang, ['en', 'ar'])) {
+        abort(400); // Invalid language
+    }
+
+    // Store the selected language in session
+    Session::put('locale', $lang);
+    App::setLocale($lang);
+
+    return redirect()->back(); // Redirect back to the previous page
+})->name('switch.language');
+
 
 Route::get('/', function () {
     return view('index');
 })->name('/');
+Route::get('/test', function () {
+    return view('test');
+})->name('/test');
 Route::get('/register', function () {
     return view('register');
 })->name('register');

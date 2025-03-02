@@ -17,8 +17,8 @@ class PropertyController extends Controller
     }
 
     public function propertylistings(){
-        $listings = ListingDetail::with(['agent', 'city', 'area', 'propertyType', 'propertyFeatures', 'propertyDetails', 'slug', 'images'])->get();
+        // $listings = ListingDetail::with(['agent', 'city', 'area', 'propertyType', 'propertyFeatures', 'propertyDetails', 'slug', 'images'])->get();
 
-        return view('propertylistings', compact('listings'));
+        return view('propertylistings');
     }
 }
