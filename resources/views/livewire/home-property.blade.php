@@ -29,6 +29,7 @@
         </div>
         <div class="row">
             <div class="filtr-container">
+                <h1>{{ $translatedText}}</h1>
                 @foreach ($listings as $listing)
                     <div class="col-md-6 col-lg-4 filtr-item" data-category="2, 4" data-title="">
                         <a href="{{route('propertyDetail', $listing->slug->slug)}}">

@@ -4,31 +4,25 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Agents;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\LangController;
+use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\App;
 
-// Route::get('/{locale}', function ($locale) {
-//     session(['locale' => $locale]); // Store locale in session
-//     return redirect()->back(); // Redirect back after switching
-// })->where('locale', 'en|ar'); // Allow only 'en' or 'ar'
+// Group routes with an optional locale prefix.
+// The regex 'en|ar' ensures only these locales are accepted.
+Route::group(['prefix' => '{locale?}', 'where' => ['locale' => 'en|ar']], function () {
 
-// Route::get('/switch-language/{lang}', function ($lang) {
-//     if (!in_array($lang, ['en', 'ar'])) {
-//         abort(400); // Invalid language
-//     }
+Route::get('/', [homeController::class, 'index'])->name('/');
+Route::get('/ab', [homeController::class, 'langtestt'])->name('/ab');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('/');
+});
+// Optional: A dedicated route to switch language manually.
+Route::get('lang/{locale}', [LangController::class, 'switchLang'])->name('lang.switch');
 
-//     // Store the selected language in session
-//     Session::put('locale', $lang);
-//     App::setLocale($lang);
-
-//     return redirect()->back(); // Redirect back to the previous page
-// })->name('switch.language');
-
-
-Route::get('/', function () {
-    return view('index');
-})->name('/');
 Route::get('/test', function () {
     return view('test');
 })->name('/test');

@@ -103,6 +103,10 @@
                             <span id="langText">{{ $currentLocale === 'en' ? 'AR' : 'EN' }}</span>
                         </a>
                     </button> --}}
+                    <div class="language-switcher">
+                        <a href="{{ route('lang.switch', ['locale' => 'en']) }}">English</a> |
+                        <a href="{{ route('lang.switch', ['locale' => 'ar']) }}">Arabic</a>
+                    </div>
 
 
                 </ul>
