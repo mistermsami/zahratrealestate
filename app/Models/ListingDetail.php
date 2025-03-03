@@ -30,10 +30,8 @@ class ListingDetail extends Model
     // Accessors for automatic translation
     public function getTittleAttribute($value)
 {
-    if (App::getLocale() !== 'en') {
-        return app(TranslationService::class)->translate($value, App::getLocale());
-    }
-    return $value;
+    dd($value); // Check if this is running
+    return App::getLocale() !== 'en' ? $this->translator->translate($value, App::getLocale()) : $value;
 }
 
 public function getListingForAttribute($value)
