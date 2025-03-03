@@ -23,7 +23,7 @@ class HomeProperty extends Component
     $text = "Hello, how are you?";
     $translatedText = $translator->translate($text, 'ar'); // Arabic Translation
 
-    dd($translatedText); // Debug: Check the output before returning the view
+    // dd($translatedText); // Debug: Check the output before returning the view
 
         return view('livewire.home-property', compact('listings', 'translatedText'));
     }
