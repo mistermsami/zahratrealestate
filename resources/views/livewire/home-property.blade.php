@@ -30,6 +30,17 @@
         <div class="row">
             <div class="filtr-container">
                 <h1>{{ $translatedText}}</h1>
+                @php
+                    $translator = new \App\Services\TranslationService();
+                    $translatedText = $translator->translate('Hello', 'ar');
+
+
+                    dd($translatedText); // Debug: Check the output before returning the view
+                    // foreach ($listings as $listing) {
+                    //     $listing->title = $this->translator->translate($listing->title, 'ar');
+                    //     $listing->description = $this->translator->translate($listing->description, 'ar');
+                    // }
+                @endphp
                 @foreach ($listings as $listing)
                     <div class="col-md-6 col-lg-4 filtr-item" data-category="2, 4" data-title="">
                         <a href="{{route('propertyDetail', $listing->slug->slug)}}">

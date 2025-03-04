@@ -23,11 +23,16 @@ class HomeProperty extends Component
         // $translator = app(TranslationService::class); // Get the translation service instance
         // $text = "Hello, how are you?";
         // $translatedText = $translator->translate($text, 'ar'); // Arabic Translation
-        $translator = new \App\Services\TranslationService();
-        $translatedText = $translator->translate('Hello', 'ar');
+        // $translator = new \App\Services\TranslationService();
+        // // $translatedText = $translator->translate('Hello', 'ar');
 
 
-        dd($translatedText); // Debug: Check the output before returning the view
+        // // dd($translatedText); // Debug: Check the output before returning the view
+        // foreach ($listings as $listing) {
+        //     $listing->title = $this->translator->translate($listing->title, 'ar');
+        //     $listing->description = $this->translator->translate($listing->description, 'ar');
+        // }
+
 
         // $text = "Hello, how are you?";
         // $translatedText = (new GoogleTranslate('ar'))->translate($text); // Direct translation
