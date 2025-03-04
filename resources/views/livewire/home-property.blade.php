@@ -47,11 +47,11 @@
                                     </div>
                                     <img src="images/apart4.jpg" alt="" class="img-fluid w100 img-transition">
                                     @php
-                                        $translatedText = App::getLocale() !== 'en'
+                                        $translatedText = App::getLocale() =='ar'
                                             ? $translator->translate($listing->listing_for, 'ar')
                                             : $listing->listing_for;
                                     @endphp
-                                    <div class="info" style="background-color: #11572E;">  {{ $translator->translate($listing->listing_for, 'ar')}}
+                                    <div class="info" style="background-color: #11572E;">  {{ $translator->translate($listing->listing_for, 'ar')}},{{$translatedText}}
                                     </div>
                                 </div>
                                 <div class="card__image-body">
