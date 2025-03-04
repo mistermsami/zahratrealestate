@@ -51,7 +51,7 @@
                                             ? $translator->translate($listing->listing_for, 'ar')
                                             : $listing->listing_for;
                                     @endphp
-                                    <div class="info" style="background-color: #11572E;">  {{ $translatedText}}
+                                    <div class="info" style="background-color: #11572E;">  {{ $translator->translate($listing->listing_for, 'ar')}}
                                     </div>
                                 </div>
                                 <div class="card__image-body">
