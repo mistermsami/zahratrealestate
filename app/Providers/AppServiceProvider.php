@@ -11,12 +11,12 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    public function register(): void
-{
-    $this->app->singleton(TranslationService::class, function ($app) {
-        return new TranslationService();
-    });
-}
+    public function register()
+    {
+        $this->app->singleton(TranslationService::class, function ($app) {
+            return new TranslationService();
+        });
+    }
 
     /**
      * Bootstrap any application services.
