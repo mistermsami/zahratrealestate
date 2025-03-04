@@ -47,7 +47,7 @@
                                         style="background-color: #11572E;">{{ $listing->propertyType->pt_name }}</span> --}}
                                     <h6 class="text-capitalize">
                                         {{-- {{ $listing->tittle }} --}}
-                                        {{ App::getLocale() !== 'en' ? app(App\Services\TranslationService::class)->translate($listing->tittle, App::getLocale()) : $listing->tittle }}
+                                        {{  app(App\Services\TranslationService::class)->translate($listing->tittle, App::getLocale()) }}
 
                                     </h6>
 
