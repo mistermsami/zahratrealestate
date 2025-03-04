@@ -30,13 +30,6 @@ class HomeProperty extends Component
         // $translatedText = (new GoogleTranslate('ar'))->translate($text); // Direct translation
 
         // dd($translatedText); // Check output
-        // If current locale is not 'en' (default), translate dynamic content.
-        if (App::getLocale() !== 'en') {
-            foreach ($listings as $listing) {
-                $listing->listing_for = $this->translator->translate($listing->listing_for, App::getLocale());
-                $listing->tittle = $this->translator->translate($listing->tittle, App::getLocale());
-            }
-        }
 
         return view('livewire.home-property', compact('listings', 'translatedText'));
     }
