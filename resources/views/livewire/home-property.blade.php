@@ -51,20 +51,20 @@
                                         $locale = App::getLocale() ?? 'en';
 
                                     // Translate only if the locale is Arabic
-                                        $translatedText = App::getLocale() =='ar'
+                                        $translatedText = App::getLocale() =='Ar'
                                             ? $translator->translate($listing->listing_for, 'ar')
                                             : $listing->listing_for;
                                     @endphp
 
                                     <div class="info" style="background-color: #11572E;">  {{ $translator->translate($listing->listing_for, 'ar')}},{{$translatedText}}
-                                        {{'this: '.App::getLocale() }}
+                                        {{'this: '.App::getLocale() }} {{session()->get('locale')}}
                                     </div>
                                 </div>
                                 <div class="card__image-body">
                                     {{-- <span class="badge badge-primary text-capitalize mb-2"
                                         style="background-color: #11572E;">{{ $listing->propertyType->pt_name }}</span> --}}
                                     <h6 class="text-capitalize">
-                                        {{ $listing->tittle }}
+                                        {{ $listing->tittle }} {{session()->get('locale')}}
                                     </h6>
 
                                     <p class="text-capitalize">
