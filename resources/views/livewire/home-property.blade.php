@@ -32,14 +32,10 @@
                 {{-- <h1>{{ $translatedText}}</h1> --}}
                 @php
                     $translator = new \App\Services\TranslationService();
-                    $translatedText = $translator->translate('Hello', 'ar');
+                    // $translatedText = $translator->translate('Hello', 'ar');
 
 
-                    dd($translatedText); // Debug: Check the output before returning the view
-                    // foreach ($listings as $listing) {
-                    //     $listing->title = $this->translator->translate($listing->title, 'ar');
-                    //     $listing->description = $this->translator->translate($listing->description, 'ar');
-                    // }
+                    // dd($translatedText);
                 @endphp
                 @foreach ($listings as $listing)
                     <div class="col-md-6 col-lg-4 filtr-item" data-category="2, 4" data-title="">
@@ -50,7 +46,12 @@
                                         style="background-color: goldenrod; color: black;">featured
                                     </div>
                                     <img src="images/apart4.jpg" alt="" class="img-fluid w100 img-transition">
-                                    <div class="info" style="background-color: #11572E;"> {{ $listing->listing_for }}
+                                    @php
+                                        $translatedText = App::getLocale() !== 'en'
+                                            ? $translator->translate($listing->listing_for, 'ar')
+                                            : $listing->listing_for;
+                                    @endphp
+                                    <div class="info" style="background-color: #11572E;">  {{ $translatedText}}
                                     </div>
                                 </div>
                                 <div class="card__image-body">
