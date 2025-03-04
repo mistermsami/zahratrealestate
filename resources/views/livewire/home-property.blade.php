@@ -49,10 +49,10 @@
                                         {{-- {{ $listing->tittle }} --}}
                                         {{-- {{ App::getLocale() !== 'en' ? app(App\Services\TranslationService::class)->translate($listing->tittle, App::getLocale()) : $listing->tittle }} --}}
                                         @php
-                                            $translator = app(App\Services\TranslationService::class);
+                                            $translator = app(Stichoza\GoogleTranslate\GoogleTranslate::class);
                                             $translatedTittle =
                                                 App::getLocale() !== 'en'
-                                                    ? $translator->translate($listing->tittle, App::getLocale())
+                                                    ? $translator->translate($listing->tittle)
                                                     : $listing->tittle;
                                         @endphp
 
