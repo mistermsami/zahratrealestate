@@ -46,7 +46,9 @@
                                     {{-- <span class="badge badge-primary text-capitalize mb-2"
                                         style="background-color: #11572E;">{{ $listing->propertyType->pt_name }}</span> --}}
                                     <h6 class="text-capitalize">
-                                        {{ $listing->tittle }}
+                                        {{-- {{ $listing->tittle }} --}}
+                                        {{ App::getLocale() !== 'en' ? app(App\Services\TranslationService::class)->translate($listing->tittle, App::getLocale()) : $listing->tittle }}
+
                                     </h6>
 
                                     <p class="text-capitalize">
