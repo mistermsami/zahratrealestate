@@ -55,9 +55,10 @@
                                             ? $translator->translate($listing->listing_for, 'ar')
                                             : $listing->listing_for;
                                     @endphp
+
                                     <div class="info" style="background-color: #11572E;">  {{ $translator->translate($listing->listing_for, 'ar')}},{{$translatedText}}
+                                        {{'this: '.App::getLocale() }}
                                     </div>
-                                    {{ App::getLocale() }}
                                 </div>
                                 <div class="card__image-body">
                                     {{-- <span class="badge badge-primary text-capitalize mb-2"
