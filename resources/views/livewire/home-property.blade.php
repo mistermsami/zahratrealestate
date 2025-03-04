@@ -47,11 +47,9 @@
                                     </div>
                                     <img src="images/apart4.jpg" alt="" class="img-fluid w100 img-transition">
                                     @php
-                                        // Default locale is 'en'
-                                        $locale = App::getLocale() ?? 'en';
 
                                     // Translate only if the locale is Arabic
-                                        $translatedText = App::getLocale() =='Ar'
+                                        $translatedText = session()->get('locale') =='Ar'
                                             ? $translator->translate($listing->listing_for, 'ar')
                                             : $listing->listing_for;
                                     @endphp
