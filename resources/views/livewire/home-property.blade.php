@@ -29,10 +29,10 @@
         </div>
         <div class="row">
             <div class="filtr-container">
-                {{-- <h1>{{ $translatedText}}</h1> --}}
+                <h1>{{ $translatedText}}</h1>
                 @foreach ($listings as $listing)
                     <div class="col-md-6 col-lg-4 filtr-item" data-category="2, 4" data-title="">
-                        <a href="{{ route('propertyDetail', $listing->slug->slug) }}">
+                        <a href="{{route('propertyDetail', $listing->slug->slug)}}">
                             <div class="card__image card__box-v1">
                                 <div class="card__image-header h-250">
                                     <div class="ribbon text-capitalize"
@@ -46,19 +46,7 @@
                                     {{-- <span class="badge badge-primary text-capitalize mb-2"
                                         style="background-color: #11572E;">{{ $listing->propertyType->pt_name }}</span> --}}
                                     <h6 class="text-capitalize">
-                                        {{-- {{ $listing->tittle }} --}}
-                                        {{-- {{ App::getLocale() !== 'en' ? app(App\Services\TranslationService::class)->translate($listing->tittle, App::getLocale()) : $listing->tittle }} --}}
-                                        @php
-                                            $translator = app(Stichoza\GoogleTranslate\GoogleTranslate::class);
-                                            $translatedTittle =
-                                                App::getLocale() !== 'en'
-                                                    ? $translator->translate($listing->tittle)
-                                                    : $listing->tittle;
-                                        @endphp
-
-                                        <p>{{ $translatedTittle }}</p>
-
-
+                                        {{ $listing->tittle }}
                                     </h6>
 
                                     <p class="text-capitalize">
