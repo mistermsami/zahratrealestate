@@ -49,7 +49,7 @@
                                     @php
 
                                     // Translate only if the locale is Arabic
-                                        $translatedText = session()->get('locale') =='Ar'
+                                        $translatedText = session()->get('locale') =='ar'
                                             ? $translator->translate($listing->listing_for, 'ar')
                                             : $listing->listing_for;
                                     @endphp
