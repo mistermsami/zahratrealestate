@@ -29,7 +29,7 @@
         </div>
         <div class="row">
             <div class="filtr-container">
-                <h1>{{ $translatedText}}</h1>
+                {{-- <h1>{{ $translatedText}}</h1> --}}
                 @php
                     $translator = new \App\Services\TranslationService();
                     $translatedText = $translator->translate('Hello', 'ar');

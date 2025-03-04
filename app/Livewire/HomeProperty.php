@@ -39,6 +39,6 @@ class HomeProperty extends Component
 
         // dd($translatedText); // Check output
 
-        return view('livewire.home-property', compact('listings', 'translatedText'));
+        return view('livewire.home-property', compact('listings'));
     }
 }
