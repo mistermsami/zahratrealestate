@@ -1,6 +1,7 @@
 @extends('layout.layout')
 @php
 $pagename = 'Home';
+$translator = new \App\Services\TranslationService();
     if (session()->get('locale') == 'ar') {
         $txtpagename = $translator->translate($pagename, 'ar');
         $txtHerosliderheading1 = $translator->translate('The #1 place for commercial property', 'ar');
