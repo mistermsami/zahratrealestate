@@ -1,3 +1,35 @@
+@php
+$translator = new \App\Services\TranslationService();
+    if (session()->get('locale') == 'ar') {
+        $txtTitle = $translator->translate('Zahrat Alshamal Real Estate', 'ar');
+        $txtHome = $translator->translate('Home', 'ar');
+        $txtPropertylistings = $translator->translate('Property Listing', 'ar');
+        $txtAgenst = $translator->translate('Agents', 'ar');
+        $txtBlogs = $translator->translate('Blogs', 'ar');
+        $txtAbout = $translator->translate('About', 'ar');
+        $txtContact = $translator->translate('Contact', 'ar');
+        $txtAddproperty = $translator->translate('Add Property', 'ar');
+        $txtSignin = $translator->translate('Sign In', 'ar');
+        $txtAddress = $translator->translate('Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551', 'ar');
+        $txtPhone = $translator->translate('+97470816051', 'ar');
+        $txtTimings = $translator->translate('Mon - Sun / 9:00AM - 8:00PM', 'ar');
+        }
+        else
+        {
+        $txtTitle = 'Zahrat Alshamal Real Estate';
+        $txtHome = 'Home';
+        $txtPropertylistings = 'Property Listing';
+        $txtAgenst = 'Agents';
+        $txtBlogs = 'Blogs';
+        $txtAbout = 'About';
+        $txtContact = 'Contact';
+        $txtAddproperty = 'Add Property';
+        $txtSignin = 'Sign In';
+        $txtAddress = 'Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551';
+        $txtPhone = '+97470816051';
+        $txtTimings = 'Mon - Sun / 9:00AM - 8:00PM';
+        }
+@endphp
 <!DOCTYPE html>
 <html lang="{{ App::getLocale() }}">
 
@@ -13,7 +45,7 @@
     <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-    <title>@yield('pagename') - Zahrat Alshamal Real Estate</title>
+    <title>@yield('pagename') - {{$txtTitle}}</title>
 
     @yield('headtag')
 
@@ -40,12 +72,28 @@
             </button>
             <div class="collapse navbar-collapse" id="main_nav99">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="{{route('/')}}">Home</a></li>
+                    {{-- <li class="nav-item"><a class="nav-link active" href="{{route('/')}}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('propertylistings')}}">Property Listing</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('agent')}}">Agents</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('blog')}}">Blogs</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('about-us')}}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li> --}}
+
+                    <li class="nav-item"><a class="nav-link active"
+                            href="{{ route('/', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtHome}}</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ route('propertylistings', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtPropertylistings}}</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ route('agent', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtAgenst}}</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ route('blog', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtBlogs}}</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ route('about-us', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtAbout}}</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ route('contact', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtContact}}</a></li>
+
+
+
                     {{-- <li class="nav-item"><a class="nav-link"
                             href="{{ url('/' . App::getLocale()) }}">{{ __('messages.home') }}</a></li>
                     <li class="nav-item"><a class="nav-link"
@@ -66,17 +114,17 @@
                     <li>
                         <a href="{{ route('add-property') }}" class="btn text-capitalize"
                             style="background-color: #11572E; color: #fff;">
-                            <i class="fa fa-plus-circle mr-1"></i> Add Property
+                            <i class="fa fa-plus-circle mr-1"></i> {{ $txtAddproperty}}
                         </a>
                     </li>
                     <li class="navbar-nav">
                         <a href="{{ route('login') }}" class="lang-btn"
                             style=" text-decoration: none; color: #11572E;">
-                            Sign In
+                            {{ $txtSignin}}
                         </a>
                     </li>
-                    {{-- <li class="navbar-nav">
-                        <button id="langToggle" class="lang-btn">
+                    <li class="navbar-nav">
+                        <button  class="lang-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="10" fill="none" stroke="#11572E"
                                     stroke-width="2" />
@@ -85,9 +133,15 @@
                                 <line x1="2" y1="12" x2="22" y2="12" stroke="#11572E"
                                     stroke-width="2" />
                             </svg>
-                            <span id="langText">EN</span>
+                            <a href="{{ route('lang.switch', ['locale' => 'en']) }}" style="text-decoration: none; color: #11572E;">
+                                <span >EN</span>|
+                                </a>
+                            <a href="{{ route('lang.switch', ['locale' => 'ar']) }}" style="text-decoration: none; color: #11572E;">
+                                <span >AR</span>
+                                </a>
+                            {{-- <span id="langText" onclick="window.location.href='{{ route('lang.switch', ['locale' => 'ar']) }}">AR</span> --}}
                         </button>
-                    </li> --}}
+                    </li>
                     {{-- <button id="langToggle" class="lang-btn">
                         <a href="{{ url(App::getLocale() === 'en' ? '/ar' : '/en') }}">
                             <span id="langText">{{ App::getLocale() === 'en' ? 'AR' : 'EN' }}</span>
@@ -103,10 +157,10 @@
                             <span id="langText">{{ $currentLocale === 'en' ? 'AR' : 'EN' }}</span>
                         </a>
                     </button> --}}
-                    <div class="language-switcher">
-                        <a href="{{ route('lang.switch', ['locale' => 'en']) }}">English</a> |
+                    {{-- <div class="language-switcher">
+                        <a href="{{ route('lang.switch', ['locale' => 'en']) }}">EN</a> |
                         <a href="{{ route('lang.switch', ['locale' => 'ar']) }}">Arabic</a>
-                    </div>
+                    </div> --}}
 
 
                 </ul>
@@ -136,13 +190,10 @@
                             </p> -->
 
                             <ul class="list-unstyled mb-0 mt-1">
-                                <li> <b> <i class="fa fa-map-marker"></i></b><span>Address: Office 01, 4th Floor, Al
-                                        Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad
-
-                                        P.O. Box 31551</span> </li>
-                                <li> <b><i class="fa fa-phone-square"></i></b><span>+97470816051</span> </li>
+                                <li> <b> <i class="fa fa-map-marker"></i></b><span>{{ $txtAddress }}</span> </li>
+                                <li> <b><i class="fa fa-phone-square"></i></b><span>{{ $txtPhone }}</span> </li>
                                 <li> <b><i class="fa fa-headphones"></i></b><span>admin@zahratalshamal.com</span> </li>
-                                <li> <b><i class="fa fa-clock-o"></i></b><span>Mon - Sun / 9:00AM - 8:00PM</span> </li>
+                                <li> <b><i class="fa fa-clock-o"></i></b><span>{{ $txtTimings }}</span> </li>
                             </ul>
                         </div>
 

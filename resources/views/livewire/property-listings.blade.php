@@ -284,7 +284,7 @@
                                         <div class="row">
                                             @foreach ($listings as $listing)
                                                 <div class="col-md-4 col-lg-4">
-                                                    <a href="{{ route('propertyDetail', $listing->slug->slug) }}">
+                                                    <a href="{{ route('propertyDetail', ['slug' => $listing->slug->slug]) }}">
                                                         <div class="card__image card__box-v1">
                                                             <div class="card__image-header h-250">
                                                                 <div class="ribbon text-capitalize"
