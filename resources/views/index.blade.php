@@ -1,10 +1,49 @@
 @extends('layout.layout')
 @php
-    $pagename = 'Home';
+$pagename = 'Home';
+    if (session()->get('locale') == 'ar') {
+        $txtpagename = $translator->translate($pagename, 'ar');
+        $txtHerosliderheading1 = $translator->translate('The #1 place for commercial property', 'ar');
+        $txtHerosliderptag1 = $translator->translate('Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
+        recusandae', 'ar');
+        $txtHerosliderheading2 = $translator->translate('The #1 place for commercial property', 'ar');
+        $txtHerosliderptag2 = $translator->translate('Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
+        recusandae', 'ar');
+        $txtHerosliderheading3 = $translator->translate('The #1 place for commercial property', 'ar');
+        $txtHerosliderptag3 = $translator->translate('Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
+        recusandae', 'ar');
+        $txtcontactusbtn = $translator->translate('Contact Us', 'ar');
+        $txtScetion1heading = $translator->translate('Most Popular Places', 'ar');
+        $txtScetion1tagline = $translator->translate('find properties in these cities.', 'ar');
+        $txtScetion2heading = $translator->translate('Featured Properties', 'ar');
+        $txtScetion2tagline = $translator->translate('handpicked exclusive properties by our team.', 'ar');
+        $txtScetion3heading = $translator->translate('our partners', 'ar');
+        $txtScetion3tagline = $translator->translate('Brand Partners Successful Projects Trusted Many Clients Real Estate', 'ar');
+    } else {
+        $txtpagename = $pagename;
+        $txtHerosliderheading1 = 'The #1 place for commercial property';
+        $txtHerosliderptag1 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
+        recusandae';
+        $txtHerosliderheading2 = 'The #1 place for commercial property';
+        $txtHerosliderptag2 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
+        recusandae';
+        $txtHerosliderheading3 = 'The #1 place for commercial property';
+        $txtHerosliderptag3 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
+        recusandae';
+        $txtcontactusbtn = 'Contact Us';
+        $txtScetion1heading = 'Most Popular Places';
+        $txtScetion1tagline = 'find properties in these cities.';
+        $txtScetion2heading = 'Featured Properties';
+        $txtScetion2tagline = 'handpicked exclusive properties by our team.';
+        $txtScetion3heading = 'our partners';
+        $txtScetion3tagline = 'Brand Partners Successful Projects Trusted Many Clients Real Estate';
+    }
+
+
 @endphp
 
 @section('pagename')
-    {{ $pagename }}
+    {{ $txtpagename }}
 @endsection
 
 @section('headtag')
@@ -31,7 +70,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active banner-max-height">
-                        <img class="d-block w-100" src="images/pic1.jpg" alt="First slide">
+                        <img class="d-block w-100" src="{{asset('images/pic1.jpg')}}" alt="First slide">
                         <div class="carousel-caption banner__slide-overlay d-flex h-100">
                             <div class="carousel__content">
                                 <div class="container">
@@ -40,17 +79,16 @@
                                             <div class="slider__content-title ">
                                                 <h2 data-animation="fadeInDown" data-delay=".2s" data-duration="1000ms"
                                                     class="text-white animated fadeInDown">
-                                                    The #1 place for commercial
-                                                    property</h2>
+                                                    {{ $txtHerosliderheading1 }}
+                                                </h2>
                                                 <p data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms"
                                                     class="text-white animated fadeInUp">
 
-                                                    Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
-                                                    recusandae
+                                                    {{ $txtHerosliderptag1 }}
                                                 </p>
-                                                <a href="./contact.html" class="btn text-uppercase animated fadeInUp"
+                                                <a href="{{route('contact')}}" class="btn text-uppercase animated fadeInUp"
                                                     style="background-color: #11572E; border-color: #11572E; color: #fff;">
-                                                    Contact Us
+                                                    {{ $txtcontactusbtn }}
                                                     <i class="fa fa-angle-right arrow-btn"></i>
                                                 </a>
 
@@ -62,7 +100,7 @@
                         </div>
                     </div>
                     <div class="carousel-item banner-max-height">
-                        <img class="d-block w-100" src="images/pic2.jpg" alt="Second slide">
+                        <img class="d-block w-100" src="{{asset('images/pic2.jpg')}}" alt="Second slide">
                         <div class="carousel-caption banner__slide-overlay d-flex h-100">
                             <div class="carousel__content">
                                 <div class="container">
@@ -71,17 +109,16 @@
                                             <div class="slider__content-title ">
                                                 <h2 data-animation="animated fadeInDown"
                                                     class="text-white animated fadeInDown">
-                                                    The #1 place for commercial
-                                                    property</h2>
+                                                    {{ $txtHerosliderheading2 }}
+                                                    </h2>
                                                 <p data-animation="animated fadeInUp" class="text-white animated fadeInUp ">
 
-                                                    Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
-                                                    recusandae
+                                                    {{ $txtHerosliderptag2 }}
                                                 </p>
-                                                <a href="../PROPERTY/contact.html"
+                                                <a href="{{route('contact')}}"
                                                     class="btn text-uppercase animated fadeInUp"
                                                     style="background-color: #11572E; border-color: #11572E; color: #fff;">
-                                                    Contact Us
+                                                    {{ $txtcontactusbtn }}
                                                     <i class="fa fa-angle-right arrow-btn"></i>
                                                 </a>
                                             </div>
@@ -92,7 +129,7 @@
                         </div>
                     </div>
                     <div class="carousel-item banner-max-height">
-                        <img class="d-block w-100" src="images/pic3.jpg" alt="Third slide">
+                        <img class="d-block w-100" src="{{asset('images/pic3.jpg')}}" alt="Third slide">
                         <div class="carousel-caption banner__slide-overlay d-flex h-100">
                             <div class="carousel__content">
                                 <div class="container">
@@ -101,17 +138,16 @@
                                             <div class="slider__content-title ">
                                                 <h2 data-animation="animated fadeInDown"
                                                     class="text-white animated fadeInDown">
-                                                    The #1 place for commercial
-                                                    property</h2>
+                                                    {{ $txtHerosliderheading3 }}
+                                                </h2>
                                                 <p data-animation="animated fadeInUp" class="text-white animated fadeInUp ">
 
-                                                    Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
-                                                    recusandae
+                                                    {{ $txtHerosliderptag3 }}
                                                 </p>
-                                                <a href="../PROPERTY/contact.html"
+                                                <a href="#"
                                                     class="btn text-uppercase animated fadeInUp"
                                                     style="background-color: #11572E; border-color: #11572E; color: #fff;">
-                                                    Contact Us
+                                                    {{ $txtcontactusbtn }}
                                                     <i class="fa fa-angle-right arrow-btn"></i>
                                                 </a>
 
@@ -127,14 +163,14 @@
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span> -->
+                    <span class="sr-only">Previous</span> -->
                 <span class="carousel-control-nav-prev">
                     <i class="fa fa-2x fa-angle-left"></i>
                 </span>
             </a>
             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                 <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span> -->
+                    <span class="sr-only">Next</span> -->
                 <span class="carousel-control-nav-next">
                     <i class="fa fa-2x fa-angle-right"></i>
                 </span>
@@ -266,48 +302,48 @@
                     </div>
 
                     <!-- <div class="col-12 col-lg-3 col-md-3" style="margin-left: 30px;">
-                        <div class="min-max-slider" data-legendnum="2">
-                            <label for="min">Minimum price</label>
-                            <input id="min" class="min" name="min" type="range" step="1" min="30000" max="100000" />
-                            <label for="max">Maximum price</label>
-                            <input id="max" class="max" name="max" type="range" step="1" min="30000" max="100000" />
-                        </div>
+                            <div class="min-max-slider" data-legendnum="2">
+                                <label for="min">Minimum price</label>
+                                <input id="min" class="min" name="min" type="range" step="1" min="30000" max="100000" />
+                                <label for="max">Maximum price</label>
+                                <input id="max" class="max" name="max" type="range" step="1" min="30000" max="100000" />
+                            </div>
 
 
 
 
 
-                    </div> -->
+                        </div> -->
 
                     <!-- <div class="col-12 col-lg-3 col-md-3">
-                        <div class="form-group">
-                            <div class="filter__price">
-                                <input class="price-range" type="text" name="my_range" value=""  />
+                            <div class="form-group">
+                                <div class="filter__price">
+                                    <input class="price-range" type="text" name="my_range" value=""  />
+                                </div>
                             </div>
-                        </div>
-                    </div> -->
+                        </div> -->
                     <div class="col-12 col-lg-2 col-md-3">
                         <div class="form-group">
                             <button class="btn  text-uppercase btn-block"
-                                style="background-color: #11572E; border-color: #11572E; color: #fff; border-radius: 5px;">
+                                style="background-color: #11572E; border-color: #11572E; color: #fff; border-radius: 5px;" onclick="window.location.href='{{ route('propertylistings', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}'">
                                 search <i class="fa fa-search ml-1"></i></button>
                         </div>
                         <!-- <div style="margin: 10px 20px;">
-                            <div id="buyOptions" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                <button class="togbtn toggle-btn active" onclick="setActiveToggle(this)"
-                                        style="background-color: #11572E; color: #fff; border: 1px solid #11572E; border-radius: 5px; transition: 0.3s; padding: 5px 15px; font-size: 12px;">
-                                    ALL
-                                </button>
-                                <button class="togbtn toggle-btn" onclick="setActiveToggle(this)"
-                                        style="background-color: #fff; color: #11572E; border: 1px solid #11572E; border-radius: 5px; transition: 0.3s; padding: 5px 15px; font-size: 12px;">
-                                    Off Plan
-                                </button>
-                                <button class="togbtn toggle-btn" onclick="setActiveToggle(this)"
-                                        style="background-color: #fff; color: #11572E; border: 1px solid #11572E; border-radius: 5px; transition: 0.3s; padding: 5px 15px; font-size: 12px;">
-                                    Ready
-                                </button>
-                            </div>
-                        </div> -->
+                                <div id="buyOptions" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                    <button class="togbtn toggle-btn active" onclick="setActiveToggle(this)"
+                                            style="background-color: #11572E; color: #fff; border: 1px solid #11572E; border-radius: 5px; transition: 0.3s; padding: 5px 15px; font-size: 12px;">
+                                        ALL
+                                    </button>
+                                    <button class="togbtn toggle-btn" onclick="setActiveToggle(this)"
+                                            style="background-color: #fff; color: #11572E; border: 1px solid #11572E; border-radius: 5px; transition: 0.3s; padding: 5px 15px; font-size: 12px;">
+                                        Off Plan
+                                    </button>
+                                    <button class="togbtn toggle-btn" onclick="setActiveToggle(this)"
+                                            style="background-color: #fff; color: #11572E; border: 1px solid #11572E; border-radius: 5px; transition: 0.3s; padding: 5px 15px; font-size: 12px;">
+                                        Ready
+                                    </button>
+                                </div>
+                            </div> -->
                     </div>
 
 
@@ -324,9 +360,9 @@
                 <div class="col-md-8 col-lg-6 mx-auto">
                     <div class="title__head">
                         <h2 class="text-center text-capitalize">
-                            most popular places
+                            {{ $txtScetion1heading }}
                         </h2>
-                        <p class="text-center text-capitalize">find properties in these cities.</p>
+                        <p class="text-center text-capitalize">{{ $txtScetion1tagline }}</p>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -427,9 +463,11 @@
                 <div class="col-md-8 col-lg-6 mx-auto">
                     <div class="title__head">
                         <h2 class="text-center text-capitalize">
-                            featured properties
+                            {{ $txtScetion2heading }}
                         </h2>
-                        <p class="text-center text-capitalize">handpicked exclusive properties by our team.</p>
+                        <p class="text-center text-capitalize">
+                            {{ $txtScetion2tagline }}
+                        </p>
 
                     </div>
                 </div>
@@ -448,9 +486,10 @@
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
                     <div class="title__head">
-                        <h2 class="text-center text-capitalize">our partners</h2>
-                        <p class="text-center text-capitalize">Brand Partners Successful Projects Trusted Many Clients
-                            Real Estate</p>
+                        <h2 class="text-center text-capitalize">{{ $txtScetion3heading}}</h2>
+                        <p class="text-center text-capitalize">
+                            {{ $txtScetion3tagline }}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -641,23 +680,22 @@
 
     <!-- CALL TO ACTION -->
     <!-- <section class="cta-v1 py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-9">
-                    <h2 class="text-uppercase text-white">Looking To Sell Or Rent Your Property?</h2>
-                    <p class="text-capitalize text-white">We Will Assist You In The Best And Comfortable Property
-                        Services
-                        For You
-                    </p>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-9">
+                        <h2 class="text-uppercase text-white">Looking To Sell Or Rent Your Property?</h2>
+                        <p class="text-capitalize text-white">We Will Assist You In The Best And Comfortable Property
+                            Services
+                            For You
+                        </p>
 
-                </div>
-                <div class="col-lg-3">
-                    <a href="#" class="btn btn-light text-uppercase ">request a quote
-                        <i class="fa fa-angle-right ml-3 arrow-btn "></i></a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="#" class="btn btn-light text-uppercase ">request a quote
+                            <i class="fa fa-angle-right ml-3 arrow-btn "></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section> -->
+        </section> -->
     <!-- END CALL TO ACTION -->
 @endsection
-
