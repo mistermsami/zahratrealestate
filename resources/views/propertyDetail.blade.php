@@ -1,6 +1,63 @@
 @extends('layout.layout')
 @php
     $pagename = 'Property Details';
+
+
+    $translator = new \App\Services\TranslationService();
+    // Translate only if the locale is Arabic
+    if (session()->get('locale') == 'ar') {
+        $tittle = $translator->translate($listing->tittle, 'ar');
+        $listing_for = $translator->translate($listing->listing_for, 'ar');
+        $area_name = $translator->translate($listing->area->name, 'ar');
+        $city_name = $translator->translate($listing->city->city_name, 'ar');
+        $no_rooms = $translator->translate($listing->propertyDetails->rooms, 'ar');
+        $no_baths = $translator->translate($listing->propertyDetails->baths, 'ar');
+        $size = $translator->translate($listing->propertyDetails->size, 'ar');
+        $price = $translator->translate($listing->price, 'ar');
+        $propertyType = $translator->translate($listing->propertyType->pt_name, 'ar');
+        $description = $translator->translate($listing->description, 'ar');
+        $slug = $listing->slug->slug;
+        $txtfeatured = $translator->translate('featured', 'ar');
+        $txtQatar = $translator->translate('Qatar', 'ar');
+        $txtbaths = $translator->translate('baths', 'ar');
+        $txtrooms = $translator->translate('rooms', 'ar');
+        $txtbeds = $translator->translate('beds', 'ar');
+        $txtsize = $translator->translate('size', 'ar');
+        $txtarea = $translator->translate('area', 'ar');
+        $txtQAR = $translator->translate('QAR', 'ar');
+        $txtWhatsApp = $translator->translate('WhatsApp', 'ar');
+        $txtCall = $translator->translate('Call', 'ar');
+        $txtDescription = $translator->translate('description', 'ar');
+        $txtPropertDescription = $translator->translate('Property Description', 'ar');
+        $txtReadmore = $translator->translate('read more', 'ar');
+        $txtPropertydetails = $translator->translate('property details', 'ar');
+    } else {
+        $tittle = $listing->tittle;
+        $listing_for = $listing->listing_for;
+        $area_name = $listing->area->name;
+        $city_name = $listing->city->city_name;
+        $no_rooms = $listing->propertyDetails->rooms;
+        $no_baths = $listing->propertyDetails->baths;
+        $size = $listing->propertyDetails->size;
+        $price = $listing->price;
+        $slug = $listing->slug->slug;
+        $propertyType = $listing->propertyType->pt_name;
+        $description = $listing->description;
+        $txtfeatured = 'featured';
+        $txtQatar = 'Qatar';
+        $txtbaths = 'baths';
+        $txtrooms = 'rooms';
+        $txtbeds = 'beds';
+        $txtsize = 'size';
+        $txtarea = 'area';
+        $txtQAR = 'QAR';
+        $txtWhatsApp = 'WhatsApp';
+        $txtCall = 'Call';
+        $txtDescription = 'description';
+        $txtPropertDescription = 'Property Description';
+        $txtReadmore = 'read more';
+        $txtPropertydetails = 'property details';
+    }
 @endphp
 
 @section('pagename')
@@ -33,14 +90,14 @@
                         <div class="row">
                             <div class="col-md-8 col-lg-8">
                                 <div class="single__detail-area-title">
-                                    <h3 class="text-capitalize">{{ $listing->tittle}}</h3>
-                                    <p>{{ $listing->area->name}}, {{ $listing->city->city_name}}, Qatar</p>
+                                    <h3 class="text-capitalize">{{ $tittle }}</h3>
+                                    <p>{{ $area_name }}, {{ $city_name }}, {{ $txtQatar}}</p>
                                 </div>
                             </div>
                             <div class="col-md-4 col-lg-4">
                                 <div class="single__detail-area-price">
                                     <h3 class="text-capitalize text-gray"><span
-                                            style="color: #11572E; font-size: 18px;">QAR</span> {{ $listing->price}}</h3>
+                                            style="color: #11572E; font-size: 18px;">{{$txtQAR}}</span> {{ $price }}</h3>
 
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
@@ -67,36 +124,39 @@
 
                     <!-- SLIDER IMAGE DETAIL -->
                     <div class="slider__image__detail-large-two owl-carousel owl-theme">
-                        @foreach($listing->images as $image)
-                        <div class="item">
-                            <div class="slider__image__detail-large-one">
-                                <img src="{{$image->image_path}}" alt="" class="img-fluid w-100 img-transition">
-                                <div class="description">
-                                    {{-- <figure>
+                        @foreach ($listing->images as $image)
+                            <div class="item">
+                                <div class="slider__image__detail-large-one">
+                                    <img src="https://admin.zahratalshamal.com/listings/{{ $image->image_path }}" alt=""
+                                        class="img-fluid w-100 img-transition">
+                                    <div class="description">
+                                        {{-- <figure>
                                         <img src="images/yman.jpg" alt="" class="img-fluid">
                                     </figure> --}}
-                                    <span class="badge text-capitalize mb-2"
-                                        style="background-color: #11572E; color: #fff;">{{ $listing->propertyType->pt_name}}</span>
-                                    <div class="price">
-                                        <h4 class="text-capitalize text-gray"><span
-                                                style="color:yellow; font-size: 16px;">QAR</span> {{ $listing->price}}</h4>
+                                        <span class="badge text-capitalize mb-2"
+                                            style="background-color: #11572E; color: #fff;">{{ $propertyType }}</span>
+                                        <div class="price">
+                                            <h4 class="text-capitalize text-gray"><span
+                                                    style="color:yellow; font-size: 16px;">QAR</span> {{ $price }}
+                                            </h4>
+                                        </div>
+                                        <h4 class="text-capitalize">{{ $tittle }}</h4>
+
                                     </div>
-                                    <h4 class="text-capitalize">{{ $listing->tittle}}</h4>
 
                                 </div>
-
                             </div>
-                        </div>
                         @endforeach
                     </div>
 
                     <div class="slider__image__detail-thumb-two owl-carousel owl-theme">
-                        @foreach($listing->images as $image)
-                        <div class="item">
-                            <div class="slider__image__detail-thumb-one">
-                                <img src="{{$image->image_path}}" alt="" class="img-fluid w-100 img-transition">
+                        @foreach ($listing->images as $image)
+                            <div class="item">
+                                <div class="slider__image__detail-thumb-one">
+                                    <img src="{{ $image->image_path }}" alt=""
+                                        class="img-fluid w-100 img-transition">
+                                </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                     <!-- END SLIDER IMAGE DETAIL -->
@@ -205,8 +265,8 @@
                                     <label class="mb-3">Price range</label>
                                     <div class="min-max-slider" data-legendnum="2">
                                         <label for="min">Minimum price</label>
-                                        <input id="min" class="min" name="min" type="range"
-                                            step="1" min="30000" max="100000" />
+                                        <input id="min" class="min" name="min" type="range" step="1"
+                                            min="30000" max="100000" />
                                         <label for="max">Maximum price</label>
                                         <input id="max" class="max" name="max" type="range"
                                             step="1" min="30000" max="100000" />
@@ -292,39 +352,40 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="single__detail-desc">
-                                <h6 class="text-capitalize detail-heading">description</h6>
+                                <h6 class="text-capitalize detail-heading">{{$description}}</h6>
                                 <div class="show__more">
-                                    <p>Property Description</p>
+                                    <p>{{$txtPropertDescription}}</p>
                                     <p>
-                                        {{ $listing->description}}</p>
+                                        {{ $description }}</p>
                                     <a href="javascript:void(0)" class="show__more-button"
-                                        style="background-color: #11572E; color: #fff;">read more</a>
+                                        style="background-color: #11572E; color: #fff;">{{ $txtReadmore}}</a>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
 
                             <!-- PROPERTY DETAILS SPEC -->
                             <div class="single__detail-features">
-                                <h6 class="text-capitalize detail-heading">property details</h6>
+                                <h6 class="text-capitalize detail-heading">{{ $txtPropertydetails}}</h6>
                                 <!-- INFO PROPERTY DETAIL -->
                                 <div class="property__detail-info">
                                     <div class="row">
                                         <div class="col-md-6 col-lg-6">
                                             <ul class="property__detail-info-list list-unstyled">
-                                                <li><b>Property ID:</b> ZA{{ $listing->id}}</li>
-                                                <li><b>Price:</b> QAR {{ $listing->price}}</li>
-                                                <li><b>Property Size:</b> {{ $listing->propertyDetails->size}} Sq Ft</li>
-                                                <li><b>Bedrooms:</b> {{ $listing->propertyDetails->rooms}}</li>
-                                                <li><b>Bathrooms:</b> {{ $listing->propertyDetails->baths}}</li>
+                                                <li><b>Property ID:</b> ZA{{ $listing->id }}</li>
+                                                <li><b>Price:</b> QAR {{ $price }}</li>
+                                                <li><b>Property Size:</b> {{ $size }} Sq Ft</li>
+                                                <li><b>Bedrooms:</b> {{ $no_rooms }}</li>
+                                                <li><b>Bathrooms:</b> {{ $no_baths }}</li>
                                             </ul>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <ul class="property__detail-info-list list-unstyled">
-                                                <li><b>Garage:</b> {{ $listing->propertyDetails->garage}}</li>
-                                                <li><b>Garage Size:</b> {{ $listing->propertyDetails->garage_size}} SqFt</li>
-                                                <li><b>Year Built:</b> {{ $listing->propertyDetails->built_year}}</li>
-                                                <li><b>Property Type:</b> {{ $listing->propertyType->pt_name}}</li>
-                                                <li><b>Property Status:</b> {{ $listing->listing_for}}</li>
+                                                <li><b>Garage:</b> {{ $listing->propertyDetails->garage }}</li>
+                                                <li><b>Garage Size:</b> {{ $listing->propertyDetails->garage_size }} SqFt
+                                                </li>
+                                                <li><b>Year Built:</b> {{ $listing->propertyDetails->built_year }}</li>
+                                                <li><b>Property Type:</b> {{ $propertyType }}</li>
+                                                <li><b>Property Status:</b> {{ $listing_for }}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -361,22 +422,22 @@
                                 <h6 class="text-capitalize detail-heading">features</h6>
                                 <ul class="list-unstyled icon-checkbox">
                                     @if ($listing->propertyFeatures->air_conditioning == '1')
-                                    <li>air conditioning</li>
+                                        <li>air conditioning</li>
                                     @endif
                                     @if ($listing->propertyFeatures->swimming_pool == '1')
-                                    <li>swiming pool</li>
+                                        <li>swiming pool</li>
                                     @endif
                                     @if ($listing->propertyFeatures->central_heating == '1')
-                                    <li>Central Heating</li>
+                                        <li>Central Heating</li>
                                     @endif
                                     @if ($listing->propertyFeatures->gym == '1')
-                                    <li>GYM</li>
+                                        <li>GYM</li>
                                     @endif
                                     @if ($listing->propertyFeatures->window_covering == '1')
-                                    <li>window Covering</li>
+                                        <li>window Covering</li>
                                     @endif
                                     @if ($listing->propertyFeatures->car_parking == '1')
-                                    <li>car parking</li>
+                                        <li>car parking</li>
                                     @endif
                                 </ul>
                             </div>
@@ -424,8 +485,7 @@
                                     <div class="tab-pane fade show active" id="pills-map-location" role="tabpanel"
                                         aria-labelledby="pills-map-location-tab">
                                         <div id="map-canvas">
-                                            <iframe class="h600 w100"
-                                                src="{{ $listing->google_map_link}}"
+                                            <iframe class="h600 w100" src="{{ $listing->google_map_link }}"
                                                 style="border:0;" allowfullscreen="" aria-hidden="false"
                                                 tabindex="0"></iframe>
                                         </div>
@@ -433,8 +493,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="pills-street-view" role="tabpanel"
                                         aria-labelledby="pills-street-view-tab">
-                                        <iframe class="h600 w100"
-                                            src="{{ $listing->google_map_link}}"
+                                        <iframe class="h600 w100" src="{{ $listing->google_map_link }}"
                                             style="border:0;" allowfullscreen></iframe>
                                     </div>
 

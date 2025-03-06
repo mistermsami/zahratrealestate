@@ -420,8 +420,10 @@
                                                                     style="background-color: goldenrod; color: black;">
                                                                     {{ $txtfeatured }}
                                                                 </div>
-                                                                <img src="images/apart4.jpg" alt=""
+                                                                <img src="{{asset('images/apart4.jpg')}}" alt=""
                                                                     class="img-fluid w100 img-transition">
+                                                                {{-- <img src="https://admin.zahratalshamal.com/listings/{{$listing->images->image_path}}" alt=""
+                                                                    class="img-fluid w100 img-transition"> --}}
                                                                 <div class="info"
                                                                     style="background-color: #11572E;">
                                                                     {{ $listing_for }}</div>
@@ -436,7 +438,7 @@
                                                                 <p class="text-capitalize">
                                                                     <i class="fa fa-map-marker"></i>
                                                                     {{ $area_name }},
-                                                                    {{ $city_name }}, Qatar
+                                                                    {{ $city_name }}, {{ $txtQatar}}
 
                                                                 </p>
                                                                 <ul class="list-inline card__content">

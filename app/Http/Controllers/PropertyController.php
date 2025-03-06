@@ -8,11 +8,11 @@ use App\Models\ListingDetail;
 
 class PropertyController extends Controller
 {
-    public function propertyDetail($slug)
+    public function propertyDetail($local,$slug)
     {
         // dd(session()->get('locale'));
         $listdetail = Slug::with('listing', 'listing.city', 'listing.area', 'listing.propertyType', 'listing.propertyFeatures', 'listing.propertyDetails', 'listing.agent', 'listing.images')->where('slug', $slug)->first();
-
+        // dd($slug);
         $listing = $listdetail->listing;
         return view('propertyDetail', compact('listdetail', 'listing'));
     }
