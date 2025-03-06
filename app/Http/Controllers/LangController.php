@@ -16,7 +16,9 @@ class LangController extends Controller
         if (in_array($locale, $availableLocales)) {
             session()->put('locale', $locale);
             $currentLocale = session()->get('locale');
+
         }
+        // dd($currentLocale);
         // $previousUrl = url()->previous();
         // // Redirect to homepage with the locale prefix.
         // $newUrl = preg_replace("#/$currentLocale(/|$)#", "/$oldlocale$1", $previousUrl, 1);

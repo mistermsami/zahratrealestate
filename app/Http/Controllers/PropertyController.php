@@ -10,6 +10,7 @@ class PropertyController extends Controller
 {
     public function propertyDetail($slug)
     {
+        // dd(session()->get('locale'));
         $listdetail = Slug::with('listing', 'listing.city', 'listing.area', 'listing.propertyType', 'listing.propertyFeatures', 'listing.propertyDetails', 'listing.agent', 'listing.images')->where('slug', $slug)->first();
 
         $listing = $listdetail->listing;

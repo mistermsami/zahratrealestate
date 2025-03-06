@@ -1,5 +1,5 @@
 @php
-$translator = new \App\Services\TranslationService();
+    $translator = new \App\Services\TranslationService();
     if (session()->get('locale') == 'ar') {
         $txtTitle = $translator->translate('Zahrat Alshamal Real Estate', 'ar');
         $txtHome = $translator->translate('Home', 'ar');
@@ -10,12 +10,13 @@ $translator = new \App\Services\TranslationService();
         $txtContact = $translator->translate('Contact', 'ar');
         $txtAddproperty = $translator->translate('Add Property', 'ar');
         $txtSignin = $translator->translate('Sign In', 'ar');
-        $txtAddress = $translator->translate('Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551', 'ar');
+        $txtAddress = $translator->translate(
+            'Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551',
+            'ar',
+        );
         $txtPhone = $translator->translate('+97470816051', 'ar');
         $txtTimings = $translator->translate('Mon - Sun / 9:00AM - 8:00PM', 'ar');
-        }
-        else
-        {
+    } else {
         $txtTitle = 'Zahrat Alshamal Real Estate';
         $txtHome = 'Home';
         $txtPropertylistings = 'Property Listing';
@@ -25,10 +26,11 @@ $translator = new \App\Services\TranslationService();
         $txtContact = 'Contact';
         $txtAddproperty = 'Add Property';
         $txtSignin = 'Sign In';
-        $txtAddress = 'Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551';
+        $txtAddress =
+            'Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551';
         $txtPhone = '+97470816051';
         $txtTimings = 'Mon - Sun / 9:00AM - 8:00PM';
-        }
+    }
 @endphp
 <!DOCTYPE html>
 <html lang="{{ App::getLocale() }}">
@@ -45,7 +47,7 @@ $translator = new \App\Services\TranslationService();
     <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-    <title>@yield('pagename') - {{$txtTitle}}</title>
+    <title>@yield('pagename') - {{ $txtTitle }}</title>
 
     @yield('headtag')
 
@@ -80,17 +82,23 @@ $translator = new \App\Services\TranslationService();
                     <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li> --}}
 
                     <li class="nav-item"><a class="nav-link active"
-                            href="{{ route('/', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtHome}}</a></li>
+                            href="{{ route('/', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtHome }}</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link"
-                            href="{{ route('propertylistings', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtPropertylistings}}</a></li>
+                            href="{{ route('propertylistings', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtPropertylistings }}</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link"
-                            href="{{ route('agent', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtAgenst}}</a></li>
+                            href="{{ route('agent', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtAgenst }}</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link"
-                            href="{{ route('blog', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtBlogs}}</a></li>
+                            href="{{ route('blog', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtBlogs }}</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link"
-                            href="{{ route('about-us', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtAbout}}</a></li>
+                            href="{{ route('about-us', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtAbout }}</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link"
-                            href="{{ route('contact', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtContact}}</a></li>
+                            href="{{ route('contact', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtContact }}</a>
+                    </li>
 
 
 
@@ -114,17 +122,17 @@ $translator = new \App\Services\TranslationService();
                     <li>
                         <a href="{{ route('add-property') }}" class="btn text-capitalize"
                             style="background-color: #11572E; color: #fff;">
-                            <i class="fa fa-plus-circle mr-1"></i> {{ $txtAddproperty}}
+                            <i class="fa fa-plus-circle mr-1"></i> {{ $txtAddproperty }}
                         </a>
                     </li>
                     <li class="navbar-nav">
                         <a href="{{ route('login') }}" class="lang-btn"
                             style=" text-decoration: none; color: #11572E;">
-                            {{ $txtSignin}}
+                            {{ $txtSignin }}
                         </a>
                     </li>
                     <li class="navbar-nav">
-                        <button  class="lang-btn">
+                        <button class="lang-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="10" fill="none" stroke="#11572E"
                                     stroke-width="2" />
@@ -133,12 +141,24 @@ $translator = new \App\Services\TranslationService();
                                 <line x1="2" y1="12" x2="22" y2="12" stroke="#11572E"
                                     stroke-width="2" />
                             </svg>
-                            <a href="{{ route('lang.switch', ['locale' => 'en']) }}" style="text-decoration: none; color: #11572E;">
+                            {{-- <a href="{{ route('lang.switch', ['locale' => 'en']) }}" style="text-decoration: none; color: #11572E;">
                                 <span >EN</span>|
                                 </a>
                             <a href="{{ route('lang.switch', ['locale' => 'ar']) }}" style="text-decoration: none; color: #11572E;">
                                 <span >AR</span>
-                                </a>
+                                </a> --}}
+                                @php
+                                $currentLocale = session('locale', 'en');
+                            @endphp
+
+                            <a href="{{ route('lang.switch', ['locale' => 'en']) }}" style="text-decoration: none; color: #11572E;">
+                                EN
+                            </a> |
+                            <a href="{{ route('lang.switch', ['locale' => 'ar']) }}" style="text-decoration: none; color: #11572E;">
+                                AR
+                            </a>
+
+
                             {{-- <span id="langText" onclick="window.location.href='{{ route('lang.switch', ['locale' => 'ar']) }}">AR</span> --}}
                         </button>
                     </li>

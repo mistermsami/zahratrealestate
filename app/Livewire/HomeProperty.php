@@ -19,7 +19,7 @@ class HomeProperty extends Component
 
     public function render()
     {
-        $listings = ListingDetail::with(['agent', 'city', 'area', 'propertyType', 'propertyFeatures', 'propertyDetails', 'slug', 'images'])->get();
+        $listings = ListingDetail::with(['agent', 'city', 'area', 'propertyType', 'propertyFeatures', 'propertyDetails', 'slug', 'images'])->limit(9)->get();
         // $translator = app(TranslationService::class); // Get the translation service instance
         // $text = "Hello, how are you?";
         // $translatedText = $translator->translate($text, 'ar'); // Arabic Translation

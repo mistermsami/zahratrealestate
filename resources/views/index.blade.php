@@ -20,6 +20,8 @@ $translator = new \App\Services\TranslationService();
         $txtScetion2tagline = $translator->translate('handpicked exclusive properties by our team.', 'ar');
         $txtScetion3heading = $translator->translate('our partners', 'ar');
         $txtScetion3tagline = $translator->translate('Brand Partners Successful Projects Trusted Many Clients Real Estate', 'ar');
+        $txtScetion5heading = $translator->translate('what people says', 'ar');
+        $txtScetion5tagline = $translator->translate('people says about walls property.', 'ar');
     } else {
         $txtpagename = $pagename;
         $txtHerosliderheading1 = 'The #1 place for commercial property';
@@ -38,6 +40,8 @@ $translator = new \App\Services\TranslationService();
         $txtScetion2tagline = 'handpicked exclusive properties by our team.';
         $txtScetion3heading = 'our partners';
         $txtScetion3tagline = 'Brand Partners Successful Projects Trusted Many Clients Real Estate';
+        $txtScetion5heading = 'what people says';
+        $txtScetion5tagline = 'people says about walls property.';
     }
 
 
@@ -569,9 +573,11 @@ $translator = new \App\Services\TranslationService();
                 <div class="col-md-8 col-lg-6 mx-auto">
                     <div class="title__head">
                         <h2 class="text-center text-capitalize">
-                            what people says
+                            {{ $txtScetion5heading }}
                         </h2>
-                        <p class="text-center text-capitalize">people says about walls property.</p>
+                        <p class="text-center text-capitalize">
+                            {{  $txtScetion5tagline }}
+                        </p>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -587,7 +593,7 @@ $translator = new \App\Services\TranslationService();
                     </div>
                     <div class="testimonial__block-users">
                         <div class="testimonial__block-users-img">
-                            <img src="images/team1.jpg" alt="" class="img-fluid">
+                            <img src="{{asset('images/team1.jpg')}}" alt="" class="img-fluid">
                         </div>
                         <div class="testimonial__block-users-name">
                             Hammad <br>
@@ -606,7 +612,7 @@ $translator = new \App\Services\TranslationService();
                     </div>
                     <div class="testimonial__block-users">
                         <div class="testimonial__block-users-img">
-                            <img src="images/team2.jpg" alt="" class="img-fluid">
+                            <img src="{{asset('images/team2.jpg')}}" alt="" class="img-fluid">
                         </div>
                         <div class="testimonial__block-users-name">
                             RIDWAN <br>
@@ -625,7 +631,7 @@ $translator = new \App\Services\TranslationService();
                     </div>
                     <div class="testimonial__block-users">
                         <div class="testimonial__block-users-img">
-                            <img src="images/team4.jpg" alt="" class="img-fluid">
+                            <img src="{{asset('images/team4.jpg')}}" alt="" class="img-fluid">
                         </div>
                         <div class="testimonial__block-users-name">
                             Aaliyah <br>
@@ -644,7 +650,7 @@ $translator = new \App\Services\TranslationService();
                     </div>
                     <div class="testimonial__block-users">
                         <div class="testimonial__block-users-img">
-                            <img src="images/team2.jpg" alt="" class="img-fluid">
+                            <img src="{{asset('images/team2.jpg')}}" alt="" class="img-fluid">
                         </div>
                         <div class="testimonial__block-users-name">
                             Illyan <br>
@@ -663,7 +669,7 @@ $translator = new \App\Services\TranslationService();
                     </div>
                     <div class="testimonial__block-users">
                         <div class="testimonial__block-users-img">
-                            <img src="images/team4.jpg" alt="" class="img-fluid">
+                            <img src="{{asset('images/team4.jpg')}}" alt="" class="img-fluid">
                         </div>
                         <div class="testimonial__block-users-name">
                             Ridwan <br>
