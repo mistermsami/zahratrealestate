@@ -348,6 +348,66 @@
                                         aria-labelledby="pills-tab-two">
                                         <div class="row">
                                             @foreach ($listings as $listing)
+                                            @php
+                                                $translator = new \App\Services\TranslationService();
+                                                    // Translate only if the locale is Arabic
+                                                    if (session()->get('locale') == 'ar') {
+                                                        $tittle = $translator->translate($listing->tittle, 'ar');
+                                                        $listing_for = $translator->translate(
+                                                            $listing->listing_for,
+                                                            'ar',
+                                                        );
+                                                        $area_name = $translator->translate($listing->area->name, 'ar');
+                                                        $city_name = $translator->translate(
+                                                            $listing->city->city_name,
+                                                            'ar',
+                                                        );
+                                                        $no_rooms = $translator->translate(
+                                                            $listing->propertyDetails->rooms,
+                                                            'ar',
+                                                        );
+                                                        $no_baths = $translator->translate(
+                                                            $listing->propertyDetails->baths,
+                                                            'ar',
+                                                        );
+                                                        $size = $translator->translate(
+                                                            $listing->propertyDetails->size,
+                                                            'ar',
+                                                        );
+                                                        $price = $translator->translate($listing->price, 'ar');
+                                                        $slug = $listing->slug->slug;
+                                                        $txtfeatured = $translator->translate('featured', 'ar');
+                                                        $txtQatar = $translator->translate('Qatar', 'ar');
+                                                        $txtbaths = $translator->translate('baths', 'ar');
+                                                        $txtrooms = $translator->translate('rooms', 'ar');
+                                                        $txtbeds = $translator->translate('beds', 'ar');
+                                                        $txtsize = $translator->translate('size', 'ar');
+                                                        $txtarea = $translator->translate('area', 'ar');
+                                                        $txtQAR = $translator->translate('QAR', 'ar');
+                                                        $txtWhatsApp = $translator->translate('WhatsApp', 'ar');
+                                                        $txtCall = $translator->translate('Call', 'ar');
+                                                    } else {
+                                                        $tittle = $listing->tittle;
+                                                        $listing_for = $listing->listing_for;
+                                                        $area_name = $listing->area->name;
+                                                        $city_name = $listing->city->city_name;
+                                                        $no_rooms = $listing->propertyDetails->rooms;
+                                                        $no_baths = $listing->propertyDetails->baths;
+                                                        $size = $listing->propertyDetails->size;
+                                                        $price = $listing->price;
+                                                        $slug = $listing->slug->slug;
+                                                        $txtfeatured = 'featured';
+                                                        $txtQatar = 'Qatar';
+                                                        $txtbaths = 'baths';
+                                                        $txtrooms = 'rooms';
+                                                        $txtbeds = 'beds';
+                                                        $txtsize = 'size';
+                                                        $txtarea = 'area';
+                                                        $txtQAR = 'QAR';
+                                                        $txtWhatsApp = 'WhatsApp';
+                                                        $txtCall = 'Call';
+                                                    }
+                                                @endphp
                                                 <div class="col-md-4 col-lg-4">
                                                     @php
                                                         // dd($listing->slug->slug);
@@ -358,55 +418,55 @@
                                                             <div class="card__image-header h-250">
                                                                 <div class="ribbon text-capitalize"
                                                                     style="background-color: goldenrod; color: black;">
-                                                                    featured
+                                                                    {{ $txtfeatured }}
                                                                 </div>
                                                                 <img src="images/apart4.jpg" alt=""
                                                                     class="img-fluid w100 img-transition">
                                                                 <div class="info"
                                                                     style="background-color: #11572E;">
-                                                                    {{ $listing->listing_for }}</div>
+                                                                    {{ $listing_for }}</div>
                                                             </div>
                                                             <div class="card__image-body">
                                                                 <span class="badge badge-primary text-capitalize mb-2"
                                                                     style="background-color: #11572E;">{{ $listing->propertyType->pt_name }}</span>
                                                                 <h6 class="text-capitalize">
-                                                                    {{ $listing->tittle }}
+                                                                    {{ $tittle }}
                                                                 </h6>
 
                                                                 <p class="text-capitalize">
                                                                     <i class="fa fa-map-marker"></i>
-                                                                    {{ $listing->area->name }},
-                                                                    {{ $listing->city->city_name }}, Qatar
+                                                                    {{ $area_name }},
+                                                                    {{ $city_name }}, Qatar
 
                                                                 </p>
                                                                 <ul class="list-inline card__content">
                                                                     <li class="list-inline-item">
 
                                                                         <span>
-                                                                            baths <br>
+                                                                            {{$txtbaths}} <br>
                                                                             <i class="fa fa-bath"></i>
-                                                                            {{ $listing->propertyDetails->baths }}
+                                                                            {{ $no_baths }}
                                                                         </span>
                                                                     </li>
                                                                     <li class="list-inline-item">
                                                                         <span>
-                                                                            beds <br>
+                                                                            {{ $txtbeds}} <br>
                                                                             <i class="fa fa-bed"></i>
-                                                                            {{ $listing->propertyDetails->rooms }}
+                                                                            {{ $no_rooms }}
                                                                         </span>
                                                                     </li>
                                                                     <li class="list-inline-item">
                                                                         <span>
-                                                                            rooms <br>
+                                                                            {{ $txtrooms}} <br>
                                                                             <i class="fa fa-inbox"></i>
-                                                                            {{ $listing->propertyDetails->rooms }}
+                                                                            {{ $no_rooms }}
                                                                         </span>
                                                                     </li>
                                                                     <li class="list-inline-item">
                                                                         <span>
-                                                                            area <br>
+                                                                            {{ $txtarea}} <br>
                                                                             <i class="fa fa-map"></i>
-                                                                            {{ $listing->propertyDetails->size }} sq ft
+                                                                            {{ $size }} sq ft
                                                                         </span>
                                                                     </li>
                                                                 </ul>
@@ -419,20 +479,20 @@
                                                                         class="btn btn-sm"
                                                                         style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
                                                                         target="_blank">
-                                                                        <i class="fa fa-whatsapp"></i> WhatsApp
+                                                                        <i class="fa fa-whatsapp"></i> {{ $txtWhatsApp}}
                                                                     </a>
 
                                                                     <!-- Call Button -->
                                                                     <a href="tel:{{ $listing->agent->office_contact }}"
                                                                         class="btn btn-sm ml-2"
                                                                         style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
-                                                                        <i class="fa fa-phone"></i> Call
+                                                                        <i class="fa fa-phone"></i> {{$txtCall}}
                                                                     </a>
                                                                 </div>
                                                                 <h6 class="mb-0">
                                                                     <span
-                                                                        style="color: #11572E; font-size: small;">QAR</span>
-                                                                    {{ $listing->price }}
+                                                                        style="color: #11572E; font-size: small;">{{$txtQAR}}</span>
+                                                                    {{ $price }}
                                                                 </h6>
                                                             </div>
                                                         </div>
