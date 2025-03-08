@@ -5,16 +5,14 @@
     $translator = new \App\Services\TranslationService();
     if (session()->get('locale') == 'ar') {
         $pagename = $translator->translate($pagenamee, 'ar');
-        $blogtitle = $translator->translate($blog->title, 'ar');
-        $description = $translator->translate($blog->description1, 'ar');
+
         $txtReadmore = $translator->translate('Read More', 'ar');
         $txtBlog = $translator->translate('Blog', 'ar');
         $txtCategory = $translator->translate('category', 'ar');
         $txttags = $translator->translate('tags', 'ar');
     } else {
         $pagename = $pagenamee;
-        $blogtitle = $blog->title;
-        $description = $blog->description1;
+
         $txtReadmore = 'Read More';
         $txtBlog = 'Blog';
         $txtCategory = 'category';
@@ -50,6 +48,15 @@
                 <div class="col-lg-8">
                     <div class="row">
                         @foreach ($blogs as $blog)
+                            @php
+                                if (session()->get('locale') == 'ar') {
+                                    $blogtitle = $translator->translate($blog->title, 'ar');
+                                    $description = $translator->translate($blog->description1, 'ar');
+                                } else {
+                                    $blogtitle = $blog->title;
+                                    $description = $blog->description1;
+                                }
+                            @endphp
                             <div class="col-md-6 col-lg-6 mb-4">
                                 <div class="blog__grid mt-0">
                                     <!-- BLOG  -->
@@ -59,11 +66,11 @@
                                                 alt="" class="img-fluid w100 img-transition">
                                             {{-- <img src="blog_imgs/{{$blog->image_path1}}" alt=""
                                                 class="img-fluid w100 img-transition"> --}}
-                                            <div class="info"> {{ $txtBlog}}</div>
+                                            <div class="info"> {{ $txtBlog }}</div>
                                         </div>
                                         <div class="card__image-body">
                                             <!-- <span class="badge badge-secondary p-1 text-capitalize mb-3">Dec 09, 2024
-                                                        </span> -->
+                                                            </span> -->
                                             <h6 class="text-capitalize">
                                                 <a
                                                     href="blogDetail/{{ $blog->id }}/blog">{{ \Illuminate\Support\Str::limit($blogtitle ?? 'N/A', 25, '...') }}</a>
@@ -75,7 +82,7 @@
                                         <div class="card__image-footer d-flex justify-content-center">
                                             <a href="blogDetail/{{ $blog->id }}/blog" class="btn btn-sm px-4 py-3 my-2"
                                                 style="background-color: #11572E; color: #fff; font-size: 16px; font-weight: 500 !important; ">
-                                                {{ $txtReadmore}}
+                                                {{ $txtReadmore }}
                                                 <i class="fa fa-angle-right ml-1">
                                                 </i></a>
                                         </div>
@@ -94,7 +101,7 @@
                         <aside>
                             <div class="widget__sidebar">
                                 <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">{{ $txtCategory}}</h6>
+                                    <h6 class="text-capitalize">{{ $txtCategory }}</h6>
                                 </div>
                                 <div class="widget__sidebar__body">
                                     <ul class="list-unstyled">
@@ -142,7 +149,7 @@
                         <aside>
                             <div class="widget__sidebar">
                                 <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">{{ $txttags}}</h6>
+                                    <h6 class="text-capitalize">{{ $txttags }}</h6>
                                 </div>
                                 <div class="widget__sidebar__body">
                                     <div class="blog__tags p-0">
