@@ -162,7 +162,7 @@
 
                                             <a href="agentDetail/{{ $agent->id }}"
                                             class="profile__agents-avatar">
-                                            <img src="https://admin.zahratalshamal.com/listings/{{$agent->agentprofile}}" alt="" class="img-fluid">
+                                            <img src="https://admin.zahratalshamal.com/agent/{{$agent->agentprofile}}" alt="" class="img-fluid">
                                             <div class="total__property-agent">{{ $agent->listings->count() }}
                                                 {{ $txtlisting }}</div>
                                         </a>
