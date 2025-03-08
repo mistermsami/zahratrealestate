@@ -231,7 +231,7 @@
                                                                     style="background-color:#11572E; color: #fff;">
                                                                     {{ $status }}
                                                                 </div>
-                                                                <img src="https://admin.zahratalshamal.com/listings/{{$listing->images->first()->image_path}}" alt=""
+                                                                <img src="https://admin.zahratalshamal.com/{{$listing->images->first()->image_path}}" alt=""
                                                                     class="img-fluid w100 img-transition">
                                                                 {{-- <img src="images/apart4.jpg" alt=""
                                                                     class="img-fluid w100 img-transition"> --}}
