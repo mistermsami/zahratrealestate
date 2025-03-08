@@ -1,6 +1,45 @@
 @extends('layout.layout')
 @php
-    $pagename = 'Agent Details';
+    $pagenamee = 'Agent Details';
+    $translator = new \App\Services\TranslationService();
+    if (session()->get('locale') == 'ar') {
+        $pagename = $translator->translate($pagenamee, 'ar');
+        $firstName = $translator->translate($agent->first_name, 'ar');
+        $lastName = $translator->translate($agent->last_name, 'ar');
+        $Email = $translator->translate($agent->email, 'ar');
+        $PhoneContact = $translator->translate($agent->phone_contact, 'ar');
+        $OfficeContact = $translator->translate($agent->office_contact, 'ar');
+        $Description = $translator->translate($agent->description, 'ar');
+        $txtlisting = $translator->translate('listing', 'ar');
+        $txtPropertyagent = $translator->translate('property agent', 'ar');
+        $txtOffice = $translator->translate('office', 'ar');
+        $txtMobile = $translator->translate('mobile', 'ar');
+        $txtEmail = $translator->translate('email', 'ar');
+        $txtAgentdetails = $translator->translate('Agent details', 'ar');
+        $txtDescription = $translator->translate('Description', 'ar');
+        $txtGreeting = $translator->translate('Hi, nice to meet you', 'ar');
+        $txtReadmore = $translator->translate('read more', 'ar');
+        $txtCategoriesProperty = $translator->translate('Categories Property', 'ar');
+    } else {
+        $pagename = $pagenamee;
+        $firstName = $agent->first_name;
+        $lastName = $agent->last_name;
+        $Email = $agent->email;
+        $PhoneContact = $agent->phone_contact;
+        $OfficeContact = $agent->office_contact;
+        $Description = $agent->description;
+        $txtlisting = 'listing';
+        $txtPropertyagent = 'property agent';
+        $txtOffice = 'office';
+        $txtMobile = 'mobile';
+        $txtEmail = 'email';
+        $txtAgentdetails = 'Agent details';
+        $txtDescription = 'Description';
+        $txtGreeting = 'Hi, nice to meet you';
+        $txtReadmore = 'read more';
+        $txtCategoriesProperty = 'Categories Property';
+    }
+
 @endphp
 
 @section('pagename')
@@ -33,30 +72,31 @@
                             <div class="row">
                                 <div class="col-md-6 col-lg-6">
                                     <a href="#" class="profile__agents-avatar">
-                                        <img src="{{ asset('images/team4.jpg') }}" alt="" class="img-fluid ">
-                                        <div class="total__property-agent">{{ $agent->listings->count() }} listing</div>
+                                        <img src="https://admin.zahratalshamal.com/agent/{{$agent->agentprofile}}" alt="" class="img-fluid ">
+                                        <div class="total__property-agent">{{ $agent->listings->count() }}
+                                            {{ $txtlisting }}</div>
                                     </a>
                                 </div>
                                 <div class="col-md-6 col-lg-6 my-auto">
                                     <div class="profile__agents-info">
                                         <h5 class="text-capitalize">
                                             <a href="#"
-                                                target="_blank">{{ $agent->first_name }}&nbsp;{{ $agent->last_name }}</a>
+                                                target="_blank">{{ $firstName }}&nbsp;{{ $lastName }}</a>
                                         </h5>
-                                        <p class="text-capitalize mb-1">property agent</p>
+                                        <p class="text-capitalize mb-1">{{ $txtPropertyagent }}</p>
 
                                         <ul class="list-unstyled mt-2">
                                             <li><a href="#" class="text-capitalize"><span><i
-                                                            class="fa fa-building"></i> office :</span>
-                                                    {{ $agent->office_contact }}</a>
+                                                            class="fa fa-building"></i> {{ $txtOffice }} :</span>
+                                                    {{ $OfficeContact }}</a>
                                             </li>
                                             <li><a href="#" class="text-capitalize"><span><i class="fa fa-phone"></i>
-                                                        mobile :</span> {{ $agent->phone_contact }}</a></li>
-                                            <li><a href="#" class="text-capitalize"><span><i class="fa fa-fax"></i>
-                                                        fax : </span> 342 655</a></li>
+                                                        {{ $txtMobile }} :</span> {{ $PhoneContact }}</a></li>
+                                            {{-- <li><a href="#" class="text-capitalize"><span><i class="fa fa-fax"></i>
+                                                        fax : </span> 342 655</a></li> --}}
                                             <li><a href="#" class="text-capitalize"><span><i
-                                                            class="fa fa-envelope"></i> email :</span>
-                                                    {{ $agent->email }}</a></li>
+                                                            class="fa fa-envelope"></i> {{ $txtEmail }} :</span>
+                                                    {{ $Email }}</a></li>
                                         </ul>
                                         <p class="mb-0 mt-3">
                                             <button class="btn btn-social btn-social-o facebook mr-1">
@@ -85,19 +125,19 @@
                     </div>
                     <!-- LOCATION -->
                     <div class="single__detail-features tabs__custom">
-                        <h5 class="text-capitalize detail-heading">Agent details</h5>
+                        <h5 class="text-capitalize detail-heading">{{ $txtAgentdetails }}</h5>
                         <!-- FILTER VERTICAL -->
                         <ul class="nav nav-pills myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active pills-tab-one" data-toggle="pill" href="#pills-tab-one"
                                     role="tab" aria-controls="pills-tab-one" aria-selected="true">
-                                    Description
+                                    {{ $txtDescription }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link pills-tab-two" data-toggle="pill" href="#pills-tab-two" role="tab"
                                     aria-controls="pills-tab-two" aria-selected="false">
-                                    Listing</a>
+                                    {{ $txtlisting }}</a>
                             </li>
 
                             {{-- <li class="nav-item">
@@ -112,112 +152,176 @@
                             <div class="tab-pane fade show active" id="pills-tab-one" role="tabpanel"
                                 aria-labelledby="pills-tab-one">
                                 <div class="single__detail-desc">
-                                    <h5 class="text-capitalize detail-heading">Hi, nice to meet you</h5>
-                                    <p>{{ $agent->description}}</p>
-                                    {{-- <div class="show__more">
-                                        <p>description</p>
-                                        <p>{{ $agent->description}}</p>
-                                        <a href="javascript:void(0)" class="show__more-button "
-                                            style="background-color: #11572E; color: #fff;">read more</a>
-                                    </div> --}}
+                                    <h5 class="text-capitalize detail-heading">{{ $txtGreeting }}</h5>
+                                    {{-- <p>{{ $agent->description}}</p> --}}
+                                    @if (strlen($agent->description) > 100)
+                                        <div class="show__more">
+                                            <p>{{ $txtDescription }}</p>
+                                            <p>{{ $Description }}</p>
+                                            <a href="javascript:void(0)" class="show__more-button "
+                                                style="background-color: #11572E; color: #fff;">{{ $txtReadmore }}</a>
+                                        </div>
+                                    @else
+                                        <p>{{ $Description }}</p>
+                                    @endif
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="tab-pane fade" id="pills-tab-two" role="tabpanel"
-                                aria-labelledby="pills-tab-two">
+                            <div class="tab-pane fade" id="pills-tab-two" role="tabpanel" aria-labelledby="pills-tab-two">
                                 <div class="row">
                                     @foreach ($agent->listings as $listing)
-                                    <div class="col-lg-12">
-                                        <div class="card__image card__box-v1">
-                                            <div class="row no-gutters">
-                                                <div class="col-md-4 col-lg-3 col-xl-4">
-                                                    <div class="card__image__header h-250">
-                                                        <a href="{{route('propertyDetail', $listing->slug->slug)}}">
-                                                            <div class="ribbon text-capitalize"
-                                                                style="background-color:#11572E; color: #fff;">{{$listing->status}}
-                                                            </div>
-                                                            <img src="images/apart4.jpg" alt=""
-                                                                class="img-fluid w100 img-transition">
-                                                            <div class="info"> {{ $listing->listing_for}}</div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-6 col-xl-5 my-auto">
-                                                    <div class="card__image__body">
+                                        @php
+                                            $translator = new \App\Services\TranslationService();
+                                            // Translate only if the locale is Arabic
+                                            if (session()->get('locale') == 'ar') {
+                                                $tittle = $translator->translate($listing->tittle, 'ar');
+                                                $status = $translator->translate($listing->status,  'ar');
+                                                $listing_for = $translator->translate($listing->listing_for, 'ar');
+                                                $propertyType = $translator->translate($listing->propertyType->pt_name, 'ar');
+                                                $area_name = $translator->translate($listing->area->name, 'ar');
+                                                $city_name = $translator->translate($listing->city->city_name, 'ar');
+                                                $no_rooms = $translator->translate($listing->propertyDetails->rooms, 'ar' );
+                                                $no_baths = $translator->translate($listing->propertyDetails->baths,'ar');
+                                                $size = $translator->translate($listing->propertyDetails->size, 'ar');
+                                                $price = $translator->translate($listing->price, 'ar');
+                                                $slug = $listing->slug->slug;
+                                                $txtfeatured = $translator->translate('featured', 'ar');
+                                                $txtQatar = $translator->translate('Qatar', 'ar');
+                                                $txtbaths = $translator->translate('baths', 'ar');
+                                                $txtrooms = $translator->translate('rooms', 'ar');
+                                                $txtbeds = $translator->translate('beds', 'ar');
+                                                $txtsize = $translator->translate('size', 'ar');
+                                                $txtarea = $translator->translate('area', 'ar');
+                                                $txtQAR = $translator->translate('QAR', 'ar');
+                                                $txtWhatsApp = $translator->translate('WhatsApp', 'ar');
+                                                $txtCall = $translator->translate('Call', 'ar');
+                                            } else {
+                                                $tittle = $listing->tittle;
+                                                $status = $listing->status;
+                                                $listing_for = $listing->listing_for;
+                                                $propertyType = $listing->propertyType->pt_name;
+                                                $area_name = $listing->area->name;
+                                                $city_name = $listing->city->city_name;
+                                                $no_rooms = $listing->propertyDetails->rooms;
+                                                $no_baths = $listing->propertyDetails->baths;
+                                                $size = $listing->propertyDetails->size;
+                                                $price = $listing->price;
+                                                $slug = $listing->slug->slug;
+                                                $txtfeatured = 'featured';
+                                                $txtQatar = 'Qatar';
+                                                $txtbaths = 'baths';
+                                                $txtrooms = 'rooms';
+                                                $txtbeds = 'beds';
+                                                $txtsize = 'size';
+                                                $txtarea = 'area';
+                                                $txtQAR = 'QAR';
+                                                $txtWhatsApp = 'WhatsApp';
+                                                $txtCall = 'Call';
 
-                                                        <span class="badge badge-primary text-capitalize mb-2"
-                                                            style="background-color:#11572E; color: #fff;">{{ $listing->propertyType->pt_name}}</span>
-                                                        <h6>
-                                                            <a href="{{route('propertyDetail', $listing->slug->slug)}}">{{ $listing->tittle}}</a>
-                                                        </h6>
-                                                        <div class="card__image__body-desc">
-                                                            <p class="text-capitalize">
-                                                                <i class="fa fa-map-Haiderer"></i>
-                                                                {{ $listing->area->name}}, {{ $listing->city->city_name}}, Qatar
-                                                            </p>
+                                            }
+                                        @endphp
+                                        <div class="col-lg-12">
+                                            <div class="card__image card__box-v1">
+                                                <div class="row no-gutters">
+                                                    <div class="col-md-4 col-lg-3 col-xl-4">
+                                                        <div class="card__image__header h-250">
+                                                            <a
+                                                                href="/{{ session('locale', 'en') }}/propertyDetail/{{ $listing->slug->slug }}">
+                                                                <div class="ribbon text-capitalize"
+                                                                    style="background-color:#11572E; color: #fff;">
+                                                                    {{ $status }}
+                                                                </div>
+                                                                <img src="https://admin.zahratalshamal.com/listings/{{$listing->images->first()->image_path}}" alt=""
+                                                                    class="img-fluid w100 img-transition">
+                                                                {{-- <img src="images/apart4.jpg" alt=""
+                                                                    class="img-fluid w100 img-transition"> --}}
+                                                                <div class="info"> {{ $listing_for }}</div>
+                                                            </a>
                                                         </div>
-
-                                                        <ul class="list-inline card__content">
-                                                            <li class="list-inline-item">
-
-                                                                <span>
-                                                                    baths <br>
-                                                                    <i class="fa fa-bath"></i> {{ $listing->propertyDetails->baths}}
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    beds <br>
-                                                                    <i class="fa fa-bed"></i> {{ $listing->propertyDetails->rooms}}
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    rooms <br>
-                                                                    <i class="fa fa-inbox"></i> {{ $listing->propertyDetails->rooms}}
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    area <br>
-                                                                    <i class="fa fa-map"></i> {{ $listing->propertyDetails->size}} sq ft
-                                                                </span>
-                                                            </li>
-                                                        </ul>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-3 col-xl-3 my-auto card__image__footer-first">
-                                                    <div class="card__image__footer">
-                                                        <figure>
-                                                            <img src="images/yman.jpg" alt=""
-                                                                class="img-fluid rounded-circle">
-                                                        </figure>
-                                                        <ul class="list-inline my-auto">
-                                                            <li class="list-inline-item name">
-                                                                <a href="#">
-                                                                    {{$agent->first_name}}
-                                                                </a>
+                                                    <div class="col-md-4 col-lg-6 col-xl-5 my-auto">
+                                                        <div class="card__image__body">
 
-                                                            </li>
+                                                            <span class="badge badge-primary text-capitalize mb-2"
+                                                                style="background-color:#11572E; color: #fff;">{{ $propertyType }}</span>
+                                                            <h6>
+                                                                <a
+                                                                    href="/{{ session('locale', 'en') }}/propertyDetail/{{ $listing->slug->slug }}">{{ $tittle }}</a>
+                                                            </h6>
+                                                            <div class="card__image__body-desc">
+                                                                <p class="text-capitalize">
+                                                                    <i class="fa fa-map-Haiderer"></i>
+                                                                    {{ $area_name }},
+                                                                    {{ $city_name }}, {{ $txtQatar}}
+                                                                </p>
+                                                            </div>
+
+                                                            <ul class="list-inline card__content">
+                                                                <li class="list-inline-item">
+
+                                                                    <span>
+                                                                        {{ $txtbaths}} <br>
+                                                                        <i class="fa fa-bath"></i>
+                                                                        {{ $no_baths }}
+                                                                    </span>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <span>
+                                                                        {{ $txtbeds}} <br>
+                                                                        <i class="fa fa-bed"></i>
+                                                                        {{ $txtbeds }}
+                                                                    </span>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <span>
+                                                                        {{ $no_rooms}} <br>
+                                                                        <i class="fa fa-inbox"></i>
+                                                                        {{ $no_rooms }}
+                                                                    </span>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <span>
+                                                                        {{ $txtarea}} <br>
+                                                                        <i class="fa fa-map"></i>
+                                                                        {{ $size }} sq ft
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="col-md-4 col-lg-3 col-xl-3 my-auto card__image__footer-first">
+                                                        <div class="">
+                                                            <figure>
+                                                                <img src="https://admin.zahratalshamal.com/agent/{{$listing->agent->agentprofile}}" style="height: 70px; width: 70px; object-fit: cover;" alt=""
+                                                                    class="img-fluid rounded-circle">
+                                                            </figure>
+                                                            <ul class="list-inline my-auto">
+                                                                <li class="list-inline-item name">
+                                                                    <a href="#">
+                                                                        {{ $firstName }}
+                                                                    </a>
+
+                                                                </li>
 
 
-                                                        </ul>
-                                                        <ul class="list-inline my-auto ml-auto price">
-                                                            <li class="list-inline-item ">
+                                                            </ul>
+                                                            <ul class="list-inline my-auto ml-auto price">
+                                                                <li class="list-inline-item ">
 
-                                                                <h6 class="mb-0">
-                                                                    <span
-                                                                        style="color: #11572E; font-size: small;">QAR</span>
-                                                                        {{ $listing->price}}
-                                                                </h6>
-                                                            </li>
+                                                                    <h6 class="mb-0">
+                                                                        <span
+                                                                            style="color: #11572E; font-size: small;">{{ $txtQAR}}</span>
+                                                                        {{ $price }}
+                                                                    </h6>
+                                                                </li>
 
-                                                        </ul>
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endforeach
 
 
@@ -248,496 +352,9 @@
                                                         </h6>
                                                         <div class="card__image__body-desc">
                                                             <!-- <p class="text-capitalize">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, alias!
+                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, alias!
 
-                                        </p> -->
-                                                            <p class="text-capitalize">
-                                                                <i class="fa fa-map-Haiderer"></i>
-                                                                West Bay, Doha, Qatar
-                                                            </p>
-                                                        </div>
-
-                                                        <ul class="list-inline card__content">
-                                                            <li class="list-inline-item">
-
-                                                                <span>
-                                                                    baths <br>
-                                                                    <i class="fa fa-bath"></i> 2
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    beds <br>
-                                                                    <i class="fa fa-bed"></i> 3
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    rooms <br>
-                                                                    <i class="fa fa-inbox"></i> 3
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    area <br>
-                                                                    <i class="fa fa-map"></i> 4300 sq ft
-                                                                </span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-3 col-xl-3 my-auto card__image__footer-first">
-                                                    <div class="card__image__footer">
-                                                        <figure>
-                                                            <img src="images/yman.jpg" alt=""
-                                                                class="img-fluid rounded-circle">
-                                                        </figure>
-                                                        <ul class="list-inline my-auto">
-                                                            <li class="list-inline-item name">
-                                                                <a href="#">
-                                                                    Madar
-                                                                </a>
-
-                                                            </li>
-
-
-                                                        </ul>
-                                                        <ul class="list-inline  my-auto ml-auto price">
-                                                            <li class="list-inline-item ">
-
-                                                                <h6 class="mb-0">
-                                                                    <span
-                                                                        style="color: #11572E; font-size: small;">QAR</span>
-                                                                    350,000
-                                                                </h6>
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="card__image card__box-v1">
-                                            <div class="row no-gutters">
-                                                <div class="col-md-4 col-lg-3 col-xl-4">
-                                                    <div class="card__image__header h-250">
-                                                        <a href="#">
-                                                            <div class="ribbon text-capitalize"
-                                                                style="background-color:#11572E; color: #fff;">sold out
-                                                            </div>
-                                                            <img src="images/apart6.jpg" alt=""
-                                                                class="img-fluid w100 img-transition">
-                                                            <div class="info"> for sale</div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-6 col-xl-5 my-auto">
-                                                    <div class="card__image__body">
-
-                                                        <span class="badge badge-primary text-capitalize mb-2"
-                                                            style="background-color:#11572E; color: #fff;">house</span>
-                                                        <h6>
-                                                            <a href="#">Ample Apartment At Last Floor</a>
-                                                        </h6>
-                                                        <div class="card__image__body-desc">
-                                                            <!-- <p class="text-capitalize">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, alias!
-
-                                        </p> -->
-                                                            <p class="text-capitalize">
-                                                                <i class="fa fa-map-Haiderer"></i>
-                                                                West Bay, Doha, Qatar
-                                                            </p>
-                                                        </div>
-
-                                                        <ul class="list-inline card__content">
-                                                            <li class="list-inline-item">
-
-                                                                <span>
-                                                                    baths <br>
-                                                                    <i class="fa fa-bath"></i> 2
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    beds <br>
-                                                                    <i class="fa fa-bed"></i> 3
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    rooms <br>
-                                                                    <i class="fa fa-inbox"></i> 3
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    area <br>
-                                                                    <i class="fa fa-map"></i> 4300 sq ft
-                                                                </span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-3 col-xl-3 my-auto card__image__footer-first">
-                                                    <div class="card__image__footer">
-                                                        <figure>
-                                                            <img src="images/yman.jpg" alt=""
-                                                                class="img-fluid rounded-circle">
-                                                        </figure>
-                                                        <ul class="list-inline my-auto">
-                                                            <li class="list-inline-item name">
-                                                                <a href="#">
-                                                                    Madar
-                                                                </a>
-
-                                                            </li>
-
-
-                                                        </ul>
-                                                        <ul class="list-inline  my-auto ml-auto price">
-                                                            <li class="list-inline-item ">
-
-                                                                <h6 class="mb-0">
-                                                                    <span
-                                                                        style="color: #11572E; font-size: small;">QAR</span>
-                                                                    350,000
-                                                                </h6>
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="card__image card__box-v1">
-                                            <div class="row no-gutters">
-                                                <div class="col-md-4 col-lg-3 col-xl-4">
-                                                    <div class="card__image__header h-250">
-                                                        <a href="#">
-                                                            <div class="ribbon text-capitalize"
-                                                                style="background-color:#11572E; color: #fff;">sold out
-                                                            </div>
-                                                            <img src="images/apart7.jpg" alt=""
-                                                                class="img-fluid w100 img-transition">
-                                                            <div class="info"> for sale</div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-6 col-xl-5 my-auto">
-                                                    <div class="card__image__body">
-
-                                                        <span class="badge badge-primary text-capitalize mb-2"
-                                                            style="background-color:#11572E; color: #fff;">house</span>
-                                                        <h6>
-                                                            <a href="#">Family Home For Sale</a>
-                                                        </h6>
-                                                        <div class="card__image__body-desc">
-                                                            <!-- <p class="text-capitalize">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, alias!
-
-                                            </p> -->
-                                                            <p class="text-capitalize">
-                                                                <i class="fa fa-map-Haiderer"></i>
-                                                                West Bay, Doha, Qatar
-                                                            </p>
-                                                        </div>
-
-                                                        <ul class="list-inline card__content">
-                                                            <li class="list-inline-item">
-
-                                                                <span>
-                                                                    baths <br>
-                                                                    <i class="fa fa-bath"></i> 2
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    beds <br>
-                                                                    <i class="fa fa-bed"></i> 3
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    rooms <br>
-                                                                    <i class="fa fa-inbox"></i> 3
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    area <br>
-                                                                    <i class="fa fa-map"></i> 4300 sq ft
-                                                                </span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-3 col-xl-3 my-auto card__image__footer-first">
-                                                    <div class="card__image__footer">
-                                                        <figure>
-                                                            <img src="images/yman.jpg" alt=""
-                                                                class="img-fluid rounded-circle">
-                                                        </figure>
-                                                        <ul class="list-inline my-auto">
-                                                            <li class="list-inline-item name">
-                                                                <a href="#">
-                                                                    Madar
-                                                                </a>
-
-                                                            </li>
-
-
-                                                        </ul>
-                                                        <ul class="list-inline  my-auto ml-auto price">
-                                                            <li class="list-inline-item ">
-
-                                                                <h6 class="mb-0">
-                                                                    <span
-                                                                        style="color: #11572E; font-size: small;">QAR</span>
-                                                                    350,000
-                                                                </h6>
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="card__image card__box-v1">
-                                            <div class="row no-gutters">
-                                                <div class="col-md-4 col-lg-3 col-xl-4">
-                                                    <div class="card__image__header h-250">
-                                                        <a href="#">
-                                                            <div class="ribbon text-capitalize"
-                                                                style="background-color:#11572E; color: #fff;">sold out
-                                                            </div>
-                                                            <img src="images/apart3.jpg" alt=""
-                                                                class="img-fluid w100 img-transition">
-                                                            <div class="info"> for sale</div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-6 col-xl-5 my-auto">
-                                                    <div class="card__image__body">
-
-                                                        <span class="badge badge-primary text-capitalize mb-2"
-                                                            style="background-color:#11572E; color: #fff;">house</span>
-                                                        <h6>
-                                                            <a href="#">Luxury Villa With Pool</a>
-                                                        </h6>
-                                                        <div class="card__image__body-desc">
-                                                            <!-- <p class="text-capitalize">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, alias!
-
-                                            </p> -->
-                                                            <p class="text-capitalize">
-                                                                <i class="fa fa-map-Haiderer"></i>
-                                                                West Bay, Doha, Qatar
-                                                            </p>
-                                                        </div>
-
-                                                        <ul class="list-inline card__content">
-                                                            <li class="list-inline-item">
-
-                                                                <span>
-                                                                    baths <br>
-                                                                    <i class="fa fa-bath"></i> 2
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    beds <br>
-                                                                    <i class="fa fa-bed"></i> 3
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    rooms <br>
-                                                                    <i class="fa fa-inbox"></i> 3
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    area <br>
-                                                                    <i class="fa fa-map"></i> 4300 sq ft
-                                                                </span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-3 col-xl-3 my-auto card__image__footer-first">
-                                                    <div class="card__image__footer">
-                                                        <figure>
-                                                            <img src="images/yman.jpg" alt=""
-                                                                class="img-fluid rounded-circle">
-                                                        </figure>
-                                                        <ul class="list-inline my-auto">
-                                                            <li class="list-inline-item name">
-                                                                <a href="#">
-                                                                    Madar
-                                                                </a>
-
-                                                            </li>
-
-
-                                                        </ul>
-                                                        <ul class="list-inline  my-auto ml-auto price">
-                                                            <li class="list-inline-item ">
-
-                                                                <h6 class="mb-0">
-                                                                    <span
-                                                                        style="color: #11572E; font-size: small;">QAR</span>
-                                                                    350,000
-                                                                </h6>
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="card__image card__box-v1">
-                                            <div class="row no-gutters">
-                                                <div class="col-md-4 col-lg-3 col-xl-4">
-                                                    <div class="card__image__header h-250">
-                                                        <a href="#">
-                                                            <div class="ribbon text-capitalize"
-                                                                style="background-color:#11572E; color: #fff;">sold out
-                                                            </div>
-                                                            <img src="images/apart2.jpg" alt=""
-                                                                class="img-fluid w100 img-transition">
-                                                            <div class="info"> for sale</div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-6 col-xl-5 my-auto">
-                                                    <div class="card__image__body">
-
-                                                        <span class="badge badge-primary text-capitalize mb-2"
-                                                            style="background-color:#11572E; color: #fff;">house</span>
-                                                        <h6>
-                                                            <a href="#">184 Lexington Avenue</a>
-                                                        </h6>
-                                                        <div class="card__image__body-desc">
-                                                            <!-- <p class="text-capitalize">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, alias!
-
-                                            </p> -->
-                                                            <p class="text-capitalize">
-                                                                <i class="fa fa-map-Haiderer"></i>
-                                                                West Bay, Doha, Qatar
-                                                            </p>
-                                                        </div>
-
-                                                        <ul class="list-inline card__content">
-                                                            <li class="list-inline-item">
-
-                                                                <span>
-                                                                    baths <br>
-                                                                    <i class="fa fa-bath"></i> 2
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    beds <br>
-                                                                    <i class="fa fa-bed"></i> 3
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    rooms <br>
-                                                                    <i class="fa fa-inbox"></i> 3
-                                                                </span>
-                                                            </li>
-                                                            <li class="list-inline-item">
-                                                                <span>
-                                                                    area <br>
-                                                                    <i class="fa fa-map"></i> 4300 sq ft
-                                                                </span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-3 col-xl-3 my-auto card__image__footer-first">
-                                                    <div class="card__image__footer">
-                                                        <figure>
-                                                            <img src="images/yman.jpg" alt=""
-                                                                class="img-fluid rounded-circle">
-                                                        </figure>
-                                                        <ul class="list-inline my-auto">
-                                                            <li class="list-inline-item name">
-                                                                <a href="#">
-                                                                    Madar
-                                                                </a>
-                                                            </li>
-
-                                                        </ul>
-                                                        <ul class="list-inline  my-auto ml-auto price">
-                                                            <li class="list-inline-item ">
-
-                                                                <h6 class="mb-0">
-                                                                    <span
-                                                                        style="color: #11572E; font-size: small;">QAR</span>
-                                                                    350,000
-                                                                </h6>
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="card__image card__box-v1">
-                                            <div class="row no-gutters">
-                                                <div class="col-md-4 col-lg-3 col-xl-4">
-                                                    <div class="card__image__header h-250">
-                                                        <a href="#">
-                                                            <div class="ribbon text-capitalize"
-                                                                style="background-color:#11572E; color: #fff;">sold out
-                                                            </div>
-                                                            <img src="images/apart4.jpg" alt=""
-                                                                class="img-fluid w100 img-transition">
-                                                            <div class="info"> for sale</div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-lg-6 col-xl-5 my-auto">
-                                                    <div class="card__image__body">
-
-                                                        <span class="badge badge-primary text-capitalize mb-2"
-                                                            style="background-color:#11572E; color: #fff;">house</span>
-                                                        <h6>
-                                                            <a href="#">The Citizen Apartment 5th Floor</a>
-                                                        </h6>
-                                                        <div class="card__image__body-desc">
-                                                            <!-- <p class="text-capitalize">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, alias!
-
-                                            </p> -->
+                                                    </p> -->
                                                             <p class="text-capitalize">
                                                                 <i class="fa fa-map-Haiderer"></i>
                                                                 West Bay, Doha, Qatar
@@ -811,7 +428,7 @@
 
                             </div>
 
-                            <div class="tab-pane fade" id="pills-tab-four" role="tabpanel"
+                            {{-- <div class="tab-pane fade" id="pills-tab-four" role="tabpanel"
                                 aria-labelledby="pills-tab-four">
 
                                 <!-- RATE US  WRITE -->
@@ -937,7 +554,7 @@
 
                                 <!-- END RATE US  WRITE -->
                                 <div class="clearfix"></div>
-                            </div>
+                            </div> --}}
 
 
                         </div>
@@ -951,7 +568,7 @@
                         <div class="products__filter mb-30">
                             <div class="products__filter__group">
                                 <div class="products__filter__header">
-                                    <h5 class="text-center text-capitalize">Contact Hannah</h5>
+                                    <h5 class="text-center text-capitalize">Contact {{ $firstName }}</h5>
                                 </div>
                                 <div class="products__filter__body">
                                     <div class="form-group">
@@ -990,7 +607,7 @@
                             <!-- CATEGORY -->
                             <div class="widget widget__archive">
                                 <div class="widget__title">
-                                    <h5 class="text-dark mb-0 text-center">Categories Property</h5>
+                                    <h5 class="text-dark mb-0 text-center">{{ $txtCategoriesProperty }} </h5>
                                 </div>
                                 <ul class="list-unstyled">
                                     <li>

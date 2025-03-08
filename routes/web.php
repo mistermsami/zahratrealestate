@@ -69,6 +69,7 @@ if(session()->has('locale')) {
 else {
     $thislocale = 'en';
 }
+// Route::get('/agentDetail/{id}', [Agents::class, 'agentDetail'])->name('agentDetail');
 // Route::group(['prefix' => session()->get('locale') ? 'ar' : 'en', 'where' => ['locale' => 'en|ar']], function () {
 // Route::get('/propertyDetail/{slug}', [PropertyController::class, 'propertyDetail'])->name('propertyDetail');
 // });

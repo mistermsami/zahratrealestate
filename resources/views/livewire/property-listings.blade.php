@@ -353,27 +353,12 @@
                                                     // Translate only if the locale is Arabic
                                                     if (session()->get('locale') == 'ar') {
                                                         $tittle = $translator->translate($listing->tittle, 'ar');
-                                                        $listing_for = $translator->translate(
-                                                            $listing->listing_for,
-                                                            'ar',
-                                                        );
+                                                        $listing_for = $translator->translate($listing->listing_for, 'ar');
                                                         $area_name = $translator->translate($listing->area->name, 'ar');
-                                                        $city_name = $translator->translate(
-                                                            $listing->city->city_name,
-                                                            'ar',
-                                                        );
-                                                        $no_rooms = $translator->translate(
-                                                            $listing->propertyDetails->rooms,
-                                                            'ar',
-                                                        );
-                                                        $no_baths = $translator->translate(
-                                                            $listing->propertyDetails->baths,
-                                                            'ar',
-                                                        );
-                                                        $size = $translator->translate(
-                                                            $listing->propertyDetails->size,
-                                                            'ar',
-                                                        );
+                                                        $city_name = $translator->translate($listing->city->city_name,'ar');
+                                                        $no_rooms = $translator->translate($listing->propertyDetails->rooms,'ar');
+                                                        $no_baths = $translator->translate($listing->propertyDetails->baths,'ar');
+                                                        $size = $translator->translate($listing->propertyDetails->size,'ar');
                                                         $price = $translator->translate($listing->price, 'ar');
                                                         $slug = $listing->slug->slug;
                                                         $txtfeatured = $translator->translate('featured', 'ar');
@@ -420,10 +405,10 @@
                                                                     style="background-color: goldenrod; color: black;">
                                                                     {{ $txtfeatured }}
                                                                 </div>
-                                                                <img src="{{asset('images/apart4.jpg')}}" alt=""
-                                                                    class="img-fluid w100 img-transition">
-                                                                {{-- <img src="https://admin.zahratalshamal.com/listings/{{$listing->images->image_path}}" alt=""
+                                                                {{-- <img src="{{asset('images/apart4.jpg')}}" alt=""
                                                                     class="img-fluid w100 img-transition"> --}}
+                                                                <img src="https://admin.zahratalshamal.com/{{$listing->images->first()->image_path}}" alt=""
+                                                                    class="img-fluid w100 img-transition">
                                                                 <div class="info"
                                                                     style="background-color: #11572E;">
                                                                     {{ $listing_for }}</div>

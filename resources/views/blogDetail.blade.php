@@ -1,6 +1,39 @@
 @extends('layout.layout')
 @php
-    $pagename = 'Blog Single';
+    $pagenamee = 'Blog Single';
+
+    $translator = new \App\Services\TranslationService();
+    if (session()->get('locale') == 'ar') {
+        $pagename = $translator->translate($pagenamee, 'ar');
+        $blogTitle = $translator->translate($blog->title, 'ar');
+        $blogDesc1 = $translator->translate($blog->description1, 'ar');
+        $blogQuote1 = $translator->translate($blog->qoute1, 'ar');
+        $blogDesc11 = $translator->translate($blog->description11, 'ar');
+        $blogDesc2 = $translator->translate($blog->description2, 'ar');
+        $blogQuote2 = $translator->translate($blog->qoute2, 'ar');
+        $blogDesc22 = $translator->translate($blog->description22, 'ar');
+        $blogDesc3 = $translator->translate($blog->description3, 'ar');
+        $blogQuote3 = $translator->translate($blog->qoute3, 'ar');
+        $blogDesc33 = $translator->translate($blog->description33, 'ar');
+        $txtTags = $translator->translate('tags', 'ar');
+        $txtPostedon = $translator->translate('Posted on', 'ar');
+        $txtCategory = $translator->translate('category', 'ar');
+    } else {
+        $pagename = $pagenamee;
+        $blogTitle = $blog->title;
+        $blogDesc1 = $blog->description1;
+        $blogQuote1 = $blog->qoute1;
+        $blogDesc11 = $blog->description11;
+        $blogDesc2 = $blog->description2;
+        $blogQuote2 = $blog->qoute2;
+        $blogDesc22 = $blog->description22;
+        $blogDesc3 = $blog->description3;
+        $blogQuote3 = $blog->qoute3;
+        $blogDesc33 = $blog->description33;
+        $txtTags = 'tags';
+        $txtPostedon = 'Posted on';
+        $txtCategory = 'category';
+    }
 @endphp
 
 @section('pagename')
@@ -30,7 +63,7 @@
                 <div class="col-lg-8">
                     <div class="single__blog-detail">
                         <h1>
-                            {{ $blog->title }}
+                            {{ $blogTitle }}
                         </h1>
 
                         <div class="single__blog-detail-info">
@@ -43,77 +76,77 @@
                                 <li class="list-inline-item">
 
                                     <span>
-                                        Posted on:
+                                        {{ $txtPostedon}}:
                                     </span>
                                 </li>
                                 <li class="list-inline-item">
                                     <span class="text-dark text-capitalize ml-1">
-                                        {{ $blog->created_at }}
+                                        {{ $blog->created_at->format('F j, Y') }} - {{ $blog->created_at->diffForHumans() }}
                                     </span>
                                 </li>
                             </ul>
                         </div>
                         <figure>
-                            <img src="{{asset('images/c2.jpg')}}" class="img-fluid" style="width: 100%" alt="">
+                            <img src="https://admin.zahratalshamal.com/blog_imgs/{{ $blog->image_path1 }}" class="img-fluid" style="width: 100%" alt="">
                             {{-- <img src="blog_imgs/{{$blog->image_path1}}" class="img-fluid" alt=""> --}}
                         </figure>
 
                         <p class="drop-cap" style="text-align: justify;">
-                            {{$blog->description1}}
+                            {{ $blogDesc1 }}
                         </p>
 
                         <!-- BLOCKQUOTE -->
                         <blockquote class="block-quote">
                             <p>
-                                {{ $blog->qoute1 }}
+                                {{ $blogQuote1 }}
                             </p>
                         </blockquote>
                         <!-- END BLOCKQUOTE -->
 
                         <p style="text-align: justify;">
-                            {{ $blog->description11 }}
+                            {{ $blogDesc11 }}
                         </p>
                         <br>
                         <figure class="">
-                            <img src="{{asset('images/c2.jpg')}}" class="img-fluid" style="width: 100%" alt="">
+                            <img src="https://admin.zahratalshamal.com/blog_imgs/{{ $blog->image_path2 }}" class="img-fluid" style="width: 100%" alt="">
                             {{-- <img src="blog_imgs/{{$blog->image_path2}}" class="img-fluid" alt=""> --}}
                         </figure>
 
                         <p class="" style="text-align: justify;">
-                            {{$blog->description2}}
+                            {{ $blogDesc2 }}
                         </p>
 
                         <!-- BLOCKQUOTE -->
                         <blockquote class="block-quote">
                             <p>
-                                {{ $blog->qoute2 }}
+                                {{ $blogQuote2 }}
                             </p>
                         </blockquote>
                         <!-- END BLOCKQUOTE -->
 
                         <p style="text-align: justify;">
-                            {{ $blog->description22 }}
+                            {{ $blogDesc22 }}
                         </p>
                         <br>
                         <figure class="">
-                            <img src="{{asset('images/c2.jpg')}}" class="img-fluid" style="width: 100%" alt="">
+                            <img src="https://admin.zahratalshamal.com/blog_imgs/{{ $blog->image_path3 }}" class="img-fluid" style="width: 100%" alt="">
                             {{-- <img src="blog_imgs/{{$blog->image_path3}}" class="img-fluid" alt=""> --}}
                         </figure>
 
                         <p class="" style="text-align: justify;">
-                            {{$blog->description3}}
+                            {{ $blogDesc3 }}
                         </p>
 
                         <!-- BLOCKQUOTE -->
                         <blockquote class="block-quote">
                             <p>
-                                {{ $blog->qoute3 }}
+                                {{ $blogQuote3 }}
                             </p>
                         </blockquote>
                         <!-- END BLOCKQUOTE -->
 
                         <p style="text-align: justify;">
-                            {{ $blog->description33 }}
+                            {{ $blogDesc33 }}
                         </p>
 
 
@@ -160,7 +193,7 @@
                         <div class="clearfix"></div>
 
                         <!-- COMMENTS -->
-                        <h6>3 Comments:</h6>
+                        {{-- <h6>3 Comments:</h6>
                         <div class="single__detail-features-review">
                             <div class="media mt-4">
                                 <img class="mr-3 img-fluid rounded-circle" src="images/yman.jpg" alt="">
@@ -278,7 +311,7 @@
                                     class="fa fa-paper-plane ml-2"></i></button>
                             <!-- END COMMENT -->
 
-                        </div>
+                        </div> --}}
                         <!-- END COMMENTS -->
                     </div>
                 </div>
@@ -288,7 +321,7 @@
                         <aside>
                             <div class="widget__sidebar">
                                 <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">category</h6>
+                                    <h6 class="text-capitalize">{{ $txtCategory}}</h6>
                                 </div>
                                 <div class="widget__sidebar__body">
                                     <ul class="list-unstyled">
@@ -336,7 +369,7 @@
                         <aside>
                             <div class="widget__sidebar">
                                 <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">tags</h6>
+                                    <h6 class="text-capitalize">{{ $txtTags}}</h6>
                                 </div>
                                 <div class="widget__sidebar__body">
                                     <div class="blog__tags p-0">

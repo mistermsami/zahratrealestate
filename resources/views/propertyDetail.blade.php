@@ -31,6 +31,27 @@
         $txtPropertDescription = $translator->translate('Property Description', 'ar');
         $txtReadmore = $translator->translate('read more', 'ar');
         $txtPropertydetails = $translator->translate('property details', 'ar');
+
+        $txtSendmessage = $translator->translate('send message', 'ar');
+        $txtpropertyid = $translator->translate('Property ID', 'ar');
+        $txtPrice = $translator->translate('Price', 'ar');
+        $txtPropertysize = $translator->translate('Property Size', 'ar');
+        $txtBathrooms = $translator->translate('Bathrooms', 'ar');
+        $txtBedrooms = $translator->translate('Bedrooms', 'ar');
+        $txtGarage = $translator->translate('Garage', 'ar');
+        $txtGaragesize = $translator->translate('Garage Size', 'ar');
+        $txtYearbuit = $translator->translate('Year Built', 'ar');
+        $txtPropertytype = $translator->translate('Property Type', 'ar');
+        $txtPropertystatus = $translator->translate('Property Status', 'ar');
+        $txtFeature = $translator->translate('features', 'ar');
+        $txtAirconditioning = $translator->translate('air conditioning', 'ar');
+        $txtSwimimgpool = $translator->translate('swiming pool', 'ar');
+        $txtCentralheating = $translator->translate('Central Heating', 'ar');
+        $txtGym = $translator->translate('GYM', 'ar');
+        $txtWindowcovering = $translator->translate('window Covering', 'ar');
+        $txtCarparking = $translator->translate('car parking', 'ar');
+        $txtLocation = $translator->translate('location', 'ar');
+        $txtSimilarproperty = $translator->translate('similiar properties', 'ar');
     } else {
         $tittle = $listing->tittle;
         $listing_for = $listing->listing_for;
@@ -57,6 +78,27 @@
         $txtPropertDescription = 'Property Description';
         $txtReadmore = 'read more';
         $txtPropertydetails = 'property details';
+        $txtSendmessage = 'send message';
+        $txtpropertyid = 'Property ID';
+        $txtPrice = 'Price';
+        $txtPropertysize = 'Property Size';
+        $txtBathrooms = 'Bathrooms';
+        $txtBedrooms = 'Bedrooms';
+        $txtGarage = 'Garage';
+        $txtGaragesize = 'Garage Size';
+        $txtYearbuit = 'Year Built';
+        $txtPropertytype = 'Property Type';
+        $txtPropertystatus = 'Property Status';
+        $txtFeature = 'features';
+        $txtAirconditioning = 'air conditioning';
+        $txtSwimimgpool = 'swiming pool';
+        $txtCentralheating = 'Central Heating';
+        $txtGym = 'GYM';
+        $txtWindowcovering = 'window Covering';
+        $txtCarparking = 'car parking';
+        $txtLocation = 'location';
+        $txtSimilarproperty = 'similiar properties';
+
     }
 @endphp
 
@@ -99,7 +141,7 @@
                                     <h3 class="text-capitalize text-gray"><span
                                             style="color: #11572E; font-size: 18px;">{{$txtQAR}}</span> {{ $price }}</h3>
 
-                                    <ul class="list-inline">
+                                    {{-- <ul class="list-inline">
                                         <li class="list-inline-item">
                                             <a href="#" class="badge  p-2 rounded"
                                                 style="background-color: #11572E; color: #fff;"><i
@@ -115,7 +157,7 @@
                                                 style="background-color: #11572E; color: #fff;"><i
                                                     class="fa fa-print"></i></a>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </div>
                             </div>
                         </div>
@@ -127,7 +169,7 @@
                         @foreach ($listing->images as $image)
                             <div class="item">
                                 <div class="slider__image__detail-large-one">
-                                    <img src="https://admin.zahratalshamal.com/listings/{{ $image->image_path }}" alt=""
+                                    <img src="https://admin.zahratalshamal.com/{{ $image->first()->image_path }}" alt=""
                                         class="img-fluid w-100 img-transition">
                                     <div class="description">
                                         {{-- <figure>
@@ -153,7 +195,7 @@
                         @foreach ($listing->images as $image)
                             <div class="item">
                                 <div class="slider__image__detail-thumb-one">
-                                    <img src="{{ $image->image_path }}" alt=""
+                                    <img src="https://admin.zahratalshamal.com/{{ $image->image_path }}" alt=""
                                         class="img-fluid w-100 img-transition">
                                 </div>
                             </div>
@@ -296,19 +338,19 @@
                                 <div class="profile__agent__header">
                                     <div class="profile__agent__header-avatar">
                                         <figure>
-                                            <img src="images/eight.jpg" alt="" class="img-fluid">
+                                            <img src="https://admin.zahratalshamal.com/agent/{{$listing->agent->agentprofile}}" alt="" class="img-fluid">
                                         </figure>
 
                                         <ul class="list-unstyled mb-0">
                                             <li>
-                                                <h5 class="text-capitalize">Haider</h5>
+                                                <h5 class="text-capitalize">{{ $listing->agent->first_name}} {{ $listing->agent->last_name}}</h5>
                                             </li>
                                             <li><a href="tel:123456"><i
-                                                        class="fa fa-phone-square mr-1"></i>(123)456-7890</a></li>
-                                            <li><a href="javascript:void(0)"><i class=" fa fa-building mr-1"></i>
+                                                        class="fa fa-phone-square mr-1"></i>{{ $listing->agent->office_contact}}</a></li>
+                                            {{-- <li><a href="javascript:void(0)"><i class=" fa fa-building mr-1"></i>
                                                     Company name</a>
-                                            </li>
-                                            <li> <a href="javascript:void(0)" class="text-primary">View My Listing</a>
+                                            </li> --}}
+                                            <li> <a href="/{{ session('locale', 'en') }}/agentDetail/{{$listing->agent->id}}" class="text-primary">View My Profile</a>
                                             </li>
                                         </ul>
 
@@ -371,21 +413,21 @@
                                     <div class="row">
                                         <div class="col-md-6 col-lg-6">
                                             <ul class="property__detail-info-list list-unstyled">
-                                                <li><b>Property ID:</b> ZA{{ $listing->id }}</li>
-                                                <li><b>Price:</b> QAR {{ $price }}</li>
-                                                <li><b>Property Size:</b> {{ $size }} Sq Ft</li>
-                                                <li><b>Bedrooms:</b> {{ $no_rooms }}</li>
-                                                <li><b>Bathrooms:</b> {{ $no_baths }}</li>
+                                                <li><b>{{ $txtpropertyid}}:</b> ZSRPL{{ $listing->id }}</li>
+                                                <li><b>{{ $txtPrice}}:</b> QAR {{ $price }}</li>
+                                                <li><b>{{ $txtPropertysize}}:</b> {{ $size }} Sq Ft</li>
+                                                <li><b>{{ $txtBedrooms}}:</b> {{ $no_rooms }}</li>
+                                                <li><b>{{ $txtBathrooms}}:</b> {{ $no_baths }}</li>
                                             </ul>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <ul class="property__detail-info-list list-unstyled">
-                                                <li><b>Garage:</b> {{ $listing->propertyDetails->garage }}</li>
-                                                <li><b>Garage Size:</b> {{ $listing->propertyDetails->garage_size }} SqFt
+                                                <li><b>{{ $txtGarage}}:</b> {{ $listing->propertyDetails->garage }}</li>
+                                                <li><b>{{ $txtGaragesize}}:</b> {{ $listing->propertyDetails->garage_size }} SqFt
                                                 </li>
-                                                <li><b>Year Built:</b> {{ $listing->propertyDetails->built_year }}</li>
-                                                <li><b>Property Type:</b> {{ $propertyType }}</li>
-                                                <li><b>Property Status:</b> {{ $listing_for }}</li>
+                                                <li><b>{{ $txtYearbuit}}:</b> {{ $listing->propertyDetails->built_year }}</li>
+                                                <li><b>{{ $txtPropertytype}}:</b> {{ $propertyType }}</li>
+                                                <li><b>{{ $txtPropertystatus}}:</b> {{ $listing_for }}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -419,25 +461,25 @@
 
                             <!-- FEATURES -->
                             <div class="single__detail-features">
-                                <h6 class="text-capitalize detail-heading">features</h6>
+                                <h6 class="text-capitalize detail-heading">{{ $txtFeature}}</h6>
                                 <ul class="list-unstyled icon-checkbox">
                                     @if ($listing->propertyFeatures->air_conditioning == '1')
-                                        <li>air conditioning</li>
+                                        <li>{{ $txtAirconditioning}}/li>
                                     @endif
                                     @if ($listing->propertyFeatures->swimming_pool == '1')
-                                        <li>swiming pool</li>
+                                        <li>{{ $txtSwimimgpool}}</li>
                                     @endif
                                     @if ($listing->propertyFeatures->central_heating == '1')
-                                        <li>Central Heating</li>
+                                        <li>{{ $txtCentralheating}}</li>
                                     @endif
                                     @if ($listing->propertyFeatures->gym == '1')
-                                        <li>GYM</li>
+                                        <li>{{ $txtGym}}</li>
                                     @endif
                                     @if ($listing->propertyFeatures->window_covering == '1')
-                                        <li>window Covering</li>
+                                        <li>{{ $txtWindowcovering}}</li>
                                     @endif
                                     @if ($listing->propertyFeatures->car_parking == '1')
-                                        <li>car parking</li>
+                                        <li>{{ $txtCarparking}}</li>
                                     @endif
                                 </ul>
                             </div>
@@ -462,7 +504,7 @@
 
                             <!-- LOCATION -->
                             <div class="single__detail-features">
-                                <h6 class="text-capitalize detail-heading">location</h6>
+                                <h6 class="text-capitalize detail-heading">{{ $txtLocation}}</h6>
                                 <!-- FILTER VERTICAL -->
                                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                     <li class="nav-item">
@@ -510,11 +552,11 @@
             </div>
 
             <!-- SIMILIAR PROPERTY -->
-            <div class="row">
-                <div class="col-lg-12">
+            {{-- <div class="row">
+                <div class="col-lg-12 mt-4">
                     <div class="similiar__item">
                         <h6 class="text-capitalize detail-heading">
-                            similiar properties
+                            {{ $txtSimilarproperty}}
                         </h6>
                         <div class="similiar__property-carousel owl-carousel owl-theme">
                             <div class="item">
@@ -1079,7 +1121,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 
         </div>

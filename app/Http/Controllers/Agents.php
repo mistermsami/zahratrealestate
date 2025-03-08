@@ -14,7 +14,7 @@ class Agents extends Controller
 
     }
 
-    public function agentDetail($id)
+    public function agentDetail($lang,$id)
     {
         $agent = Agent::with('listings',
         'listings.city',

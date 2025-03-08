@@ -1,6 +1,27 @@
 @extends('layout.layout')
 @php
-    $pagename = 'Agents';
+    $pagenamee = 'Agents';
+    $translator = new \App\Services\TranslationService();
+    if (session()->get('locale') == 'ar') {
+        $pagename = $translator->translate($pagenamee, 'ar');
+        $txtHeadingsection1 = $translator->translate('Meet the People Who Help You', 'ar');
+        $txttaglinesection1 = $translator->translate('Get the assistance you need from our expert agents.', 'ar');
+        $txtlisting = $translator->translate('listing', 'ar');
+        $txtPropertyagent = $translator->translate('property agent', 'ar');
+        $txtOffice = $translator->translate('office', 'ar');
+        $txtMobile = $translator->translate('mobile', 'ar');
+        $txtEmail = $translator->translate('email', 'ar');
+    } else {
+        $pagename = $pagenamee;
+        $txtHeadingsection1 = 'Meet the People Who Help You';
+        $txttaglinesection1 = 'Get the assistance you need from our expert agents.';
+        $txtlisting = 'listing';
+        $txtPropertyagent = 'property agent';
+        $txtOffice = 'office';
+        $txtMobile = 'mobile';
+        $txtEmail = 'email';
+
+    }
 @endphp
 
 @section('pagename')
@@ -22,8 +43,8 @@
 
 @section('maincontent')
     <div class="clearfix"></div>
-    <h1 style="text-align: center; color:#11572E; font-size: calc(1.5rem + 1vw);">Meet the People Who Help You</h1>
-    <p style="text-align: center;">Get the assistance you need from our expert agents.</p>
+    <h1 style="text-align: center; color:#11572E; font-size: calc(1.5rem + 1vw);">{{ $txtHeadingsection1 }}</h1>
+    <p style="text-align: center;">{{ $txttaglinesection1 }}</p>
     <!-- LISTING LIST -->
     <section class="profile__agents">
         <div class="container">
@@ -113,30 +134,61 @@
                 <div class="col-lg-8">
                     <div class="row">
                         @foreach ($agents as $agent)
+                            @php
+                                if (session()->get('locale') == 'ar') {
+                                    $firstName = $translator->translate($agent->first_name, 'ar');
+                                    $lastName = $translator->translate($agent->last_name, 'ar');
+                                    $Email = $translator->translate($agent->email, 'ar');
+                                    $PhoneContact = $translator->translate($agent->phone_contact, 'ar');
+                                    $OfficeContact = $translator->translate($agent->office_contact, 'ar');
+                                } else {
+                                    $firstName = $agent->first_name;
+                                    $lastName = $agent->last_name;
+                                    $Email = $agent->email;
+                                    $PhoneContact = $agent->phone_contact;
+                                    $OfficeContact = $agent->office_contact;
+                                }
+                                if(session()->has('locale')){
+                                    $locale = session()->get('locale');
+                                }
+                                else{
+                                    $locale = 'en';
+                                    }
+                                // dd(session()->get('locale', 'en'))
+                            @endphp
                             <div class="col-lg-6">
                                 <div class="cards mt-0 mb-4">
                                     <div class="profile__agents-header">
-                                        <a href="{{route('agentDetail', $agent->id)}}" class="profile__agents-avatar">
-                                            <img src="images/team4.jpg" alt="" class="img-fluid">
-                                            <div class="total__property-agent">{{$agent->listings->count()}} listing</div>
+
+                                            <a href="agentDetail/{{ $agent->id }}"
+                                            class="profile__agents-avatar">
+                                            <img src="https://admin.zahratalshamal.com/listings/{{$agent->agentprofile}}" alt="" class="img-fluid">
+                                            <div class="total__property-agent">{{ $agent->listings->count() }}
+                                                {{ $txtlisting }}</div>
                                         </a>
                                     </div>
                                     <div class="profile__agents-body">
                                         <div class="profile__agents-info">
                                             <h5 class="text-capitalize">
-                                                <a href="{{route('agentDetail', $agent->id)}}" target="_blank">{{ $agent->first_name }}&nbsp;{{ $agent->last_name }}</a>
+                                                {{-- <a href="{{route('agentDetail',['id'=> $agent->id])}}" --}}
+
+                                                <a href="agentDetail/{{ $agent->id }}"
+                                                    target="_blank">{{ $firstName }}&nbsp;{{ $lastName }}</a>
                                             </h5>
-                                            <p class="text-capitalize mb-1">property agent</p>
+                                            <p class="text-capitalize mb-1">{{ $txtPropertyagent}}</p>
 
                                             <ul class="list-unstyled mt-2">
                                                 <li><a href="#" class="text-capitalize"><span><i
-                                                                class="fa fa-building"></i> office :</span> {{ $agent->office_contact }}</a>
+                                                                class="fa fa-building"></i> {{$txtOffice}} :</span>
+                                                        {{ $OfficeContact }}</a>
                                                 </li>
                                                 <li><a href="#" class="text-capitalize"><span><i
-                                                                class="fa fa-phone"></i> mobile :</span> {{ $agent->phone_contact }}</a></li>
+                                                                class="fa fa-phone"></i> {{$txtMobile}} :</span>
+                                                        {{ $PhoneContact }}</a></li>
 
                                                 <li><a href="#" class="text-capitalize"><span><i
-                                                                class="fa fa-envelope"></i> email :</span> {{ $agent->email}}</a></li>
+                                                                class="fa fa-envelope"></i> {{$txtEmail}} :</span>
+                                                        {{ $Email }}</a></li>
                                             </ul>
                                             <p class="mb-0 mt-3">
                                                 <button class="btn btn-social btn-social-o facebook mr-1">
