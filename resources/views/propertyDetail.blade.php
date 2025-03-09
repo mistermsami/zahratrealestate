@@ -169,7 +169,7 @@
                         @foreach ($listing->images as $image)
                             <div class="item">
                                 <div class="slider__image__detail-large-one">
-                                    <img src="https://admin.zahratalshamal.com/{{ $image->first()->image_path }}" alt=""
+                                    <img src="https://admin.zahratalshamal.com/{{ $image->image_path }}" alt=""
                                         class="img-fluid w-100 img-transition">
                                     <div class="description">
                                         {{-- <figure>

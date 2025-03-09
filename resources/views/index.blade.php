@@ -25,14 +25,11 @@ $translator = new \App\Services\TranslationService();
     } else {
         $txtpagename = $pagename;
         $txtHerosliderheading1 = 'The #1 place for commercial property';
-        $txtHerosliderptag1 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
-        recusandae';
+        $txtHerosliderptag1 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam recusandae';
         $txtHerosliderheading2 = 'The #1 place for commercial property';
-        $txtHerosliderptag2 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
-        recusandae';
+        $txtHerosliderptag2 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam recusandae';
         $txtHerosliderheading3 = 'The #1 place for commercial property';
-        $txtHerosliderptag3 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
-        recusandae';
+        $txtHerosliderptag3 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam recusandae';
         $txtcontactusbtn = 'Contact Us';
         $txtScetion1heading = 'Most Popular Places';
         $txtScetion1tagline = 'find properties in these cities.';

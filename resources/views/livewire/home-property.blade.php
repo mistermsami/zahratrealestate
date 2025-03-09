@@ -40,15 +40,51 @@
                     @php
                         // Translate only if the locale is Arabic
                         if (session()->get('locale') == 'ar') {
-                            $tittle = $translator->translate($listing->tittle, 'ar');
-                            $listing_for = $translator->translate($listing->listing_for, 'ar');
-                            $area_name = $translator->translate($listing->area->name, 'ar');
-                            $city_name = $translator->translate($listing->city->city_name, 'ar');
-                            $no_rooms = $translator->translate($listing->propertyDetails->rooms, 'ar');
-                            $no_baths = $translator->translate($listing->propertyDetails->baths, 'ar');
-                            $size = $translator->translate($listing->propertyDetails->size, 'ar');
-                            $price = $translator->translate($listing->price, 'ar');
+                            if (!empty($listing->tittle)) {
+                                $tittle = $translator->translate($listing->tittle, 'ar');
+                            } else {
+                                $tittle = 'Null';
+                            }
+                            if (!empty($listing->listing_for)) {
+                                $listing_for = $translator->translate($listing->listing_for, 'ar');
+                            } else {
+                                $listing_for = 'Null';
+                            }
+                            if (!empty($listing->area->name)) {
+                                $area_name = $translator->translate($listing->area->name, 'ar');
+                            } else {
+                                $area_name = 'Null';
+                            }
+                            if (!empty($listing->city->city_name)) {
+                                $city_name = $translator->translate($listing->city->city_name, 'ar');
+                            } else {
+                                $city_name = 'Null';
+                            }
+                            if (!empty($listing->propertyDetails->rooms)) {
+                                $no_rooms = $translator->translate($listing->propertyDetails->rooms, 'ar');
+                            } else {
+                                $no_rooms = 'Null';
+                            }
+                            if (!empty($listing->propertyDetails->baths)) {
+                                $no_baths = $translator->translate($listing->propertyDetails->baths, 'ar');
+                            } else {
+                                $no_baths = 'Null';
+                            }
+                            if (!empty($listing->propertyDetails->size)) {
+                                $size = $translator->translate($listing->propertyDetails->size, 'ar');
+                            } else {
+                                $size = 'Null';
+                            }
+                            if (!empty($listing->price)) {
+                                $price = $translator->translate($listing->price, 'ar');
+                            } else {
+                                $price = 'Null';
+                            }
+                            if (!empty($listing->slug->slug)) {
                             $slug = $listing->slug->slug;
+                            } else {
+                                $slug = 'Null';
+                            }
                             $txtfeatured = $translator->translate('featured', 'ar');
                             $txtQatar = $translator->translate('Qatar', 'ar');
                             $txtbaths = $translator->translate('baths', 'ar');
@@ -59,8 +95,7 @@
                             $txtQAR = $translator->translate('QAR', 'ar');
                             $txtWhatsApp = $translator->translate('WhatsApp', 'ar');
                             $txtCall = $translator->translate('Call', 'ar');
-
-                        }else {
+                        } else {
                             $tittle = $listing->tittle;
                             $listing_for = $listing->listing_for;
                             $area_name = $listing->area->name;
@@ -84,14 +119,14 @@
                     @endphp
                     <div class="col-md-6 col-lg-4 filtr-item" data-category="2, 4" data-title="">
                         {{-- <a href="{{ route('propertyDetail', $slug) }}"> --}}
-                            <a href="/{{ session('locale', 'en') }}/propertyDetail/{{ $slug }}">
+                        <a href="/{{ session('locale', 'en') }}/propertyDetail/{{ $slug }}">
                             <div class="card__image card__box-v1">
                                 <div class="card__image-header h-250">
                                     <div class="ribbon text-capitalize"
                                         style="background-color: goldenrod; color: black;">{{ $txtfeatured }}
                                     </div>
-                                    <img src="images/apart4.jpg" alt="" class="img-fluid w100 img-transition">
-                                    {{-- <img src="https://admin.zahratalshamal.com/listings/{{$listing->images->image_path}}" alt="" class="img-fluid w100 img-transition"> --}}
+                                    {{-- <img src="images/apart4.jpg" alt="" class="img-fluid w100 img-transition"> --}}
+                                    <img src="https://admin.zahratalshamal.com/{{$listing->images->first()->image_path}}" alt="" class="img-fluid w100 img-transition">
 
 
                                     <div class="info" style="background-color: #11572E;"> {{ $listing_for }}
@@ -143,7 +178,7 @@
                                         <a href="https://wa.me/{{ $listing->agent->phone_contact }}" class="btn btn-sm"
                                             style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
                                             target="_blank">
-                                            <i class="fa fa-whatsapp"></i> {{ $txtWhatsApp}}
+                                            <i class="fa fa-whatsapp"></i> {{ $txtWhatsApp }}
                                         </a>
 
                                         <!-- Call Button -->
@@ -153,7 +188,7 @@
                                         </a>
                                     </div>
                                     <h6 class="mb-0">
-                                        <span style="color: #11572E; font-size: small;">{{ $txtQAR}}</span>
+                                        <span style="color: #11572E; font-size: small;">{{ $txtQAR }}</span>
                                         {{ $price }}
                                     </h6>
                                 </div>

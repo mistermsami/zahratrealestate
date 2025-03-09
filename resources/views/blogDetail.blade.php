@@ -5,16 +5,56 @@
     $translator = new \App\Services\TranslationService();
     if (session()->get('locale') == 'ar') {
         $pagename = $translator->translate($pagenamee, 'ar');
-        $blogTitle = $translator->translate($blog->title, 'ar');
-        $blogDesc1 = $translator->translate($blog->description1, 'ar');
-        $blogQuote1 = $translator->translate($blog->qoute1, 'ar');
-        $blogDesc11 = $translator->translate($blog->description11, 'ar');
-        $blogDesc2 = $translator->translate($blog->description2, 'ar');
-        $blogQuote2 = $translator->translate($blog->qoute2, 'ar');
-        $blogDesc22 = $translator->translate($blog->description22, 'ar');
-        $blogDesc3 = $translator->translate($blog->description3, 'ar');
-        $blogQuote3 = $translator->translate($blog->qoute3, 'ar');
-        $blogDesc33 = $translator->translate($blog->description33, 'ar');
+        if (!empty($blog->title)) {
+            $blogTitle = $translator->translate($blog->title, 'ar');
+        } else {
+            $blogTitle = '';
+        }
+        if (!empty($blog->description1)) {
+            $blogDesc1 = $translator->translate($blog->description1, 'ar');
+        } else {
+            $blogDesc1 = '';
+        }
+        if (!empty($blog->qoute1)) {
+            $blogQuote1 = $translator->translate($blog->qoute1, 'ar');
+        } else {
+            $blogQuote1 = '';
+        }
+        if (!empty($blog->description11)) {
+            $blogDesc11 = $translator->translate($blog->description11, 'ar');
+        } else {
+            $blogDesc11 = '';
+        }
+        if (!empty($blog->description2)) {
+            $blogDesc2 = $translator->translate($blog->description2, 'ar');
+        } else {
+            $blogDesc2 = '';
+        }
+        if (!empty($blog->qoute2)) {
+            $blogQuote2 = $translator->translate($blog->qoute2, 'ar');
+        } else {
+            $blogQuote2 = '';
+        }
+        if (!empty($blog->description22)) {
+            $blogDesc22 = $translator->translate($blog->description22, 'ar');
+        } else {
+            $blogDesc22 = '';
+        }
+        if (!empty($blog->description3)) {
+            $blogDesc3 = $translator->translate($blog->description3, 'ar');
+        } else {
+            $blogDesc3 = '';
+        }
+        if (!empty($blog->qoute3)) {
+            $blogQuote3 = $translator->translate($blog->qoute3, 'ar');
+        } else {
+            $blogQuote3 = '';
+        }
+        if (!empty($blog->description33)) {
+            $blogDesc33 = $translator->translate($blog->description33, 'ar');
+        } else {
+            $blogDesc33 = '';
+        }
         $txtTags = $translator->translate('tags', 'ar');
         $txtPostedon = $translator->translate('Posted on', 'ar');
         $txtCategory = $translator->translate('category', 'ar');
@@ -76,7 +116,7 @@
                                 <li class="list-inline-item">
 
                                     <span>
-                                        {{ $txtPostedon}}:
+                                        {{ $txtPostedon }}:
                                     </span>
                                 </li>
                                 <li class="list-inline-item">
@@ -87,7 +127,8 @@
                             </ul>
                         </div>
                         <figure>
-                            <img src="https://admin.zahratalshamal.com/blog_imgs/{{ $blog->image_path1 }}" class="img-fluid" style="width: 100%" alt="">
+                            <img src="https://admin.zahratalshamal.com/blog_imgs/{{ $blog->image_path1 }}" class="img-fluid"
+                                style="width: 100%" alt="">
                             {{-- <img src="blog_imgs/{{$blog->image_path1}}" class="img-fluid" alt=""> --}}
                         </figure>
 
@@ -108,7 +149,8 @@
                         </p>
                         <br>
                         <figure class="">
-                            <img src="https://admin.zahratalshamal.com/blog_imgs/{{ $blog->image_path2 }}" class="img-fluid" style="width: 100%" alt="">
+                            <img src="https://admin.zahratalshamal.com/blog_imgs/{{ $blog->image_path2 }}" class="img-fluid"
+                                style="width: 100%" alt="">
                             {{-- <img src="blog_imgs/{{$blog->image_path2}}" class="img-fluid" alt=""> --}}
                         </figure>
 
@@ -129,7 +171,8 @@
                         </p>
                         <br>
                         <figure class="">
-                            <img src="https://admin.zahratalshamal.com/blog_imgs/{{ $blog->image_path3 }}" class="img-fluid" style="width: 100%" alt="">
+                            <img src="https://admin.zahratalshamal.com/blog_imgs/{{ $blog->image_path3 }}"
+                                class="img-fluid" style="width: 100%" alt="">
                             {{-- <img src="blog_imgs/{{$blog->image_path3}}" class="img-fluid" alt=""> --}}
                         </figure>
 
@@ -321,7 +364,7 @@
                         <aside>
                             <div class="widget__sidebar">
                                 <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">{{ $txtCategory}}</h6>
+                                    <h6 class="text-capitalize">{{ $txtCategory }}</h6>
                                 </div>
                                 <div class="widget__sidebar__body">
                                     <ul class="list-unstyled">
@@ -369,7 +412,7 @@
                         <aside>
                             <div class="widget__sidebar">
                                 <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">{{ $txtTags}}</h6>
+                                    <h6 class="text-capitalize">{{ $txtTags }}</h6>
                                 </div>
                                 <div class="widget__sidebar__body">
                                     <div class="blog__tags p-0">
@@ -448,6 +491,4 @@
         </div>
     </section>
     <!-- END LISTING LIST -->
-
-
 @endsection
