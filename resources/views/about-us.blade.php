@@ -106,7 +106,7 @@
     </section>
 
     <!-- OUR TEAM -->
-    <section class="bg-light">
+    {{-- <section class="bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto">
@@ -272,6 +272,6 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 @endsection

@@ -464,7 +464,7 @@
                                 <h6 class="text-capitalize detail-heading">{{ $txtFeature}}</h6>
                                 <ul class="list-unstyled icon-checkbox">
                                     @if ($listing->propertyFeatures->air_conditioning == '1')
-                                        <li>{{ $txtAirconditioning}}/li>
+                                        <li>{{ $txtAirconditioning}}</li>
                                     @endif
                                     @if ($listing->propertyFeatures->swimming_pool == '1')
                                         <li>{{ $txtSwimimgpool}}</li>
