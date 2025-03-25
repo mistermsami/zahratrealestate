@@ -28,9 +28,12 @@
 
         </div>
         <div class="row">
-            <div class="filtr-container">
-                {{-- <h1>{{ $translatedText}}</h1> --}}
-                @php
+            {{-- <div class="filtr-container">
+
+
+
+            </div> --}}
+            @php
                     $translator = new \App\Services\TranslationService();
                     // $translatedText = $translator->translate('Hello', 'ar');
 
@@ -98,7 +101,12 @@
                         } else {
                             $tittle = $listing->tittle;
                             $listing_for = $listing->listing_for;
-                            $area_name = $listing->area->name;
+                            // $area_name = $listing->area->name;
+                            if (!empty($listing->area->name)) {
+                                $area_name = $translator->translate($listing->area->name, 'ar');
+                            } else {
+                                $area_name = 'Null';
+                            }
                             $city_name = $listing->city->city_name;
                             $no_rooms = $listing->propertyDetails->rooms;
                             $no_baths = $listing->propertyDetails->baths;
@@ -135,7 +143,7 @@
                                 <div class="card__image-body">
                                     {{-- <span class="badge badge-primary text-capitalize mb-2"
                                         style="background-color: #11572E;">{{ $listing->propertyType->pt_name }}</span> --}}
-                                    <h6 class="text-capitalize">
+                                    <h6 class="text-capitalize" style="text-align: start">
                                         {{ $tittle }}
                                     </h6>
 
@@ -144,7 +152,7 @@
                                         {{ $area_name }}, {{ $city_name }}, {{ $txtQatar }}
 
                                     </p>
-                                    <ul class="list-inline card__content">
+                                    <ul class="list-inline card__content" style="text-align: start">
                                         <li class="list-inline-item">
 
                                             <span>
@@ -196,9 +204,6 @@
                         </a>
                     </div>
                 @endforeach
-
-
-            </div>
         </div>
     </div>
 </div>

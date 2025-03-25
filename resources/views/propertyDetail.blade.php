@@ -8,7 +8,11 @@
     if (session()->get('locale') == 'ar') {
         $tittle = $translator->translate($listing->tittle, 'ar');
         $listing_for = $translator->translate($listing->listing_for, 'ar');
+        if(!empty($listing->area->name)){
         $area_name = $translator->translate($listing->area->name, 'ar');
+        }else{
+            $area_name = '';
+        }
         $city_name = $translator->translate($listing->city->city_name, 'ar');
         $no_rooms = $translator->translate($listing->propertyDetails->rooms, 'ar');
         $no_baths = $translator->translate($listing->propertyDetails->baths, 'ar');
@@ -55,7 +59,12 @@
     } else {
         $tittle = $listing->tittle;
         $listing_for = $listing->listing_for;
-        $area_name = $listing->area->name;
+        if(!empty($listing->area->name)){
+            $area_name = $listing->area->name;
+        }else{
+            $area_name = '';
+        }
+
         $city_name = $listing->city->city_name;
         $no_rooms = $listing->propertyDetails->rooms;
         $no_baths = $listing->propertyDetails->baths;

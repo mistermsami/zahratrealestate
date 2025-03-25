@@ -55,6 +55,16 @@
         } else {
             $blogDesc33 = '';
         }
+        if (!empty($blog->created_at)) {
+            $createdAt = $translator->translate($blog->created_at->format('F j, Y'), 'ar');
+        } else {
+            $createdAt = '';
+        }
+        if (!empty($blog->created_at)) {
+            $Since = $translator->translate($blog->created_at->diffForHumans(), 'ar');
+        } else {
+            $Since = '';
+        }
         $txtTags = $translator->translate('tags', 'ar');
         $txtPostedon = $translator->translate('Posted on', 'ar');
         $txtCategory = $translator->translate('category', 'ar');
@@ -70,6 +80,7 @@
         $blogDesc3 = $blog->description3;
         $blogQuote3 = $blog->qoute3;
         $blogDesc33 = $blog->description33;
+        $createdAt = $blog->created_at->format('F j, Y');
         $txtTags = 'tags';
         $txtPostedon = 'Posted on';
         $txtCategory = 'category';
@@ -101,13 +112,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="single__blog-detail">
+                    <div class="single__blog-detail" style="text-align: start">
                         <h1>
                             {{ $blogTitle }}
                         </h1>
 
                         <div class="single__blog-detail-info">
-                            <ul class="list-inline">
+                            <ul class="list-inline" style="text-align: start">
                                 {{-- <li class="list-inline-item">
                                     <figure class="image-profile">
                                         <img src="{{asset('images/eight.jpg')}}" class="img-fluid" alt="">
@@ -121,7 +132,7 @@
                                 </li>
                                 <li class="list-inline-item">
                                     <span class="text-dark text-capitalize ml-1">
-                                        {{ $blog->created_at->format('F j, Y') }} - {{ $blog->created_at->diffForHumans() }}
+                                        {{ $createdAt }} - {{ $Since }}
                                     </span>
                                 </li>
                             </ul>

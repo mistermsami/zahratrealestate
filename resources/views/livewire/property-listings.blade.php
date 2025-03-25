@@ -360,6 +360,7 @@
                                                         $no_baths = $translator->translate($listing->propertyDetails->baths,'ar');
                                                         $size = $translator->translate($listing->propertyDetails->size,'ar');
                                                         $price = $translator->translate($listing->price, 'ar');
+                                                        $propertyTyp = $translator->translate($listing->propertyType->pt_name, 'ar');
                                                         $slug = $listing->slug->slug;
                                                         $txtfeatured = $translator->translate('featured', 'ar');
                                                         $txtQatar = $translator->translate('Qatar', 'ar');
@@ -380,6 +381,7 @@
                                                         $no_baths = $listing->propertyDetails->baths;
                                                         $size = $listing->propertyDetails->size;
                                                         $price = $listing->price;
+                                                        $propertyTyp = $listing->propertyType->pt_name;
                                                         $slug = $listing->slug->slug;
                                                         $txtfeatured = 'featured';
                                                         $txtQatar = 'Qatar';
@@ -415,8 +417,8 @@
                                                             </div>
                                                             <div class="card__image-body">
                                                                 <span class="badge badge-primary text-capitalize mb-2"
-                                                                    style="background-color: #11572E;">{{ $listing->propertyType->pt_name }}</span>
-                                                                <h6 class="text-capitalize">
+                                                                    style="background-color: #11572E;">{{ $propertyTyp }}</span>
+                                                                <h6 class="text-capitalize" style="text-align: start">
                                                                     {{ $tittle }}
                                                                 </h6>
 
@@ -426,7 +428,7 @@
                                                                     {{ $city_name }}, {{ $txtQatar}}
 
                                                                 </p>
-                                                                <ul class="list-inline card__content">
+                                                                <ul class="list-inline card__content" style="text-align: start">
                                                                     <li class="list-inline-item">
 
                                                                         <span>

@@ -16,6 +16,8 @@
         );
         $txtPhone = $translator->translate('+97470816051', 'ar');
         $txtTimings = $translator->translate('Mon - Sun / 9:00AM - 8:00PM', 'ar');
+
+        $dir="rtl";
     } else {
         $txtTitle = 'Zahrat Alshamal Real Estate';
         $txtHome = 'Home';
@@ -30,10 +32,13 @@
             'Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551';
         $txtPhone = '+97470816051';
         $txtTimings = 'Mon - Sun / 9:00AM - 8:00PM';
+
+        $dir="";
     }
 @endphp
 <!DOCTYPE html>
-<html lang="{{ App::getLocale() }}">
+
+<html lang="{{ App::getLocale() }} " dir="{{$dir}}">
 
 <head>
     <meta charset="utf-8">
@@ -58,10 +63,27 @@
     <meta name="theme-color" content="#3454d1">
     <link href="{{ asset('css/styles.css?fd365619e86ad9137a29') }}" rel="stylesheet">
 
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5KVPK354');
+    </script>
+
+
+    <!-- End Google Tag Manager -->
 </head>
 
 <body>
-
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KVPK354"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+        <!-- End Google Tag Manager (noscript) -->
 
 
     <nav class="navbar navbar-hover navbar-expand-lg navbar-soft">
@@ -118,10 +140,19 @@
                     </li> --}}
 
                 </ul>
+                @php
+                    if (session()->get('locale') == 'ar') {
+                        $ml = 'margin-left: 15px;';
+                    }
+                    else {
+                        $ml = '';
+                        }
+                @endphp
                 <ul class="navbar-nav ">
+
                     <li>
                         <a href="{{ route('add-property') }}" class="btn text-capitalize"
-                            style="background-color: #11572E; color: #fff;">
+                            style="background-color: #11572E; color: #fff; {{$ml}}">
                             <i class="fa fa-plus-circle mr-1"></i> {{ $txtAddproperty }}
                         </a>
                     </li>
@@ -150,13 +181,15 @@
                                 @php
                                 $currentLocale = session('locale', 'en');
                             @endphp
-
+                            @if (session()->get('locale') == 'ar')
                             <a href="{{ route('lang.switch', ['locale' => 'en']) }}" style="text-decoration: none; color: #11572E;">
                                 EN
-                            </a> |
+                            </a>
+                            @else
                             <a href="{{ route('lang.switch', ['locale' => 'ar']) }}" style="text-decoration: none; color: #11572E;">
                                 AR
                             </a>
+                            @endif
 
 
                             {{-- <span id="langText" onclick="window.location.href='{{ route('lang.switch', ['locale' => 'ar']) }}">AR</span> --}}

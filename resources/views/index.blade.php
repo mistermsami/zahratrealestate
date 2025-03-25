@@ -330,22 +330,6 @@ $translator = new \App\Services\TranslationService();
                                 style="background-color: #11572E; border-color: #11572E; color: #fff; border-radius: 5px;" onclick="window.location.href='{{ route('propertylistings', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}'">
                                 search <i class="fa fa-search ml-1"></i></button>
                         </div>
-                        <!-- <div style="margin: 10px 20px;">
-                                <div id="buyOptions" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                    <button class="togbtn toggle-btn active" onclick="setActiveToggle(this)"
-                                            style="background-color: #11572E; color: #fff; border: 1px solid #11572E; border-radius: 5px; transition: 0.3s; padding: 5px 15px; font-size: 12px;">
-                                        ALL
-                                    </button>
-                                    <button class="togbtn toggle-btn" onclick="setActiveToggle(this)"
-                                            style="background-color: #fff; color: #11572E; border: 1px solid #11572E; border-radius: 5px; transition: 0.3s; padding: 5px 15px; font-size: 12px;">
-                                        Off Plan
-                                    </button>
-                                    <button class="togbtn toggle-btn" onclick="setActiveToggle(this)"
-                                            style="background-color: #fff; color: #11572E; border: 1px solid #11572E; border-radius: 5px; transition: 0.3s; padding: 5px 15px; font-size: 12px;">
-                                        Ready
-                                    </button>
-                                </div>
-                            </div> -->
                     </div>
 
 
