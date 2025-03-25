@@ -3,6 +3,8 @@
     if (session()->get('locale') == 'ar') {
         $txtTitle = $translator->translate('Zahrat Alshamal Real Estate', 'ar');
         $txtHome = $translator->translate('Home', 'ar');
+        $txtPrRent = $translator->translate('Rent', 'ar');
+        $txtPrBuy = $translator->translate('Buy', 'ar');
         $txtPropertylistings = $translator->translate('Property Listing', 'ar');
         $txtAgenst = $translator->translate('Agents', 'ar');
         $txtBlogs = $translator->translate('Blogs', 'ar');
@@ -21,6 +23,8 @@
     } else {
         $txtTitle = 'Zahrat Alshamal Real Estate';
         $txtHome = 'Home';
+        $txtPrRent = 'Rent';
+        $txtPrBuy = 'Buy';
         $txtPropertylistings = 'Property Listing';
         $txtAgenst = 'Agents';
         $txtBlogs = 'Blogs';
@@ -87,7 +91,7 @@
 
 
     <nav class="navbar navbar-hover navbar-expand-lg navbar-soft">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#" style="padding: 0;">
                 <img src="{{ asset('images/zrs_logo_simple-0.png') }}" alt="" style="width: 80px;">
             </a>
@@ -105,6 +109,12 @@
 
                     <li class="nav-item"><a class="nav-link active"
                             href="{{ route('/', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtHome }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ route('buyproperty', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtPrBuy }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ route('rentproperty', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtPrRent }}</a>
                     </li>
                     <li class="nav-item"><a class="nav-link"
                             href="{{ route('propertylistings', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtPropertylistings }}</a>

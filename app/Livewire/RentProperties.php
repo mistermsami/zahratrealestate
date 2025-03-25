@@ -8,9 +8,10 @@ use App\Models\ListingDetail;
 use App\Models\City;
 use App\Models\PropertyType;
 
-class PropertyListings extends Component
+
+class RentProperties extends Component
 {
-    use WithPagination;
+        use WithPagination;
 
     public $listing_for, $SizefromSelected, $selectedPropertyType, $selectedCity, $bedsSelected, $minpriceSelected, $maxpriceSelected;
     public $propertyTypes, $cities;
@@ -42,20 +43,10 @@ class PropertyListings extends Component
     {
         $query = ListingDetail::query();
 
-        if ($this->listing_for) {
-            // dd($this->listing_for);
-            $listingfor = '';
-            if ($this->listing_for == 'Buy') {
-                $listingfor = 'for sale';
-            }
-            if ($this->listing_for == 'Rent') {
-                $listingfor = 'for rent';
-            }
-            $query->where('listing_for', $listingfor);
-        }
+
         if ($this->SizefromSelected) {
             $query->whereHas('propertyDetails', function ($q) {
-                $q->whereRaw('CAST(size AS SIGNED) > ?', [$this->SizefromSelected]);
+                $q->where('size', '>=', $this->SizefromSelected);
             });
         }
         if ($this->selectedPropertyType) {
@@ -66,19 +57,19 @@ class PropertyListings extends Component
         }
         if ($this->bedsSelected) {
             $query->whereHas('propertyDetails', function ($q) {
-                $q->whereRaw('CAST(rooms AS SIGNED) >= ?', $this->bedsSelected);
+                $q->where('rooms', '>=', $this->bedsSelected);
             });
         }
         if ($this->minpriceSelected) {
-            $query->whereRaw('CAST(price AS SIGNED) >= ?', $this->minpriceSelected);
+            $query->where('price', '>=', $this->minpriceSelected);
         }
         if ($this->maxpriceSelected) {
-            $query->whereRaw('CAST(price AS SIGNED) <= ?', $this->maxpriceSelected);
+            $query->where('price', '<=', $this->maxpriceSelected);
         }
 
         // Use pagination
-        $listings = $query->paginate(12);
+        $listings = $query->where('listing_for', 'for rent')->paginate(12);
 
-        return view('livewire.property-listings', compact('listings'));
+        return view('livewire.rent-properties', compact('listings'));
     }
 }

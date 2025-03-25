@@ -49,6 +49,8 @@ Route::group(['prefix' => '{locale?}', 'where' => ['locale' => 'en|ar']], functi
     // Property Routes
     Route::get('/propertyDetail/{slug}', [PropertyController::class, 'propertyDetail'])->name('propertyDetail');
     Route::get('/propertylistings', [PropertyController::class, 'propertylistings'])->name('propertylistings');
+    Route::get('/buy/properties-for-sale', [PropertyController::class, 'buypropertylistings'])->name('buyproperty');
+    Route::get('/rent/properties-for-rent', [PropertyController::class, 'rentpropertylistings'])->name('rentproperty');
 
     Route::get('/add-property', function () {
         return view('add-property');

@@ -5,18 +5,7 @@
                 <div class="container">
                     <div class="search__area-inner">
                         <div class="row">
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <select class="wide form-control select_option" wire:model.lazy="listing_for">
-                                        <option value="">Select</option>
-                                        <option value="Buy">Buy</option>
-                                        <option value="Rent">Rent</option>
-                                    </select>
 
-                                </div>
-                            </div>
-
-                            @if ($listing_for === 'Buy')
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <select class="wide form-control select_option"
@@ -27,19 +16,18 @@
                                         </select>
                                     </div>
                                 </div>
-                            @endif
 
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <select class="wide form-control select_option"
                                         wire:model.change="SizefromSelected">
                                         <option data-display="Area From">Area From </option>
-                                        <option value="1499">1500</option>
-                                        <option value="1199">1200</option>
-                                        <option value="899">900</option>
-                                        <option value="599">600</option>
-                                        <option value="299">300</option>
-                                        <option value="99">100</option>
+                                        <option value="1500">1500</option>
+                                        <option value="1200">1200</option>
+                                        <option value="900">900</option>
+                                        <option value="600">600</option>
+                                        <option value="300">300</option>
+                                        <option value="100">100</option>
                                     </select>
                                 </div>
                             </div>
@@ -171,7 +159,11 @@
                                     <div class="tab-pane fade" id="pills-tab-one" role="tabpanel"
                                         aria-labelledby="pills-tab-one">
                                         <div class="row">
-
+                                            @if (count($listings) == 0)
+                                                <div class="col-md-12 d-flex justify-content-center py-5">
+                                                    <p>No Property found!</p>
+                                                </div>
+                                            @endif
                                             @foreach ($listings as $listing)
                                                 @php
                                                 $translator = new \App\Services\TranslationService();
@@ -347,6 +339,11 @@
                                     <div class="tab-pane fade show active" id="pills-tab-two" role="tabpanel"
                                         aria-labelledby="pills-tab-two">
                                         <div class="row">
+                                            @if (empty($listings))
+                                                <div class="col-md-12 d-flex justify-content-center py-5">
+                                                    <p>No Property found!</p>
+                                                </div>
+                                            @endif
                                             @foreach ($listings as $listing)
                                             @php
                                                 $translator = new \App\Services\TranslationService();

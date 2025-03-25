@@ -22,4 +22,12 @@ class PropertyController extends Controller
 
         return view('propertylistings');
     }
+    public function buypropertylistings(){
+
+        return view('buypropertylistings');
+    }
+    public function rentpropertylistings(){
+
+        return view('rentpropertylistings');
+    }
 }
