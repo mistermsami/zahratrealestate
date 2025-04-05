@@ -47,10 +47,12 @@ Route::group(['prefix' => '{locale?}', 'where' => ['locale' => 'en|ar']], functi
     Route::get('/agentDetail/{id}', [Agents::class, 'agentDetail'])->name('agentDetail');
 
     // Property Routes
-    Route::get('/propertyDetail/{slug}', [PropertyController::class, 'propertyDetail'])->name('propertyDetail');
-    Route::get('/propertylistings', [PropertyController::class, 'propertylistings'])->name('propertylistings');
-    Route::get('/buy/properties-for-sale', [PropertyController::class, 'buypropertylistings'])->name('buyproperty');
-    Route::get('/rent/properties-for-rent', [PropertyController::class, 'rentpropertylistings'])->name('rentproperty');
+    // Route::get('/propertyDetail/{slug}', [PropertyController::class, 'propertyDetail'])->name('propertyDetail');
+    Route::get('/property/properties-for-sale/qatar/{slug}', [PropertyController::class, 'propertyDetail'])->name('propertyDetail');
+    Route::get('/property/properties-for-rent/qatar/{slug}', [PropertyController::class, 'propertyDetail'])->name('propertyDetail');
+    Route::get('/properties/qatar', [PropertyController::class, 'propertylistings'])->name('propertylistings');
+    Route::get('/properties/properties-for-sale/qatar', [PropertyController::class, 'buypropertylistings'])->name('buyproperty');
+    Route::get('/properties/properties-for-rent/qatar', [PropertyController::class, 'rentpropertylistings'])->name('rentproperty');
 
     Route::get('/add-property', function () {
         return view('add-property');

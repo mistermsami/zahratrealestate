@@ -8,10 +8,9 @@ use App\Models\ListingDetail;
 use App\Models\City;
 use App\Models\PropertyType;
 
-
 class RentProperties extends Component
 {
-        use WithPagination;
+    use WithPagination;
 
     public $listing_for, $SizefromSelected, $selectedPropertyType, $selectedCity, $bedsSelected, $minpriceSelected, $maxpriceSelected;
     public $propertyTypes, $cities;
@@ -46,7 +45,7 @@ class RentProperties extends Component
 
         if ($this->SizefromSelected) {
             $query->whereHas('propertyDetails', function ($q) {
-                $q->where('size', '>=', $this->SizefromSelected);
+                $q->whereRaw('CAST(size AS SIGNED) > ?', [$this->SizefromSelected]);
             });
         }
         if ($this->selectedPropertyType) {
@@ -57,14 +56,14 @@ class RentProperties extends Component
         }
         if ($this->bedsSelected) {
             $query->whereHas('propertyDetails', function ($q) {
-                $q->where('rooms', '>=', $this->bedsSelected);
+                $q->whereRaw('CAST(rooms AS SIGNED) >= ?', $this->bedsSelected);
             });
         }
         if ($this->minpriceSelected) {
-            $query->where('price', '>=', $this->minpriceSelected);
+            $query->whereRaw('CAST(price AS SIGNED) >= ?', $this->minpriceSelected);
         }
         if ($this->maxpriceSelected) {
-            $query->where('price', '<=', $this->maxpriceSelected);
+            $query->whereRaw('CAST(price AS SIGNED) <= ?', $this->maxpriceSelected);
         }
 
         // Use pagination

@@ -174,7 +174,7 @@
 
                                             @foreach ($listings as $listing)
                                                 @php
-                                                $translator = new \App\Services\TranslationService();
+                                                    $translator = new \App\Services\TranslationService();
                                                     // Translate only if the locale is Arabic
                                                     if (session()->get('locale') == 'ar') {
                                                         $tittle = $translator->translate($listing->tittle, 'ar');
@@ -182,7 +182,14 @@
                                                             $listing->listing_for,
                                                             'ar',
                                                         );
-                                                        $area_name = $translator->translate($listing->area->name, 'ar');
+                                                        // $area_name = $translator->translate($listing->area->name, 'ar');
+                                                        $area_name = optional($listing->area)->name
+                                                            ? $translator->translate($listing->area->name, 'ar')
+                                                            : '';
+                                                        $city_name = optional($listing->city)->city_name
+                                                            ? $translator->translate($listing->city->city_name, 'ar')
+                                                            : '';
+
                                                         $city_name = $translator->translate(
                                                             $listing->city->city_name,
                                                             'ar',
@@ -236,107 +243,120 @@
                                                 <div class="col-md-6 col-lg-4 filtr-item" data-category="2, 4"
                                                     data-title="">
                                                     {{-- <a href="{{ route('propertyDetail', $slug) }}"> --}}
-                                                        {{-- <a href="{{ route('propertyDetail', ['slug' => $slug, 'locale' => session()->get('locale') ?? 'en']) }}"> --}}
-                                                            @php
-                                                                $thislocale = session()->get('locale') ?? 'en';
-                                                            @endphp
-                                                            <a href="/{{ session('locale', 'en') }}/propertyDetail/{{ $slug }}">
-                                                                {{-- <a href="/{{ url("session('locale', 'en') /propertyDetail/ $thislocale") }}"> --}}
+                                                    {{-- <a href="{{ route('propertyDetail', ['slug' => $slug, 'locale' => session()->get('locale') ?? 'en']) }}"> --}}
+                                                    @php
+                                                        $thislocale = session()->get('locale') ?? 'en';
+                                                    @endphp
+                                                    @if ($listing_for == 'for rent')
+                                                        <a
+                                                            href="/{{ session('locale', 'en') }}/property/properties-for-rent/qatar/{{ $slug }}">
+                                                        @else
+                                                            <a
+                                                                href="/{{ session('locale', 'en') }}/property/properties-for-sale/qatar/{{ $slug }}">
+                                                    @endif
+                                                    {{-- <a href="/{{ session('locale', 'en') }}/propertyDetail/{{ $slug }}"> --}}
+                                                    {{-- <a href="/{{ url("session('locale', 'en') /propertyDetail/ $thislocale") }}"> --}}
 
-                                                            {{-- <a href="{{route('propertyDetail', ['locale' => $thislocale, 'slug' => $slug])}}"> --}}
+                                                    {{-- <a href="{{route('propertyDetail', ['locale' => $thislocale, 'slug' => $slug])}}"> --}}
 
 
 
                                                     {{-- <a href="{{ route('propertyDetail', ['slug' => $slug]) }}"> --}}
-                                                        <div class="card__image card__box-v1">
-                                                            <div class="card__image-header h-250">
-                                                                <div class="ribbon text-capitalize"
-                                                                    style="background-color: goldenrod; color: black;">
-                                                                    {{ $txtfeatured }}
-                                                                </div>
-                                                                <img src="{{asset('images/apart4.jpg')}}" alt=""
+                                                    <div class="card__image card__box-v1">
+                                                        <div class="card__image-header h-250">
+                                                            <div class="ribbon text-capitalize"
+                                                                style="background-color: goldenrod; color: black;">
+                                                                {{ $txtfeatured }}
+                                                            </div>
+                                                            @if (isset($listing->images->first()->image_path))
+                                                                <img src="https://admin.zahratalshamal.com/{{ $listing->images->first()->image_path }}"
+                                                                    alt=""
                                                                     class="img-fluid w100 img-transition">
-                                                                {{-- <img src="{{$listing->$images->image_path}}" alt=""
+                                                            @else
+                                                                <img src="{{ asset('images/blank-img.jpg') }}"
+                                                                    alt=""
+                                                                    class="img-fluid w100 img-transition">
+                                                            @endif
+                                                            {{-- <img src="{{$listing->$images->image_path}}" alt=""
                                                                     class="img-fluid w100 img-transition"> --}}
 
 
-                                                                <div class="info"
-                                                                    style="background-color: #11572E;">
-                                                                    {{ $listing_for }}
-                                                                </div>
-                                                            </div>
-                                                            <div class="card__image-body">
-                                                                {{-- <span class="badge badge-primary text-capitalize mb-2"
-                                        style="background-color: #11572E;">{{ $listing->propertyType->pt_name }}</span> --}}
-                                                                <h6 class="text-capitalize">
-                                                                    {{ $tittle }}
-                                                                </h6>
-
-                                                                <p class="text-capitalize">
-                                                                    <i class="fa fa-map-marker"></i>
-                                                                    {{ $area_name }}, {{ $city_name }},
-                                                                    {{ $txtQatar }}
-
-                                                                </p>
-                                                                <ul class="list-inline card__content">
-                                                                    <li class="list-inline-item">
-
-                                                                        <span>
-                                                                            {{ $txtbaths }} <br>
-                                                                            <i class="fa fa-bath"></i>
-                                                                            {{ $no_baths }}
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <span>
-                                                                            {{ $txtbeds }} <br>
-                                                                            <i class="fa fa-bed"></i>
-                                                                            {{ $no_rooms }}
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <span>
-                                                                            {{ $txtrooms }} <br>
-                                                                            <i class="fa fa-inbox"></i>
-                                                                            {{ $no_rooms }}
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <span>
-                                                                            {{ $txtarea }} <br>
-                                                                            <i class="fa fa-map"></i>
-                                                                            {{ $size }} sq ft
-                                                                        </span>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                            <div
-                                                                class="card__image-footer d-flex justify-content-between align-items-center">
-                                                                <div>
-                                                                    <!-- WhatsApp Button -->
-                                                                    <a href="https://wa.me/{{ $listing->agent->phone_contact }}"
-                                                                        class="btn btn-sm"
-                                                                        style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
-                                                                        target="_blank">
-                                                                        <i class="fa fa-whatsapp"></i>
-                                                                        {{ $txtWhatsApp }}
-                                                                    </a>
-
-                                                                    <!-- Call Button -->
-                                                                    <a href="tel:{{ $listing->agent->office_contact }}"
-                                                                        class="btn btn-sm ml-2"
-                                                                        style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
-                                                                        <i class="fa fa-phone"></i>
-                                                                        {{ $txtCall }}
-                                                                    </a>
-                                                                </div>
-                                                                <h6 class="mb-0">
-                                                                    <span
-                                                                        style="color: #11572E; font-size: small;">{{ $txtQAR }}</span>
-                                                                    {{ $price }}
-                                                                </h6>
+                                                            <div class="info" style="background-color: #11572E;">
+                                                                {{ $listing_for }}
                                                             </div>
                                                         </div>
+                                                        <div class="card__image-body">
+                                                            {{-- <span class="badge badge-primary text-capitalize mb-2"
+                                        style="background-color: #11572E;">{{ $listing->propertyType->pt_name }}</span> --}}
+                                                            <h6 class="text-capitalize">
+                                                                {{ $tittle }}
+                                                            </h6>
+
+                                                            <p class="text-capitalize">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                {{ $area_name }}, {{ $city_name }},
+                                                                {{ $txtQatar }}
+
+                                                            </p>
+                                                            <ul class="list-inline card__content">
+                                                                <li class="list-inline-item">
+
+                                                                    <span>
+                                                                        {{ $txtbaths }} <br>
+                                                                        <i class="fa fa-bath"></i>
+                                                                        {{ $no_baths }}
+                                                                    </span>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <span>
+                                                                        {{ $txtbeds }} <br>
+                                                                        <i class="fa fa-bed"></i>
+                                                                        {{ $no_rooms }}
+                                                                    </span>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <span>
+                                                                        {{ $txtrooms }} <br>
+                                                                        <i class="fa fa-inbox"></i>
+                                                                        {{ $no_rooms }}
+                                                                    </span>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <span>
+                                                                        {{ $txtarea }} <br>
+                                                                        <i class="fa fa-map"></i>
+                                                                        {{ $size }} sq ft
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div
+                                                            class="card__image-footer d-flex justify-content-between align-items-center">
+                                                            <div>
+                                                                <!-- WhatsApp Button -->
+                                                                <a href="https://wa.me/{{ $listing->agent->phone_contact }}"
+                                                                    class="btn btn-sm"
+                                                                    style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
+                                                                    target="_blank">
+                                                                    <i class="fa fa-whatsapp"></i>
+                                                                    {{ $txtWhatsApp }}
+                                                                </a>
+
+                                                                <!-- Call Button -->
+                                                                <a href="tel:{{ $listing->agent->office_contact }}"
+                                                                    class="btn btn-sm ml-2"
+                                                                    style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    {{ $txtCall }}
+                                                                </a>
+                                                            </div>
+                                                            <h6 class="mb-0">
+                                                                <span
+                                                                    style="color: #11572E; font-size: small;">{{ $txtQAR }}</span>
+                                                                {{ $price }}
+                                                            </h6>
+                                                        </div>
+                                                    </div>
                                                     </a>
                                                 </div>
                                             @endforeach
@@ -348,19 +368,41 @@
                                         aria-labelledby="pills-tab-two">
                                         <div class="row">
                                             @foreach ($listings as $listing)
-                                            @php
-                                                $translator = new \App\Services\TranslationService();
+                                                @php
+                                                    $translator = new \App\Services\TranslationService();
                                                     // Translate only if the locale is Arabic
                                                     if (session()->get('locale') == 'ar') {
                                                         $tittle = $translator->translate($listing->tittle, 'ar');
-                                                        $listing_for = $translator->translate($listing->listing_for, 'ar');
-                                                        $area_name = $translator->translate($listing->area->name, 'ar');
-                                                        $city_name = $translator->translate($listing->city->city_name,'ar');
-                                                        $no_rooms = $translator->translate($listing->propertyDetails->rooms,'ar');
-                                                        $no_baths = $translator->translate($listing->propertyDetails->baths,'ar');
-                                                        $size = $translator->translate($listing->propertyDetails->size,'ar');
+                                                        $listing_for = $translator->translate(
+                                                            $listing->listing_for,
+                                                            'ar',
+                                                        );
+                                                        // $area_name = $translator->translate($listing->area->name, 'ar');
+                                                        $area_name = optional($listing->area)->name
+                                                            ? $translator->translate($listing->area->name, 'ar')
+                                                            : '';
+
+                                                        $city_name = $translator->translate(
+                                                            $listing->city->city_name,
+                                                            'ar',
+                                                        );
+                                                        $no_rooms = $translator->translate(
+                                                            $listing->propertyDetails->rooms,
+                                                            'ar',
+                                                        );
+                                                        $no_baths = $translator->translate(
+                                                            $listing->propertyDetails->baths,
+                                                            'ar',
+                                                        );
+                                                        $size = $translator->translate(
+                                                            $listing->propertyDetails->size,
+                                                            'ar',
+                                                        );
                                                         $price = $translator->translate($listing->price, 'ar');
-                                                        $propertyTyp = $translator->translate($listing->propertyType->pt_name, 'ar');
+                                                        $propertyTyp = $translator->translate(
+                                                            $listing->propertyType->pt_name,
+                                                            'ar',
+                                                        );
                                                         $slug = $listing->slug->slug;
                                                         $txtfeatured = $translator->translate('featured', 'ar');
                                                         $txtQatar = $translator->translate('Qatar', 'ar');
@@ -399,92 +441,107 @@
                                                     @php
                                                         // dd($listing->slug->slug);
                                                     @endphp
-                                                    <a
-                                                        href="/{{ session('locale', 'en') }}/propertyDetail/{{ $slug }}">
-                                                        <div class="card__image card__box-v1">
-                                                            <div class="card__image-header h-250">
-                                                                <div class="ribbon text-capitalize"
-                                                                    style="background-color: goldenrod; color: black;">
-                                                                    {{ $txtfeatured }}
-                                                                </div>
-                                                                {{-- <img src="{{asset('images/apart4.jpg')}}" alt=""
+                                                    @if ($listing_for == 'for rent')
+                                                        <a
+                                                            href="/{{ session('locale', 'en') }}/property/properties-for-rent/qatar/{{ $slug }}">
+                                                        @else
+                                                            <a
+                                                                href="/{{ session('locale', 'en') }}/property/properties-for-sale/qatar/{{ $slug }}">
+                                                    @endif
+                                                    {{-- <a href="/{{ session('locale', 'en') }}/propertyDetail/{{ $slug }}"> --}}
+                                                    <div class="card__image card__box-v1">
+                                                        <div class="card__image-header h-250">
+                                                            <div class="ribbon text-capitalize"
+                                                                style="background-color: goldenrod; color: black;">
+                                                                {{ $txtfeatured }}
+                                                            </div>
+                                                            {{-- <img src="{{asset('images/apart4.jpg')}}" alt=""
                                                                     class="img-fluid w100 img-transition"> --}}
-                                                                <img src="https://admin.zahratalshamal.com/{{$listing->images->first()->image_path}}" alt=""
+                                                            @if (isset($listing->images->first()->image_path))
+                                                                <img src="https://admin.zahratalshamal.com/{{ $listing->images->first()->image_path }}"
+                                                                    alt=""
                                                                     class="img-fluid w100 img-transition">
-                                                                <div class="info"
-                                                                    style="background-color: #11572E;">
-                                                                    {{ $listing_for }}</div>
-                                                            </div>
-                                                            <div class="card__image-body">
-                                                                <span class="badge badge-primary text-capitalize mb-2"
-                                                                    style="background-color: #11572E;">{{ $propertyTyp }}</span>
-                                                                <h6 class="text-capitalize" style="text-align: start">
-                                                                    {{ $tittle }}
-                                                                </h6>
-
-                                                                <p class="text-capitalize">
-                                                                    <i class="fa fa-map-marker"></i>
-                                                                    {{ $area_name }},
-                                                                    {{ $city_name }}, {{ $txtQatar}}
-
-                                                                </p>
-                                                                <ul class="list-inline card__content" style="text-align: start">
-                                                                    <li class="list-inline-item">
-
-                                                                        <span>
-                                                                            {{$txtbaths}} <br>
-                                                                            <i class="fa fa-bath"></i>
-                                                                            {{ $no_baths }}
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <span>
-                                                                            {{ $txtbeds}} <br>
-                                                                            <i class="fa fa-bed"></i>
-                                                                            {{ $no_rooms }}
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <span>
-                                                                            {{ $txtrooms}} <br>
-                                                                            <i class="fa fa-inbox"></i>
-                                                                            {{ $no_rooms }}
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <span>
-                                                                            {{ $txtarea}} <br>
-                                                                            <i class="fa fa-map"></i>
-                                                                            {{ $size }} sq ft
-                                                                        </span>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                            <div
-                                                                class="card__image-footer d-flex justify-content-between align-items-center">
-                                                                <div>
-                                                                    <!-- WhatsApp Button -->
-                                                                    <a href="https://wa.me/{{ $listing->agent->phone_contact }}"
-                                                                        class="btn btn-sm"
-                                                                        style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
-                                                                        target="_blank">
-                                                                        <i class="fa fa-whatsapp"></i> {{ $txtWhatsApp}}
-                                                                    </a>
-
-                                                                    <!-- Call Button -->
-                                                                    <a href="tel:{{ $listing->agent->office_contact }}"
-                                                                        class="btn btn-sm ml-2"
-                                                                        style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
-                                                                        <i class="fa fa-phone"></i> {{$txtCall}}
-                                                                    </a>
-                                                                </div>
-                                                                <h6 class="mb-0">
-                                                                    <span
-                                                                        style="color: #11572E; font-size: small;">{{$txtQAR}}</span>
-                                                                    {{ $price }}
-                                                                </h6>
-                                                            </div>
+                                                            @else
+                                                                <img src="{{ asset('images/blank-img.jpg') }}"
+                                                                    alt=""
+                                                                    class="img-fluid w100 img-transition">
+                                                            @endif
+                                                            <div class="info" style="background-color: #11572E;">
+                                                                {{ $listing_for }}</div>
                                                         </div>
+                                                        <div class="card__image-body">
+                                                            <span class="badge badge-primary text-capitalize mb-2"
+                                                                style="background-color: #11572E;">{{ $propertyTyp }}</span>
+                                                            <h6 class="text-capitalize" style="text-align: start">
+                                                                {{ $tittle }}
+                                                            </h6>
+
+                                                            <p class="text-capitalize">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                {{ $area_name }},
+                                                                {{ $city_name }}, {{ $txtQatar }}
+
+                                                            </p>
+                                                            <ul class="list-inline card__content"
+                                                                style="text-align: start">
+                                                                <li class="list-inline-item">
+
+                                                                    <span>
+                                                                        {{ $txtbaths }} <br>
+                                                                        <i class="fa fa-bath"></i>
+                                                                        {{ $no_baths }}
+                                                                    </span>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <span>
+                                                                        {{ $txtbeds }} <br>
+                                                                        <i class="fa fa-bed"></i>
+                                                                        {{ $no_rooms }}
+                                                                    </span>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <span>
+                                                                        {{ $txtrooms }} <br>
+                                                                        <i class="fa fa-inbox"></i>
+                                                                        {{ $no_rooms }}
+                                                                    </span>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <span>
+                                                                        {{ $txtarea }} <br>
+                                                                        <i class="fa fa-map"></i>
+                                                                        {{ $size }} sq ft
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div
+                                                            class="card__image-footer d-flex justify-content-between align-items-center">
+                                                            <div>
+                                                                <!-- WhatsApp Button -->
+                                                                <a href="https://wa.me/{{ $listing->agent->phone_contact }}"
+                                                                    class="btn btn-sm"
+                                                                    style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;"
+                                                                    target="_blank">
+                                                                    <i class="fa fa-whatsapp"></i>
+                                                                    {{ $txtWhatsApp }}
+                                                                </a>
+
+                                                                <!-- Call Button -->
+                                                                <a href="tel:{{ $listing->agent->office_contact }}"
+                                                                    class="btn btn-sm ml-2"
+                                                                    style="color: #11572E; border: 1px solid #11572E; padding: 6px 12px; text-decoration: none; border-radius: 4px;">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    {{ $txtCall }}
+                                                                </a>
+                                                            </div>
+                                                            <h6 class="mb-0">
+                                                                <span
+                                                                    style="color: #11572E; font-size: small;">{{ $txtQAR }}</span>
+                                                                {{ $price }}
+                                                            </h6>
+                                                        </div>
+                                                    </div>
                                                     </a>
                                                 </div>
                                             @endforeach

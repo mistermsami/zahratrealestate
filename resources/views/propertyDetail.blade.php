@@ -176,6 +176,9 @@
                     <!-- SLIDER IMAGE DETAIL -->
                     <div class="slider__image__detail-large-two owl-carousel owl-theme">
                         @foreach ($listing->images as $image)
+                        @if ($image)
+
+
                             <div class="item">
                                 <div class="slider__image__detail-large-one">
                                     <img src="https://admin.zahratalshamal.com/{{ $image->image_path }}" alt=""
@@ -197,6 +200,14 @@
 
                                 </div>
                             </div>
+                            @else
+                            <div class="item">
+                                <div class="slider__image__detail-large-one">
+                                    <img src="images/blank-img.jpg" alt=""
+                                        class="img-fluid w-100 img-transition">
+                                </div>
+                            </div>
+                            @endif
                         @endforeach
                     </div>
 

@@ -23,7 +23,7 @@
 @section('maincontent')
     <div class="clearfix"></div>
     <!-- BREADCRUMB -->
-    <div class="bg-light">
+    {{-- <div class="bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- END BREADCRUMB -->
     @livewire('property-listings')
     {{-- @livewireStyles

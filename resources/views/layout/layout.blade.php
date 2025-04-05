@@ -161,13 +161,13 @@
                 <ul class="navbar-nav ">
 
                     <li>
-                        <a href="{{ route('add-property') }}" class="btn text-capitalize"
+                        <a href="{{ route('add-property', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}" class="btn text-capitalize"
                             style="background-color: #11572E; color: #fff; {{$ml}}">
                             <i class="fa fa-plus-circle mr-1"></i> {{ $txtAddproperty }}
                         </a>
                     </li>
                     <li class="navbar-nav">
-                        <a href="{{ route('login') }}" class="lang-btn"
+                        <a href="#" class="lang-btn"
                             style=" text-decoration: none; color: #11572E;">
                             {{ $txtSignin }}
                         </a>
