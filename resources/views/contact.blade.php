@@ -21,6 +21,14 @@
 @endsection
 
 @section('maincontent')
+<style>
+    .btn-social.instagram{
+        background-color: #E1306C;
+    }
+    .btn-social.tiktok{
+        background-color: #000;
+    }
+</style>
     <div class="clearfix"></div>
 
 
@@ -94,57 +102,24 @@
                     <div class="wrap__contact-open-hours">
                         <h5 class="text-capitalize">open hours</h5>
                         <ul class="list-unstyled">
-                            <li class="d-flex align-items-center justify-content-between"><span>Monday - Friday</span>
-                                <span>09 AM - 19 PM</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><span>Saturday</span> <span>09
-                                    AM - 14 PM</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><span>Sunday</span>
-                                <span>Closed</span></li>
+                            <li class="d-flex align-items-center justify-content-between"><span>Monday - Thrusday</span>
+                                <span>09 AM - 06 PM</span></li>
+                            <li class="d-flex align-items-center justify-content-between"><span>Friday</span> <span>Closed</span></li>
+                            <li class="d-flex align-items-center justify-content-between"><span>Saturday</span>
+                                <span>09 AM - 03 PM</span></li>
                         </ul>
                     </div>
-                    <h5>Info location</h5>
-                    <div class="wrap__contact-form-office">
+                    <div class="wrap__contact-open-hours mt-4">
+                        <h5 class="text-capitalize">Contact Details</h5>
                         <ul class="list-unstyled">
-                            <li class="list-inline-item">
-                                <a href="#">Commercial</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Business</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">House</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Residential</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Residential Tower</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">The Pearl, Doha</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">West Bay</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Lusail City</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Al Wakrah</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Modern Home</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Luxury Villas</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Beachfront Properties</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Property Listing</a>
-                            </li>
+                            <li class="d-flex align-items-center justify-content-between"><span><b>Phone:&nbsp;&nbsp;</b> +97470816051</span></li>
+                            <li class="d-flex align-items-center justify-content-between"><span><b>Email:&nbsp;&nbsp;</b> admin@zahratalshamal.com</span></li>
+                            <li class="d-flex align-items-center justify-content-between"><span><b>Adderss:&nbsp;&nbsp;</b>Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551</span></li>
                         </ul>
+                    </div>
+                    {{-- <h5>Info location</h5> --}}
+                    <div class="wrap__contact-form-office">
+
 
 
                         <div class="social__media">
@@ -152,27 +127,27 @@
                             <ul class="list-inline">
 
                                 <li class="list-inline-item">
-                                    <a href="#" class="btn btn-social rounded text-white facebook">
+                                    <a href="{{url ('https://www.facebook.com/share/19ZTqSR91P/?mibextid=wwXIfr')}}"  target="_blank" class="btn btn-social rounded text-white facebook">
                                         <i class="fa fa-facebook"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#" class="btn btn-social rounded text-white twitter">
-                                        <i class="fa fa-twitter"></i>
+                                    <a href="{{url ('https://www.instagram.com/zahrat_al_shamal_real_estate/')}}"  target="_blank" class="btn btn-social rounded text-white instagram">
+                                        <i class="fa fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#" class="btn btn-social rounded text-white whatsapp">
+                                    <a href="{{url ('https://wa.me/+97470816051')}}" target="_blank" class="btn btn-social rounded text-white whatsapp">
                                         <i class="fa fa-whatsapp"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#" class="btn btn-social rounded text-white telegram">
-                                        <i class="fa fa-telegram"></i>
+                                    <a href="{{url ('https://www.tiktok.com/@zahrat_al_shamal')}}"  target="_blank" class="btn btn-social rounded text-white tiktok">
+                                        <i class="fa fa-tumblr"></i>
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#" class="btn btn-social rounded text-white linkedin">
+                                    <a href="{{url ('https://www.linkedin.com/company/zahratalshamal/')}}"  target="_blank" class="btn btn-social rounded text-white linkedin">
                                         <i class="fa fa-linkedin"></i>
                                     </a>
                                 </li>

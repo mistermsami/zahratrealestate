@@ -88,7 +88,7 @@ $translator = new \App\Services\TranslationService();
 
                                                     {{ $txtHerosliderptag1 }}
                                                 </p>
-                                                <a href="{{route('contact')}}" class="btn text-uppercase animated fadeInUp"
+                                                <a href="{{ route('contact', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}" class="btn text-uppercase animated fadeInUp"
                                                     style="background-color: #11572E; border-color: #11572E; color: #fff;">
                                                     {{ $txtcontactusbtn }}
                                                     <i class="fa fa-angle-right arrow-btn"></i>
@@ -117,7 +117,7 @@ $translator = new \App\Services\TranslationService();
 
                                                     {{ $txtHerosliderptag2 }}
                                                 </p>
-                                                <a href="{{route('contact')}}"
+                                                <a href="{{ route('contact', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}"
                                                     class="btn text-uppercase animated fadeInUp"
                                                     style="background-color: #11572E; border-color: #11572E; color: #fff;">
                                                     {{ $txtcontactusbtn }}
@@ -146,7 +146,7 @@ $translator = new \App\Services\TranslationService();
 
                                                     {{ $txtHerosliderptag3 }}
                                                 </p>
-                                                <a href="#"
+                                                <a href="{{ route('contact', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}"
                                                     class="btn text-uppercase animated fadeInUp"
                                                     style="background-color: #11572E; border-color: #11572E; color: #fff;">
                                                     {{ $txtcontactusbtn }}

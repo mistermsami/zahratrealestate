@@ -49,6 +49,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Zahrat Alshamal Real Estate">
+    <link rel="icon" type="image/x-icon" href="{{asset('images/favicon.ico')}}">
     <!-- <meta name="keywords" content="Real Estate, Property, Directory Listing, Marketing, Agency" />
     <meta name="author" content="mardianto - retenvi.com"> -->
 
@@ -63,7 +64,7 @@
 
     <link rel="manifest" href="site.webmanifest">
     <!-- favicon.ico in the root directory -->
-    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="apple-touch-icon" href="{{asset('images/apple-touch-icon.png')}}">
     <meta name="theme-color" content="#3454d1">
     <link href="{{ asset('css/styles.css?fd365619e86ad9137a29') }}" rel="stylesheet">
 
@@ -92,7 +93,7 @@
 
     <nav class="navbar navbar-hover navbar-expand-lg navbar-soft">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="padding: 0;">
+            <a class="navbar-brand" href="{{ route('/', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}}" style="padding: 0;">
                 <img src="{{ asset('images/zrs_logo_simple-0.png') }}" alt="" style="width: 80px;">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav99">
@@ -325,22 +326,18 @@
                                 Follow us and stay in touch to get the latest news
                             </p>
                             <p>
-                                <button class="btn btn-social btn-social-o facebook mr-1">
+                                <button class="btn btn-social btn-social-o facebook mr-1" onclick="window.open('https://www.facebook.com/share/19ZTqSR91P/?mibextid=wwXIfr', '_blank')">
                                     <i class="fa fa-facebook-f"></i>
                                 </button>
-                                <button class="btn btn-social btn-social-o twitter mr-1">
-                                    <i class="fa fa-twitter"></i>
+                                <button class="btn btn-social btn-social-o tiktok mr-1" onclick="window.open('https://www.tiktok.com/@zahrat_al_shamal', '_blank')">
+                                    <i class="fa fa-tumblr"></i>
                                 </button>
 
-                                <button class="btn btn-social btn-social-o linkedin mr-1">
+                                <button class="btn btn-social btn-social-o linkedin mr-1" onclick="window.open('https://www.linkedin.com/company/zahratalshamal/', '_blank')">
                                     <i class="fa fa-linkedin"></i>
                                 </button>
-                                <button class="btn btn-social btn-social-o instagram mr-1">
+                                <button class="btn btn-social btn-social-o instagram mr-1" onclick="window.open('https://www.instagram.com/zahrat_al_shamal_real_estate/', '_blank')">
                                     <i class="fa fa-instagram"></i>
-                                </button>
-
-                                <button class="btn btn-social btn-social-o youtube mr-1">
-                                    <i class="fa fa-youtube"></i>
                                 </button>
                             </p>
                             <br>
