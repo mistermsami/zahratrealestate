@@ -106,7 +106,7 @@
                                 <span>09 AM - 06 PM</span></li>
                             <li class="d-flex align-items-center justify-content-between"><span>Friday</span> <span>Closed</span></li>
                             <li class="d-flex align-items-center justify-content-between"><span>Saturday</span>
-                                <span>09 AM - 03 PM</span></li>
+                                <span>09 AM - 06 PM</span></li>
                         </ul>
                     </div>
                     <div class="wrap__contact-open-hours mt-4">

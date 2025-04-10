@@ -18,7 +18,8 @@
             'ar',
         );
         $txtPhone = $translator->translate('+97470816051', 'ar');
-        $txtTimings = $translator->translate('Mon - Sun / 9:00AM - 8:00PM', 'ar');
+        $txtTimings = $translator->translate('Monday - Sunday / 9:00AM - 6:00PM', 'ar');
+        $txtTimings2 = $translator->translate('Friday / CLOSED', 'ar');
 
         $dir="rtl";
     } else {
@@ -37,7 +38,8 @@
         $txtAddress =
             'Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551';
         $txtPhone = '+97470816051';
-        $txtTimings = 'Mon - Sun / 9:00AM - 8:00PM';
+        $txtTimings = 'Monday - Sunday / 9:00AM - 6:00PM';
+        $txtTimings2 = 'Friday / CLOSED';
 
         $dir="";
     }
@@ -262,7 +264,7 @@
                                 <li> <b> <i class="fa fa-map-marker"></i></b><span>{{ $txtAddress }}</span> </li>
                                 <li> <b><i class="fa fa-phone-square"></i></b><span>{{ $txtPhone }}</span> </li>
                                 <li> <b><i class="fa fa-headphones"></i></b><span>admin@zahratalshamal.com</span> </li>
-                                <li> <b><i class="fa fa-clock-o"></i></b><span>{{ $txtTimings }}</span> </li>
+                                <li> <b><i class="fa fa-clock-o"></i></b><span>{{ $txtTimings }} <br> {{ $txtTimings2 }}</span> </li>
                             </ul>
                         </div>
 
@@ -343,6 +345,9 @@
                                 </button>
                                 <button class="btn btn-social btn-social-o instagram mr-1" onclick="window.open('https://www.instagram.com/zahrat_al_shamal_real_estate/', '_blank')">
                                     <i class="fa fa-instagram"></i>
+                                </button>
+                                <button class="btn btn-social btn-social-o whatsapp mr-1" onclick="window.open('https://wa.me/+97470816051', '_blank')">
+                                    <i class="fa fa-whatsapp"></i>
                                 </button>
                             </p>
                             <br>
