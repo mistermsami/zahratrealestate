@@ -12,7 +12,7 @@ class BuyProperties extends Component
 {
     use WithPagination;
 
-    public $listing_for, $SizefromSelected, $selectedPropertyType, $selectedCity, $bedsSelected, $minpriceSelected, $maxpriceSelected;
+    public $listing_for, $planSelected, $SizefromSelected, $selectedPropertyType, $selectedCity, $bedsSelected, $minpriceSelected, $maxpriceSelected;
     public $propertyTypes, $cities;
 
     public function mount()
@@ -30,6 +30,7 @@ class BuyProperties extends Component
         $this->bedsSelected = null;
         $this->minpriceSelected = null;
         $this->maxpriceSelected = null;
+        $this->planSelected = null;
 
         $this->resetPage(); // Reset pagination as well
     }
@@ -49,6 +50,11 @@ class BuyProperties extends Component
         }
         if ($this->selectedPropertyType) {
             $query->where('property_type_id', $this->selectedPropertyType);
+        }
+        if ($this->planSelected && $this->planSelected != 'All') {
+            $query->whereHas('propertyDetails', function ($q) {
+                $q->where('plan', [$this->planSelected]);
+            });
         }
         if ($this->selectedCity) {
             $query->where('city_id', $this->selectedCity);

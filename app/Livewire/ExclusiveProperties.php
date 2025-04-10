@@ -8,7 +8,7 @@ use App\Models\ListingDetail;
 use App\Models\City;
 use App\Models\PropertyType;
 
-class PropertyListings extends Component
+class ExclusiveProperties extends Component
 {
     use WithPagination;
 
@@ -83,8 +83,8 @@ class PropertyListings extends Component
         }
 
         // Use pagination
-        $listings = $query->paginate(12);
+        $listings = $query->where('featuerd', 'featured')->paginate(12);
 
-        return view('livewire.property-listings', compact('listings'));
+        return view('livewire.exclusive-properties', compact('listings'));
     }
 }

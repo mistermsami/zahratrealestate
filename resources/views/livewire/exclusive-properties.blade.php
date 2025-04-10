@@ -7,7 +7,7 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <select class="wide form-control select_option" wire:model.lazy="listing_for">
+                                    <select class="wide form-control " wire:model.lazy="listing_for">
                                         <option value="">Select</option>
                                         <option value="Buy">Buy</option>
                                         <option value="Rent">Rent</option>
@@ -19,7 +19,7 @@
                             @if ($listing_for === 'Buy')
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <select class="wide form-control select_option"
+                                        <select class="wide form-control "
                                             wire:model.lazy="planSelected">
                                             <option data-display="">Select</option>
                                             <option value="Off Plan">Off Plan</option>
@@ -31,7 +31,7 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <select class="wide form-control select_option"
+                                    <select class="wide form-control "
                                         wire:model.change="SizefromSelected">
                                         <option data-display="Area From">Area From </option>
                                         <option value="1499">1500</option>
@@ -46,7 +46,7 @@
                             <!-- Property Type Filter -->
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <select class="wide form-control select_option"
+                                    <select class="wide form-control "
                                         wire:model.change="selectedPropertyType">
                                         <option value="" selected>Property Type</option>
                                         @foreach ($propertyTypes as $propertytype)
@@ -59,7 +59,7 @@
                             <!-- City Filter -->
                             <div class="col-6 col-lg-3 col-md-3">
                                 <div class="form-group">
-                                    <select class="wide form-control select_option" wire:model.lazy="selectedCity">
+                                    <select class="wide form-control " wire:model.lazy="selectedCity">
                                         <option value="" selected>Locations</option>
                                         @foreach ($cities as $city)
                                             <option value="{{ $city->id }}">{{ $city->city_name }}</option>
@@ -70,7 +70,7 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <select class="wide form-control select_option" wire:model.lazy="bedsSelected">
+                                    <select class="wide form-control " wire:model.lazy="bedsSelected">
                                         <option data-display="Bedrooms" selected>Bedrooms</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -87,7 +87,7 @@
                             <!-- Price Filter -->
                             <div class="col-md-3">
                                 <div class="form-group" style="display: flex; gap: 10px; align-items: center;">
-                                    <select class="wide form-control select_option" wire:model.lazy="minpriceSelected">
+                                    <select class="wide form-control " wire:model.lazy="minpriceSelected">
                                         <option data-display="Price From" selected>Min Price</option>
                                         <option value="3000">3000</option>
                                         <option value="5000">5000</option>
@@ -99,7 +99,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group" style="display: flex; gap: 10px; align-items: center;">
-                                    <select class="wide form-control select_option" wire:model.lazy="maxpriceSelected">
+                                    <select class="wide form-control " wire:model.lazy="maxpriceSelected">
                                         <option data-display="Price To" selected>Max Price</option>
                                         <option value="5000">5000</option>
                                         <option value="8000">8000</option>

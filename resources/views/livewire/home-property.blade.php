@@ -83,6 +83,16 @@
                         } else {
                             $price = 'Null';
                         }
+                        if (!empty($listing->propertyType->pt_name)) {
+                            $propertyTyp = $translator->translate($listing->propertyType->pt_name, 'ar' );
+                        } else {
+                            $propertyTyp = 'Null';
+                        }
+                        if (!empty($listing->plan)) {
+                            $planTyp = $translator->translate($listing->plan, 'ar' );
+                        } else {
+                            $planTyp = 'Null';
+                        }
                         if (!empty($listing->slug->slug)) {
                             $slug = $listing->slug->slug;
                         } else {
@@ -111,7 +121,14 @@
                         $no_rooms = $listing->propertyDetails->rooms;
                         $no_baths = $listing->propertyDetails->baths;
                         $size = $listing->propertyDetails->size;
-                        $price = $listing->price;
+                        $propertyTyp = $listing->propertyType->pt_name;
+                        $planTyp = $listing->plan;
+                        if(!empty($listing->price)){
+                            $price = $listing->price;
+                        }
+                        else{
+                            $price = 'Null';
+                        }
                         $slug = $listing->slug->slug;
                         $txtfeatured = 'featured';
                         $txtQatar = 'Qatar';
@@ -136,25 +153,36 @@
                     {{-- <a href="/{{ session('locale', 'en') }}/propertyDetail/{{ $slug }}"> --}}
                     <div class="card__image card__box-v1">
                         <div class="card__image-header h-250">
-                            <div class="ribbon text-capitalize" style="background-color: goldenrod; color: black;">
-                                {{ $txtfeatured }}
-                            </div>
+                            @if ($listing->featuerd == 'featured')
+                                <div class="ribbon text-capitalize" style="background-color: goldenrod; color: black;">
+                                    {{ $txtfeatured }}
+                                </div>
+                            @endif
                             {{-- <img src="images/apart4.jpg" alt="" class="img-fluid w100 img-transition"> --}}
-                            @if (isset($listing->images->first()->image_path))
+                            @if (isset($listing->coverImage_path))
+                            <img src="https://admin.zahratalshamal.com/{{ $listing->coverImage_path }}"
+                                alt="" class="img-fluid w100 img-transition">
+                            @elseif (isset($listing->images->first()->image_path))
                                 <img src="https://admin.zahratalshamal.com/{{ $listing->images->first()->image_path }}"
                                     alt="" class="img-fluid w100 img-transition">
                             @else
                                 <img src="{{ asset('images/blank-img.jpg') }}" alt=""
                                     class="img-fluid w100 img-transition">
                             @endif
-
-
+                            <div class="info" style="background-color: #11572E;"> {{ $listing_for }}
+                            </div>
                             <div class="info" style="background-color: #11572E;"> {{ $listing_for }}
                             </div>
                         </div>
                         <div class="card__image-body">
                             {{-- <span class="badge badge-primary text-capitalize mb-2"
                                         style="background-color: #11572E;">{{ $listing->propertyType->pt_name }}</span> --}}
+                            <span class="badge badge-primary text-capitalize mb-2" style="background-color: #11572E;">
+                                {{ $propertyTyp }}
+                            </span>
+                            <span class="badge badge-primary text-capitalize mb-2" style="background-color: #11572E;">
+                                {{ $planTyp }}
+                            </span>
                             <h6 class="text-capitalize" style="text-align: start">
                                 {{ $tittle }}
                             </h6>

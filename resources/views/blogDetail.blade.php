@@ -81,6 +81,7 @@
         $blogQuote3 = $blog->qoute3;
         $blogDesc33 = $blog->description33;
         $createdAt = $blog->created_at->format('F j, Y');
+        $Since = $blog->created_at->diffForHumans();
         $txtTags = 'tags';
         $txtPostedon = 'Posted on';
         $txtCategory = 'category';

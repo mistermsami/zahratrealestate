@@ -53,6 +53,7 @@ Route::group(['prefix' => '{locale?}', 'where' => ['locale' => 'en|ar']], functi
     Route::get('/properties/qatar', [PropertyController::class, 'propertylistings'])->name('propertylistings');
     Route::get('/properties/properties-for-sale/qatar', [PropertyController::class, 'buypropertylistings'])->name('buyproperty');
     Route::get('/properties/properties-for-rent/qatar', [PropertyController::class, 'rentpropertylistings'])->name('rentproperty');
+    Route::get('/properties/search/exclusive/qatar', [PropertyController::class, 'exclusivepropertylistings'])->name('exclusiveproperty');
 
     Route::get('/add-property', function () {
         return view('add-property');

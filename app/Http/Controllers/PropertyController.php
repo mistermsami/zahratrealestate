@@ -30,4 +30,8 @@ class PropertyController extends Controller
 
         return view('rentpropertylistings');
     }
+    public function exclusivepropertylistings(){
+
+        return view('exclusiveproperty');
+    }
 }

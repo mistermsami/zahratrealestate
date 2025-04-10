@@ -12,6 +12,7 @@
         $txtContact = $translator->translate('Contact', 'ar');
         $txtAddproperty = $translator->translate('Add Property', 'ar');
         $txtSignin = $translator->translate('Sign In', 'ar');
+        $txtPrExclusive = $translator->translate('Exclusive Properties', 'ar');
         $txtAddress = $translator->translate(
             'Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551',
             'ar',
@@ -32,6 +33,7 @@
         $txtContact = 'Contact';
         $txtAddproperty = 'Add Property';
         $txtSignin = 'Sign In';
+        $txtPrExclusive = 'Exclusive Properties';
         $txtAddress =
             'Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551';
         $txtPhone = '+97470816051';
@@ -116,6 +118,9 @@
                     </li>
                     <li class="nav-item"><a class="nav-link"
                             href="{{ route('rentproperty', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtPrRent }}</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link"
+                            href="{{ route('exclusiveproperty', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtPrExclusive }}</a>
                     </li>
                     <li class="nav-item"><a class="nav-link"
                             href="{{ route('propertylistings', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtPropertylistings }}</a>
