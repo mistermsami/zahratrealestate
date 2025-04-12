@@ -3,33 +3,30 @@
 $pagename = 'Home';
 $translator = new \App\Services\TranslationService();
     if (session()->get('locale') == 'ar') {
-        $txtpagename = $translator->translate($pagename, 'ar');
-        $txtHerosliderheading1 = $translator->translate('The #1 place for commercial property', 'ar');
-        $txtHerosliderptag1 = $translator->translate('Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
-        recusandae', 'ar');
-        $txtHerosliderheading2 = $translator->translate('The #1 place for commercial property', 'ar');
-        $txtHerosliderptag2 = $translator->translate('Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
-        recusandae', 'ar');
-        $txtHerosliderheading3 = $translator->translate('The #1 place for commercial property', 'ar');
-        $txtHerosliderptag3 = $translator->translate('Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam
-        recusandae', 'ar');
-        $txtcontactusbtn = $translator->translate('Contact Us', 'ar');
-        $txtScetion1heading = $translator->translate('Most Popular Places', 'ar');
-        $txtScetion1tagline = $translator->translate('find properties in these cities.', 'ar');
-        $txtScetion2heading = $translator->translate('Featured Properties', 'ar');
-        $txtScetion2tagline = $translator->translate('handpicked exclusive properties by our team.', 'ar');
-        $txtScetion3heading = $translator->translate('our partners', 'ar');
-        $txtScetion3tagline = $translator->translate('Brand Partners Successful Projects Trusted Many Clients Real Estate', 'ar');
-        $txtScetion5heading = $translator->translate('what people says', 'ar');
-        $txtScetion5tagline = $translator->translate('people says about walls property.', 'ar');
+        $txtpagename = 'حيث تجد الأحلام حقيقتها';
+        $txtHerosliderheading1 = 'المكان رقم 1 للعقارات التجارية';
+        $txtHerosliderptag1 = 'حيث تجد الأحلام حقيقتها';
+        $txtHerosliderheading2 = 'حيث تجد الأحلام حقيقتها';
+        $txtHerosliderptag2 = 'المكان رقم 1 للعقارات التجارية';
+        $txtHerosliderheading3 = 'المكان رقم 1 للعقارات التجارية';
+        $txtHerosliderptag3 = 'حيث تجد الأحلام حقيقتها';
+        $txtcontactusbtn = 'اتصل بنا';
+        $txtScetion1heading = 'الأماكن الأكثر شعبية';
+        $txtScetion1tagline = 'ابحث عن العقارات في هذه المدن';
+        $txtScetion2heading = 'خصائص مميزة';
+        $txtScetion2tagline = 'عقارات حصرية مختارة بعناية من قبل فريقنا';
+        $txtScetion3heading = 'شركاؤنا';
+        $txtScetion3tagline = 'شركاء العلامة التجارية المشاريع الناجحة ثقة العديد من العملاء العقارات';
+        $txtScetion5heading = 'ما يقوله الناس';
+        $txtScetion5tagline = 'يقول الناس عن زهرة الشمال';
     } else {
         $txtpagename = $pagename;
         $txtHerosliderheading1 = 'The #1 place for commercial property';
-        $txtHerosliderptag1 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam recusandae';
-        $txtHerosliderheading2 = 'The #1 place for commercial property';
-        $txtHerosliderptag2 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam recusandae';
+        $txtHerosliderptag1 = 'Where Dreams Find Their Reality';
+        $txtHerosliderheading2 = 'Where Dreams Find Their Reality';
+        $txtHerosliderptag2 = 'The #1 place for commercial property';
         $txtHerosliderheading3 = 'The #1 place for commercial property';
-        $txtHerosliderptag3 = 'Lorem ipsum dolor sit consectetur adipisicing elit. Laboriosam recusandae';
+        $txtHerosliderptag3 = 'Where Dreams Find Their Reality';
         $txtcontactusbtn = 'Contact Us';
         $txtScetion1heading = 'Most Popular Places';
         $txtScetion1tagline = 'find properties in these cities.';
@@ -38,7 +35,7 @@ $translator = new \App\Services\TranslationService();
         $txtScetion3heading = 'our partners';
         $txtScetion3tagline = 'Brand Partners Successful Projects Trusted Many Clients Real Estate';
         $txtScetion5heading = 'what people says';
-        $txtScetion5tagline = 'people says about walls property.';
+        $txtScetion5tagline = 'people says about Zahrat Al Shamal.';
     }
 
 
@@ -568,7 +565,7 @@ $translator = new \App\Services\TranslationService();
                 <div class="item testimonial__block">
                     <div class="testimonial__block-card bg-reviews">
                         <p>
-                            Thank you walls property help me, choice dream home We were impressed with the build
+                            Thank you Zahrat Al Shamal help me, choice dream home We were impressed with the build
                             quality, Plus they are competitively priced.
                         </p>
                     </div>
@@ -587,7 +584,7 @@ $translator = new \App\Services\TranslationService();
                 <div class="item testimonial__block">
                     <div class="testimonial__block-card bg-reviews">
                         <p>
-                            Thank you walls property help me, choice dream home We were impressed with the build
+                            Thank you Zahrat Al Shamal help me, choice dream home We were impressed with the build
                             quality, Plus they are competitively priced.
                         </p>
                     </div>
@@ -606,7 +603,7 @@ $translator = new \App\Services\TranslationService();
                 <div class="item testimonial__block">
                     <div class="testimonial__block-card bg-reviews">
                         <p>
-                            Thank you walls property help me, choice dream home We were impressed with the build
+                            Thank you Zahrat Al Shamal help me, choice dream home We were impressed with the build
                             quality, Plus they are competitively priced.
                         </p>
                     </div>
@@ -625,7 +622,7 @@ $translator = new \App\Services\TranslationService();
                 <div class="item testimonial__block">
                     <div class="testimonial__block-card bg-reviews">
                         <p>
-                            Thank you walls property help me, choice dream home We were impressed with the build
+                            Thank you Zahrat Al Shamal help me, choice dream home We were impressed with the build
                             quality, Plus they are competitively priced.
                         </p>
                     </div>
@@ -644,7 +641,7 @@ $translator = new \App\Services\TranslationService();
                 <div class="item testimonial__block">
                     <div class="testimonial__block-card bg-reviews">
                         <p>
-                            Thank you walls property help me, choice dream home We were impressed with the build
+                            Thank you Zahrat Al Shamal help me, choice dream home We were impressed with the build
                             quality, Plus they are competitively priced.
                         </p>
                     </div>
