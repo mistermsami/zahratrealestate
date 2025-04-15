@@ -63,9 +63,14 @@ Route::group(['prefix' => '{locale?}', 'where' => ['locale' => 'en|ar']], functi
         return view('about-us');
     })->name('about-us');
 
+    Route::get('/services', function () {
+        return view('services');
+    })->name('services');
+
     // Blog Routes
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
     Route::get('/blogDetail/{id}/blog', [BlogController::class, 'blogDetail'])->name('blogDetail');
+
 });
 
 if(session()->has('locale')) {

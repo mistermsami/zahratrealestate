@@ -8,6 +8,7 @@
         $txtPropertylistings = 'قائمة العقارات';
         $txtAgenst = 'الوكلاء';
         $txtBlogs = 'مدونات';
+        $txtServices = 'خدمات';
         $txtAbout = 'عن';
         $txtContact = 'اتصال';
         $txtAddproperty = 'أضف خاصية';
@@ -27,6 +28,7 @@
         $txtPropertylistings = 'Property Listing';
         $txtAgenst = 'Agents';
         $txtBlogs = 'Blogs';
+        $txtServices = 'Services';
         $txtAbout = 'About';
         $txtContact = 'Contact';
         $txtAddproperty = 'Add Property';
@@ -128,7 +130,7 @@
                             href="{{ route('agent', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtAgenst }}</a>
                     </li>
                     <li class="nav-item"><a class="nav-link"
-                            href="{{ route('blog', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtBlogs }}</a>
+                            href="{{ route('services', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtServices }}</a>
                     </li>
                     <li class="nav-item"><a class="nav-link"
                             href="{{ route('about-us', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtAbout }}</a>
@@ -275,10 +277,10 @@
                             <div class="link__category-two-column">
                                 <ul class="list-unstyled">
                                     <li class="list-inline-item">
-                                        <a href="#">Commercial</a>
+                                        <a href="{{ route('blog', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">Blog</a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a href="#">Business</a>
+                                        <a href="#">Career</a>
                                     </li>
                                     <li class="list-inline-item">
                                         <a href="#">House</a>
