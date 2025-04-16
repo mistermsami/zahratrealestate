@@ -69,7 +69,11 @@ else{
 @section('maincontent')
     <div class="clearfix"></div>
 
-
+    <style>
+        .title__leading p{
+            text-align: justify;
+        }
+    </style>
     <!-- ABOUT -->
     <section class="home__about bg-light">
         <div class="container">
@@ -78,7 +82,7 @@ else{
                     <div class="title__leading">
                         <h6 class="text-uppercase" style="color: #11572E;">{{ $sec1subheading }}</h6>
                         <h2 class="text-capitalize">{{ $sec1heading }}</h2>
-                        <p>
+                        <p class="text-justify">
                             {{ $sec1para1 }}
                         </p>
                         <ul>
@@ -106,13 +110,13 @@ else{
                     <div class="about__image">
                         <div class="about__image-top">
                             <div class="about__image-top-hover">
-                                <img src="{{asset('images/about-us.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/zsr36group-of-businessmen-in-dubai-2025-03-14-16-19-06-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
 
                         </div>
                         <div class="about__image-bottom">
                             <div class="about__image-bottom-hover">
-                                <img src="{{asset('images/about-us1.jpg')}}" alt="" class="img-fluid">
+                                <img style="min-height: 450px" src="{{asset('images/zsr35multiethnic-business-team-meeting-in-the-office-2025-03-15-03-18-44-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -140,13 +144,13 @@ else{
                     <div class="about__image">
                         <div class="about__image-top">
                             <div class="about__image-top-hover">
-                                <img src="{{asset('images/about-us.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/zsr32usa-new-york-city-skyscrapers-at-downtown-manhat-2024-09-23-02-10-16-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
 
                         </div>
                         <div class="about__image-bottom">
                             <div class="about__image-bottom-hover">
-                                <img src="{{asset('images/about-us1.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/business-team-working-in-a-start-up-office-2025-03-16-02-29-21-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -191,13 +195,13 @@ else{
                     <div class="about__image">
                         <div class="about__image-top">
                             <div class="about__image-top-hover">
-                                <img src="{{asset('images/about-us.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/zsr30a-large-open-living-room-and-dining-room-area-with-2025-02-11-18-48-02-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
 
                         </div>
                         <div class="about__image-bottom">
                             <div class="about__image-bottom-hover">
-                                <img src="{{asset('images/about-us1.jpg')}}" alt="" class="img-fluid">
+                                <img style="min-height: 400px" src="{{asset('images/zsr33explore-a-modern-architectural-office-meeting-with-2024-11-01-21-26-26-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>

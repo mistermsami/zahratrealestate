@@ -100,13 +100,13 @@ else{
                     <div class="about__image">
                         <div class="about__image-top">
                             <div class="about__image-top-hover">
-                                <img src="{{asset('images/about-us.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/zsr29exterior-shot-of-a-luxury-home-in-hidden-hills-ca-2025-02-03-06-46-44-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
 
                         </div>
                         <div class="about__image-bottom">
                             <div class="about__image-bottom-hover">
-                                <img src="{{asset('images/about-us1.jpg')}}" alt="" class="img-fluid">
+                                <img style="min-height: 400px" src="{{asset('images/zsr30a-large-open-living-room-and-dining-room-area-with-2025-02-11-18-48-02-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -125,13 +125,13 @@ else{
                     <div class="about__image">
                         <div class="about__image-top">
                             <div class="about__image-top-hover">
-                                <img src="{{asset('images/about-us.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/zsr31premium-glass-office-real-estate-concept-2025-02-12-04-46-40-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
 
                         </div>
                         <div class="about__image-bottom">
                             <div class="about__image-bottom-hover">
-                                <img src="{{asset('images/about-us1.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/zsr32usa-new-york-city-skyscrapers-at-downtown-manhat-2024-09-23-02-10-16-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -176,13 +176,13 @@ else{
                     <div class="about__image">
                         <div class="about__image-top">
                             <div class="about__image-top-hover">
-                                <img src="{{asset('images/about-us.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/zsr33explore-a-modern-architectural-office-meeting-with-2024-11-01-21-26-26-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
 
                         </div>
                         <div class="about__image-bottom">
                             <div class="about__image-bottom-hover">
-                                <img src="{{asset('images/about-us1.jpg')}}" alt="" class="img-fluid">
+                                <img style="min-height: 400px" src="{{asset('images/zsr34customers-who-choose-to-buy-a-condominium-room-and-2024-11-01-22-05-05-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -198,13 +198,13 @@ else{
                     <div class="about__image">
                         <div class="about__image-top">
                             <div class="about__image-top-hover">
-                                <img src="{{asset('images/about-us.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/zsr35multiethnic-business-team-meeting-in-the-office-2025-03-15-03-18-44-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
 
                         </div>
                         <div class="about__image-bottom">
                             <div class="about__image-bottom-hover">
-                                <img src="{{asset('images/about-us1.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/zsr36group-of-businessmen-in-dubai-2025-03-14-16-19-06-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -249,13 +249,13 @@ else{
                     <div class="about__image">
                         <div class="about__image-top">
                             <div class="about__image-top-hover">
-                                <img src="{{asset('images/about-us.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/zsr37dubai-uae-april-2019-the-construction-of-high-ri-2024-09-16-19-57-38-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
 
                         </div>
                         <div class="about__image-bottom">
                             <div class="about__image-bottom-hover">
-                                <img src="{{asset('images/about-us1.jpg')}}" alt="" class="img-fluid">
+                                <img src="{{asset('images/dubai-downtown-skyline-united-arab-emirates-or-ua-2024-10-18-09-28-14-utc.jpg')}}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>

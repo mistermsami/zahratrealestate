@@ -379,7 +379,7 @@ $translator = new \App\Services\TranslationService();
                                     </div>
                                     <div class="overlay">
                                         <div class="desc">
-                                            <h6 class="text-capitalize">Al Rayyan</h6>
+                                            <h6 class="text-capitalize">Al Rayyan to Doha</h6>
                                             <p class="text-capitalize">70 properties</p>
                                         </div>
                                     </div>
@@ -395,7 +395,7 @@ $translator = new \App\Services\TranslationService();
                                     </div>
                                     <div class="overlay">
                                         <div class="desc">
-                                            <h6 class="text-capitalize">Dukhan</h6>
+                                            <h6 class="text-capitalize">Dukhan West Bay</h6>
                                             <p class="text-capitalize">70 properties</p>
                                         </div>
                                     </div>
@@ -411,7 +411,7 @@ $translator = new \App\Services\TranslationService();
                                     </div>
                                     <div class="overlay">
                                         <div class="desc">
-                                            <h6 class="text-capitalize">Mesaieed</h6>
+                                            <h6 class="text-capitalize">Mesaieed to Pearl</h6>
                                             <p class="text-capitalize">70 properties</p>
                                         </div>
                                     </div>
@@ -427,7 +427,7 @@ $translator = new \App\Services\TranslationService();
                                     </div>
                                     <div class="overlay">
                                         <div class="desc">
-                                            <h6 class="text-capitalize">Umm Salal</h6>
+                                            <h6 class="text-capitalize">Umm Salal to Lusail</h6>
                                             <p class="text-capitalize">70 properties</p>
                                         </div>
                                     </div>

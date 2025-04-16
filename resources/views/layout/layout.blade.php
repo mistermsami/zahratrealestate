@@ -16,8 +16,9 @@
         $txtPrExclusive = 'خصائص حصرية';
         $txtAddress =  "العنوان: مكتب 01، الطابق الرابع، مبنى مجموعة القمرا القابضة (53)، شارع الضفاف (893)، السعد، ص.ب. 31551";
         $txtPhone = '+97470816051';
-        $txtTimings = 'من الإثنين إلى الأحد / 9:00 صباحًا - 6:00 مساءً';
+        $txtTimings = 'الأحد - الخميس / 9:00 صباحًا - 6:00 مساءً';
         $txtTimings2 = 'الجمعة / مغلق';
+        $txtTimings3 = 'السبت / 9:00 صباحًا - 3:00 مساءً';
 
         $dir="rtl";
     } else {
@@ -37,8 +38,9 @@
         $txtAddress =
             'Address: Office 01, 4th Floor, Al Qamra Holding Group Building(53), Al Difaaf Street (893), Alsaad P.O. Box 31551';
         $txtPhone = '+97470816051';
-        $txtTimings = 'Monday - Sunday / 9:00AM - 6:00PM';
+        $txtTimings = 'Sunday - Thrusday / 9:00AM - 6:00PM';
         $txtTimings2 = 'Friday / CLOSED';
+        $txtTimings3 = 'Saturday / 9:00AM - 3:00PM';
 
         $dir="";
     }
@@ -263,7 +265,7 @@
                                 <li> <b> <i class="fa fa-map-marker"></i></b><span>{{ $txtAddress }}</span> </li>
                                 <li> <b><i class="fa fa-phone-square"></i></b><span>{{ $txtPhone }}</span> </li>
                                 <li> <b><i class="fa fa-headphones"></i></b><span>admin@zahratalshamal.com</span> </li>
-                                <li> <b><i class="fa fa-clock-o"></i></b><span>{{ $txtTimings }} <br> {{ $txtTimings2 }}</span> </li>
+                                <li> <b><i class="fa fa-clock-o"></i></b><span>{{ $txtTimings }} <br> {{ $txtTimings2 }} <br> {{ $txtTimings3 }}</span> </li>
                             </ul>
                         </div>
 
