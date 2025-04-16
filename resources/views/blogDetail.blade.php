@@ -67,7 +67,7 @@
         }
         $txtTags = $translator->translate('tags', 'ar');
         $txtPostedon = $translator->translate('Posted on', 'ar');
-        $txtCategory = $translator->translate('category', 'ar');
+        $txtRecentBlogs = $translator->translate('Recent Blogs', 'ar');
     } else {
         $pagename = $pagenamee;
         $blogTitle = $blog->title;
@@ -84,7 +84,7 @@
         $Since = $blog->created_at->diffForHumans();
         $txtTags = 'tags';
         $txtPostedon = 'Posted on';
-        $txtCategory = 'category';
+        $txtRecentBlogs = 'Recent Blogs';
     }
 @endphp
 
@@ -376,122 +376,29 @@
                         <aside>
                             <div class="widget__sidebar">
                                 <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">{{ $txtCategory }}</h6>
+                                    <h6 class="text-capitalize">{{ $txtRecentBlogs }}</h6>
                                 </div>
                                 <div class="widget__sidebar__body">
                                     <ul class="list-unstyled">
-                                        <li>
-                                            <a href="#" class="text-capitalize">
-                                                apartement
-                                                <span class="badge badge-primary">14</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="text-capitalize">
-                                                villa
-                                                <span class="badge badge-primary">4</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="text-capitalize">
-                                                family house
-                                                <span class="badge badge-primary">2</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="text-capitalize">
-                                                modern villa
-                                                <span class="badge badge-primary">8</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="text-capitalize">
-                                                town house
-                                                <span class="badge badge-primary">10</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="text-capitalize">
-                                                office
-                                                <span class="badge badge-primary">12</span>
-                                            </a>
-                                        </li>
+                                        @if ($recentBlogs)
+                                            @foreach ($recentBlogs as $recentBlog)
+                                                <li class="card pt-3 pl-2 pb-2 pr-2 mb-3" style="border: 1px solid #e2e2e2; border-radius: 5px;">
+                                                    <a href="blogDetail/{{ $blog->id }}/blog">
+                                                        <sup style="float: right; color: #a2a2a2;">{{$recentBlog->created_at->diffForHumans()}}</sup style="float: right">
+                                                        <img style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover;" src="https://admin.zahratalshamal.com/coverImages/1744210761_jpg" alt="" class=" img-transition">
+                                                        {{-- {{ $recentBlog->title }} --}}
+                                                        <b>{{ \Illuminate\Support\Str::limit($recentBlog->title ?? 'N/A', 65, '...') }}</b>
+                                                        <br>
+                                                        {{ \Illuminate\Support\Str::limit($recentBlog->description1 ?? 'N/A', 65, '...') }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        @else
+                                            <li class="card pt-3 pl-2 pb-2 pr-2 mb-3" style="border: 1px solid #e2e2e2; border-radius: 5px;">
+                                                    <b>No Recent Blogs</b>
+                                            </li>
+                                        @endif
                                     </ul>
-                                </div>
-
-                            </div>
-                        </aside>
-                        <aside>
-                            <div class="widget__sidebar">
-                                <div class="widget__sidebar__header">
-                                    <h6 class="text-capitalize">{{ $txtTags }}</h6>
-                                </div>
-                                <div class="widget__sidebar__body">
-                                    <div class="blog__tags p-0">
-                                        <ul class="list-inline">
-
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    #property
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    #wfh
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    #estate
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    #real estate
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    #listing
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    #rent
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    #sell
-                                                </a>
-                                            </li>
-
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    #family
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    #happy
-                                                </a>
-                                            </li>
-
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    #agents
-                                                </a>
-                                            </li>
-
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    #promo
-                                                </a>
-                                            </li>
-
-
-                                        </ul>
-                                    </div>
                                 </div>
 
                             </div>

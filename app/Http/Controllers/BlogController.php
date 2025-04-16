@@ -16,6 +16,7 @@ class BlogController extends Controller
     public function blogDetail($lang,$id)
     {
         $blog = Blogs::find($id);
-        return view('blogDetail', compact('blog'));
+        $recentBlogs = Blogs::where('id', '!=', $id)->orderBy('created_at', 'desc')->take(6)->get();
+        return view('blogDetail', compact('blog', 'recentBlogs'));
     }
 }
