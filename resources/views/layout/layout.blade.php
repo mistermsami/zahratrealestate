@@ -98,7 +98,7 @@
 
     <nav class="navbar navbar-hover navbar-expand-lg navbar-soft">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('/', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}}" style="padding: 0;">
+            <a class="navbar-brand" href="{{ route('/', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}" style="padding: 0;">
                 <img src="{{ asset('images/zrs_logo_simple-0.png') }}" alt="" style="width: 80px;">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav99">
@@ -113,9 +113,9 @@
                     <li class="nav-item"><a class="nav-link" href="{{route('about-us')}}">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li> --}}
 
-                    <li class="nav-item"><a class="nav-link active"
+                    {{-- <li class="nav-item"><a class="nav-link active"
                             href="{{ route('/', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtHome }}</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item"><a class="nav-link"
                             href="{{ route('buyproperty', [session()->get('locale') == 'ar' ? 'ar' : 'en']) }}">{{ $txtPrBuy }}</a>
                     </li>
