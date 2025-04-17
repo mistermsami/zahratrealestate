@@ -411,12 +411,12 @@
                 </div>
                 <div class="col-lg-8">
                     <!-- DESCRIPTION -->
-                    <div class="row">
+                    <div class="row mt-5">
                         <div class="col-lg-12">
                             <div class="single__detail-desc">
-                                <h6 class="text-capitalize detail-heading">{{$description}}</h6>
+                                {{-- <h6 class="text-capitalize detail-heading">{{$description}}</h6> --}}
+                                <p><b>{{$txtPropertDescription}}</b></p>
                                 <div class="show__more">
-                                    <p>{{$txtPropertDescription}}</p>
                                     <p>
                                         {{ $description }}</p>
                                     <a href="javascript:void(0)" class="show__more-button"

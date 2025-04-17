@@ -357,12 +357,12 @@ $translator = new \App\Services\TranslationService();
                     <a href="#">
                         <div class="card__image-hover-style-v3">
                             <div class="card__image-hover-style-v3-thumb h-475">
-                                <img src="images/city-Tokyo.jpg" alt="" class="img-fluid w-100">
+                                <img src="images/doha1zsr.jpeg" alt="" class="img-fluid w-100">
                             </div>
                             <div class="overlay">
                                 <div class="desc">
                                     <h6 class="text-capitalize">Qatar</h6>
-                                    <p class="text-capitalize">70 properties</p>
+                                    {{-- <p class="text-capitalize">70 properties</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -375,12 +375,12 @@ $translator = new \App\Services\TranslationService();
                             <a href="#">
                                 <div class="card__image-hover-style-v3">
                                     <div class="card__image-hover-style-v3-thumb h-230">
-                                        <img src="images/aus.jpg" alt="" class="img-fluid w-100">
+                                        <img src="images/dohazsr.jpg" alt="" class="img-fluid w-100">
                                     </div>
                                     <div class="overlay">
                                         <div class="desc">
-                                            <h6 class="text-capitalize">Al Rayyan to Doha</h6>
-                                            <p class="text-capitalize">70 properties</p>
+                                            <h6 class="text-capitalize">Doha </h6>
+                                            {{-- <p class="text-capitalize">70 properties</p> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -391,12 +391,12 @@ $translator = new \App\Services\TranslationService();
                             <a href="#">
                                 <div class="card__image-hover-style-v3">
                                     <div class="card__image-hover-style-v3-thumb h-230">
-                                        <img src="images/qatar.jpg" alt="" class="img-fluid w-100">
+                                        <img src="images/westbayzsr.jpg" alt="" class="img-fluid w-100">
                                     </div>
                                     <div class="overlay">
                                         <div class="desc">
-                                            <h6 class="text-capitalize">Dukhan West Bay</h6>
-                                            <p class="text-capitalize">70 properties</p>
+                                            <h6 class="text-capitalize">West Bay</h6>
+                                            {{-- <p class="text-capitalize">70 properties</p> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -407,12 +407,12 @@ $translator = new \App\Services\TranslationService();
                             <a href="#">
                                 <div class="card__image-hover-style-v3">
                                     <div class="card__image-hover-style-v3-thumb h-230">
-                                        <img src="images/ny.webp" alt="" class="img-fluid w-100">
+                                        <img src="images/pearlzsr.jpg" alt="" class="img-fluid w-100">
                                     </div>
                                     <div class="overlay">
                                         <div class="desc">
-                                            <h6 class="text-capitalize">Mesaieed to Pearl</h6>
-                                            <p class="text-capitalize">70 properties</p>
+                                            <h6 class="text-capitalize">Pearl</h6>
+                                            {{-- <p class="text-capitalize">70 properties</p> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -423,12 +423,12 @@ $translator = new \App\Services\TranslationService();
                             <a href="#">
                                 <div class="card__image-hover-style-v3">
                                     <div class="card__image-hover-style-v3-thumb h-230">
-                                        <img src="images/london.jpg" alt="" class="img-fluid w-100">
+                                        <img src="images/luislzsr.jpg" alt="" class="img-fluid w-100">
                                     </div>
                                     <div class="overlay">
                                         <div class="desc">
-                                            <h6 class="text-capitalize">Umm Salal to Lusail</h6>
-                                            <p class="text-capitalize">70 properties</p>
+                                            <h6 class="text-capitalize">Lusail</h6>
+                                            {{-- <p class="text-capitalize">70 properties</p> --}}
                                         </div>
                                     </div>
                                 </div>
